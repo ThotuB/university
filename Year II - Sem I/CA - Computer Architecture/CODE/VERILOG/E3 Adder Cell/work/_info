@@ -1,0 +1,115 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bogda/OneDrive/Documents/GitHub/Code/Verilog/FACULTA/COURSE/E3 Adder Cell
+vBCDadd
+Z1 !s110 1611838402
+!i10b 1
+!s100 FVnGD[^oGZ=<Wfe8^d4MK3
+Iz?4m_UUQBmQ;UC`i??CX71
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1611838267
+Z4 8E3add.v
+Z5 FE3add.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1611838402.000000
+Z8 !s107 E3add.v|FAC.v|
+Z9 !s90 -reportprogress|300|FAC.v|E3add.v|
+!i113 1
+Z10 tCvgOpt 0
+n@b@c@dadd
+vBCDadd_tb
+R1
+!i10b 1
+!s100 I3Q5Z]iX:0:d97JMZ_<A_2
+I@V0mLJ0fzlT[EGdG[oZRG2
+R2
+R0
+R3
+R4
+R5
+Z11 L0 26
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@b@c@dadd_tb
+vE3add
+Z12 !s110 1611839444
+!i10b 1
+!s100 ;GC4;l_4DcjMlBX9N;Km13
+IQnfC9hP]_MZDHZbnF8>NG2
+R2
+R0
+Z13 w1611839435
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+Z14 !s108 1611839443.000000
+R8
+R9
+!i113 1
+R10
+n@e3add
+vE3add_tb
+R12
+!i10b 1
+!s100 JTik2Xzf>Al@`nN6J]MAW3
+I9=6W>Fe:Jf:C;TLiFoV[T1
+R2
+R0
+R13
+R4
+R5
+R11
+R6
+r1
+!s85 0
+31
+R14
+R8
+R9
+!i113 1
+R10
+n@e3add_tb
+vFAC
+!s110 1611839443
+!i10b 1
+!s100 Q;7;n_E>_BgQFPGJX@4LH0
+I`5z5hj5j0T>:@;0RI0_9D1
+R2
+R0
+w1611837179
+8FAC.v
+FFAC.v
+L0 1
+R6
+r1
+!s85 0
+31
+R14
+R8
+R9
+!i113 1
+R10
+n@f@a@c

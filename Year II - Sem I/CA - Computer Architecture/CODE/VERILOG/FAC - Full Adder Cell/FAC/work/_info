@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/bogda/OneDrive/Documents/GitHub/Code/Verilog/FACULTA/COURSE/Full Adder Cell
+vFAC
+Z0 !s110 1611803092
+!i10b 1
+!s100 Q;7;n_E>_BgQFPGJX@4LH0
+I`5z5hj5j0T>:@;0RI0_9D1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/bogda/OneDrive/Documents/GitHub/Code/Verilog/FACULTA/COURSE/FAC - Full Adder Cell
+Z3 w1611802982
+Z4 8FAC.v
+Z5 FFAC.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1611803092.000000
+Z8 !s107 FAC.v|
+Z9 !s90 -reportprogress|300|FAC.v|
+!i113 1
+Z10 tCvgOpt 0
+n@f@a@c
+vFAC_tb
+R0
+!i10b 1
+!s100 Bhl1O0QRl=VlD027CVNnL0
+I21aP@m]VTzK:mad[T6@4Y0
+R1
+R2
+R3
+R4
+R5
+L0 9
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@f@a@c_tb

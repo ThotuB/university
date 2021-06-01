@@ -1,0 +1,115 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bogda/OneDrive/Documents/GitHub/Code/Verilog/FACULTA/COURSE/PCA - Parity Checked Adder
+vFAC
+Z1 !s110 1611868571
+!i10b 1
+!s100 Q;7;n_E>_BgQFPGJX@4LH0
+I5eRFHnM6QNeSJo`d4icb?0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1611862889
+8resources/FAC.v
+Fresources/FAC.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1611868571.000000
+Z5 !s107 resources/XORtree.v|resources/RCA.v|resources/FAC.v|PCA.v|
+Z6 !s90 -reportprogress|300|PCA.v|resources/FAC.v|resources/RCA.v|resources/XORtree.v|
+!i113 1
+Z7 tCvgOpt 0
+n@f@a@c
+vPCA
+R1
+!i10b 1
+!s100 l2LIQYN8SlT_RekK^]Nl_1
+INUFSg08RT6z:k0JgC5F7P3
+R2
+R0
+Z8 w1611868540
+Z9 8PCA.v
+Z10 FPCA.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@p@c@a
+vPCA_tb
+R1
+!i10b 1
+!s100 Ec>k^P^hNd_aiSd@U6b]D0
+I>n_k>Q:GfZkzVOTU=M[VG3
+R2
+R0
+R8
+R9
+R10
+L0 21
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@p@c@a_tb
+vRCA
+R1
+!i10b 1
+!s100 chBB`kfiD85BcHM08[H^a2
+I[6LICQm>6=S;3Q<?z<gNc0
+R2
+R0
+w1611866997
+8resources/RCA.v
+Fresources/RCA.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@r@c@a
+vXORtree
+R1
+!i10b 1
+!s100 ZQYQDM8LOUDZWCW=bSOZ[0
+IZJ?>69oBP>?D`IzoC28jn1
+R2
+R0
+w1611864085
+8resources/XORtree.v
+Fresources/XORtree.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@x@o@rtree

@@ -1,0 +1,178 @@
+
+**** 05/28/20 06:13:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Voltage Divider\Schematic1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu May 28 06:13:49 2020
+
+
+
+** Analysis setup **
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Schematic1.net"
+
+**** INCLUDING Schematic1.net ****
+* Schematics Netlist *
+
+
+
+V_EC         $N_0001 0 12V
+R_RC         VC $N_0001  2.2k  
+R_RE         0 VE  1k  
+Q_Q1         VC VB VE Q2N2222
+R_RB1         VB $N_0001  47k  
+R_RB2         0 VB  20k  
+
+**** RESUMING Schematic1.cir ****
+.INC "Schematic1.als"
+
+
+
+**** INCLUDING Schematic1.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_EC            EC(+=$N_0001 -=0 )
+R_RC            RC(1=VC 2=$N_0001 )
+R_RE            RE(1=0 2=VE )
+Q_Q1            Q1(c=VC b=VB e=VE )
+R_RB1           RB1(1=VB 2=$N_0001 )
+R_RB2           RB2(1=0 2=VB )
+_    _(VC=VC)
+_    _(VE=VE)
+_    _(VB=VB)
+.ENDALIASES
+
+
+**** RESUMING Schematic1.cir ****
+.probe
+
+
+.END
+
+**** 05/28/20 06:13:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Voltage Divider\Schematic1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         
+               NPN             
+          IS   14.340000E-15 
+          BF  255.9          
+          NF    1            
+         VAF   74.03         
+         IKF     .2847       
+         ISE   14.340000E-15 
+          NE    1.307        
+          BR    6.092        
+          NR    1            
+          RB   10            
+          RC    1            
+         CJE   22.010000E-12 
+         MJE     .377        
+         CJC    7.306000E-12 
+         MJC     .3416       
+          TF  411.100000E-12 
+         XTF    3            
+         VTF    1.7          
+         ITF     .6          
+          TR   46.910000E-09 
+         XTB    1.5          
+          CN    2.42         
+           D     .87         
+
+
+**** 05/28/20 06:13:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Voltage Divider\Schematic1.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VB)    3.3570  (   VC)    6.1252  (   VE)    2.6864  ($N_0001)   12.0000    
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_EC        -2.854E-03
+
+    TOTAL POWER DISSIPATION   3.43E-02  WATTS
+
+
+**** 05/28/20 06:13:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Voltage Divider\Schematic1.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         Q_Q1      
+MODEL        Q2N2222   
+IB           1.60E-05 
+IC           2.67E-03 
+VBE          6.71E-01 
+VBC         -2.77E+00 
+VCE          3.44E+00 
+BETADC       1.66E+02 
+GM           1.02E-01 
+RPI          1.76E+03 
+RX           1.00E+01 
+RO           2.88E+04 
+CBE          7.91E-11 
+CBC          4.31E-12 
+CJS          0.00E+00 
+BETAAC       1.81E+02 
+CBX/CBX2     0.00E+00 
+FT/FT2       1.95E+08 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME            0.00
+

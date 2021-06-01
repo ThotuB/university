@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" version="1.1" overflow="scroll">
+<rect x="0" y="0" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="0" y="100" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="0" y="200" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="0" y="300" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="0" y="400" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="0" y="500" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="100" y="0" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="100" y="100" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="100" y="200" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="100" y="300" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="100" y="400" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="100" y="500" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="200" y="0" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="200" y="100" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="200" y="200" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="200" y="300" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="200" y="400" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="200" y="500" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="300" y="0" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="300" y="100" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="300" y="200" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="300" y="300" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="300" y="400" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="300" y="500" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="400" y="0" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="400" y="100" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="400" y="200" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="400" y="300" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="400" y="400" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="400" y="500" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="500" y="0" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="500" y="100" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="500" y="200" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="500" y="300" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="500" y="400" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<rect x="500" y="500" width="100" height="100" stroke="black" fill="white" stroke-width="1" />
+<line x1="50" y1="50" x2="150" y2="250" stroke="rgb(0.000000, 0, 255.000000)" stroke-width="4" />
+<line x1="150" y1="250" x2="250" y2="450" stroke="rgb(7.000000, 0, 248.000000)" stroke-width="4" />
+<line x1="250" y1="450" x2="450" y2="550" stroke="rgb(14.000000, 0, 241.000000)" stroke-width="4" />
+<line x1="450" y1="550" x2="550" y2="350" stroke="rgb(21.000000, 0, 234.000000)" stroke-width="4" />
+<line x1="550" y1="350" x2="450" y2="150" stroke="rgb(28.000000, 0, 227.000000)" stroke-width="4" />
+<line x1="450" y1="150" x2="250" y2="50" stroke="rgb(35.000000, 0, 220.000000)" stroke-width="4" />
+<line x1="250" y1="50" x2="350" y2="250" stroke="rgb(42.000000, 0, 213.000000)" stroke-width="4" />
+<line x1="350" y1="250" x2="450" y2="450" stroke="rgb(49.000000, 0, 206.000000)" stroke-width="4" />
+<line x1="450" y1="450" x2="550" y2="250" stroke="rgb(56.000000, 0, 199.000000)" stroke-width="4" />
+<line x1="550" y1="250" x2="450" y2="50" stroke="rgb(63.000000, 0, 192.000000)" stroke-width="4" />
+<line x1="450" y1="50" x2="250" y2="150" stroke="rgb(70.000000, 0, 185.000000)" stroke-width="4" />
+<line x1="250" y1="150" x2="450" y2="250" stroke="rgb(77.000000, 0, 178.000000)" stroke-width="4" />
+<line x1="450" y1="250" x2="550" y2="50" stroke="rgb(84.000000, 0, 171.000000)" stroke-width="4" />
+<line x1="550" y1="50" x2="350" y2="150" stroke="rgb(91.000000, 0, 164.000000)" stroke-width="4" />
+<line x1="350" y1="150" x2="150" y2="50" stroke="rgb(98.000000, 0, 157.000000)" stroke-width="4" />
+<line x1="150" y1="50" x2="50" y2="250" stroke="rgb(105.000000, 0, 150.000000)" stroke-width="4" />
+<line x1="50" y1="250" x2="150" y2="450" stroke="rgb(112.000000, 0, 143.000000)" stroke-width="4" />
+<line x1="150" y1="450" x2="350" y2="550" stroke="rgb(119.000000, 0, 136.000000)" stroke-width="4" />
+<line x1="350" y1="550" x2="550" y2="450" stroke="rgb(126.000000, 0, 129.000000)" stroke-width="4" />
+<line x1="550" y1="450" x2="350" y2="350" stroke="rgb(133.000000, 0, 122.000000)" stroke-width="4" />
+<line x1="350" y1="350" x2="250" y2="550" stroke="rgb(140.000000, 0, 115.000000)" stroke-width="4" />
+<line x1="250" y1="550" x2="50" y2="450" stroke="rgb(147.000000, 0, 108.000000)" stroke-width="4" />
+<line x1="50" y1="450" x2="250" y2="350" stroke="rgb(154.000000, 0, 101.000000)" stroke-width="4" />
+<line x1="250" y1="350" x2="150" y2="150" stroke="rgb(161.000000, 0, 94.000000)" stroke-width="4" />
+<line x1="150" y1="150" x2="350" y2="50" stroke="rgb(168.000000, 0, 87.000000)" stroke-width="4" />
+<line x1="350" y1="50" x2="550" y2="150" stroke="rgb(175.000000, 0, 80.000000)" stroke-width="4" />
+<line x1="550" y1="150" x2="450" y2="350" stroke="rgb(182.000000, 0, 73.000000)" stroke-width="4" />
+<line x1="450" y1="350" x2="550" y2="550" stroke="rgb(189.000000, 0, 66.000000)" stroke-width="4" />
+<line x1="550" y1="550" x2="350" y2="450" stroke="rgb(196.000000, 0, 59.000000)" stroke-width="4" />
+<line x1="350" y1="450" x2="150" y2="550" stroke="rgb(203.000000, 0, 52.000000)" stroke-width="4" />
+<line x1="150" y1="550" x2="50" y2="350" stroke="rgb(210.000000, 0, 45.000000)" stroke-width="4" />
+<line x1="50" y1="350" x2="250" y2="250" stroke="rgb(217.000000, 0, 38.000000)" stroke-width="4" />
+<line x1="250" y1="250" x2="50" y2="150" stroke="rgb(224.000000, 0, 31.000000)" stroke-width="4" />
+<line x1="50" y1="150" x2="150" y2="350" stroke="rgb(231.000000, 0, 24.000000)" stroke-width="4" />
+<line x1="150" y1="350" x2="50" y2="550" stroke="rgb(238.000000, 0, 17.000000)" stroke-width="4" />
+</svg>

@@ -1,0 +1,24 @@
+* D:\CODE\ED - PSpice\Half-Wave Rectifier\Half-Wave Rectifier.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Apr 24 04:53:59 2020
+
+
+
+** Analysis setup **
+.tran 10m 90m 0 0.01m
+.OP 
+.STMLIB "Half-Wave Rectifier.stl"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Half-Wave Rectifier.net"
+.INC "Half-Wave Rectifier.als"
+
+
+.probe
+
+
+.END

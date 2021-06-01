@@ -1,0 +1,143 @@
+
+**** 03/24/20 16:58:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\schematic1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Tue Mar 24 16:50:59 2020
+
+
+
+** Analysis setup **
+.DC LIN V_V1 -1 10 0.01 
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "schematic1.net"
+
+**** INCLUDING schematic1.net ****
+* Schematics Netlist *
+
+
+
+R_R1         $N_0002 $N_0001  1k  
+D_D1         $N_0002 0 D1N4148 
+V_V1         $N_0001 0 10V
+
+**** RESUMING schematic1.cir ****
+.INC "schematic1.als"
+
+
+
+**** INCLUDING schematic1.als ****
+* Schematics Aliases *
+
+.ALIASES
+R_R1            R1(1=$N_0002 2=$N_0001 )
+D_D1            D1(1=$N_0002 2=0 )
+V_V1            V1(+=$N_0001 -=0 )
+.ENDALIASES
+
+
+**** RESUMING schematic1.cir ****
+.probe
+
+
+.END
+
+**** 03/24/20 16:58:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\schematic1.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4148         
+          IS    2.682000E-09 
+           N    1.836        
+         ISR    1.565000E-09 
+         IKF     .04417      
+          BV  100            
+         IBV  100.000000E-06 
+          RS     .5664       
+          TT   11.540000E-09 
+         CJO    4.000000E-12 
+          VJ     .5          
+           M     .3333       
+
+
+**** 03/24/20 16:58:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\schematic1.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+($N_0001)   10.0000                   ($N_0002)     .7184                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -9.282E-03
+
+    TOTAL POWER DISSIPATION   9.28E-02  WATTS
+
+
+**** 03/24/20 16:58:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\schematic1.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** DIODES
+
+
+NAME         D_D1      
+MODEL        D1N4148   
+ID           9.28E-03 
+VD           7.18E-01 
+REQ          5.53E+00 
+CAP          2.10E-09 
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .03
+

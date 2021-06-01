@@ -1,0 +1,23 @@
+* D:\CODE\ED - PSpice\Diode Clipper\Diode Clipper.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Apr 24 22:30:13 2020
+
+
+
+** Analysis setup **
+.tran 0ns 3ms 0 0.01ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Diode Clipper.net"
+.INC "Diode Clipper.als"
+
+
+.probe
+
+
+.END

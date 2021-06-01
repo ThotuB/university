@@ -1,0 +1,181 @@
+
+**** 05/30/20 14:01:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\Half-Wave Rectifier\Half-Wave Rectifier.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Apr 24 04:53:59 2020
+
+
+
+** Analysis setup **
+.tran 10m 90m 0 0.01m
+.OP 
+.STMLIB "Half-Wave Rectifier.stl"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Half-Wave Rectifier.net"
+
+**** INCLUDING "Half-Wave Rectifier.net" ****
+* Schematics Netlist *
+
+
+
+R_R1         0 vL  5k  
+D_D1         v1 vL D1N4002 
+V_V1         v1 0  
++SIN 0 18.9 50 0 0 0
+C_C1         0 vL  22u  
+C_C2         0 vL  22u  
+C_C3         0 vL  22u  
+
+**** RESUMING "Half-Wave Rectifier.cir" ****
+.INC "Half-Wave Rectifier.als"
+
+
+
+**** INCLUDING "Half-Wave Rectifier.als" ****
+* Schematics Aliases *
+
+.ALIASES
+R_R1            R1(1=0 2=vL )
+D_D1            D1(1=v1 2=vL )
+V_V1            V1(+=v1 -=0 )
+C_C1            C1(1=0 2=vL )
+C_C2            C2(1=0 2=vL )
+C_C3            C3(1=0 2=vL )
+_    _(vL=vL)
+_    _(v1=v1)
+.ENDALIASES
+
+
+**** RESUMING "Half-Wave Rectifier.cir" ****
+.probe
+
+
+.END
+
+**** 05/30/20 14:01:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\Half-Wave Rectifier\Half-Wave Rectifier.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         
+          IS   14.110000E-09 
+           N    1.984        
+         ISR  100.000000E-12 
+         IKF   94.81         
+          BV  100.1          
+         IBV   10            
+          RS     .03389      
+          TT    4.761000E-06 
+         CJO   51.170000E-12 
+          VJ     .3905       
+           M     .2762       
+
+
+**** 05/30/20 14:01:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\Half-Wave Rectifier\Half-Wave Rectifier.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   v1)    0.0000  (   vL)-8.006E-21  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         1.601E-24
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 05/30/20 14:01:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\Half-Wave Rectifier\Half-Wave Rectifier.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** DIODES
+
+
+NAME         D_D1      
+MODEL        D1N4002   
+ID           0.00E+00 
+VD           8.01E-21 
+REQ          3.61E+06 
+CAP          5.25E-11 
+**** 05/30/20 14:01:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\Half-Wave Rectifier\Half-Wave Rectifier.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   v1)    0.0000  (   vL)-8.006E-21  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         1.601E-24
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .25
+
