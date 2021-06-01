@@ -1,0 +1,24 @@
+* D:\CODE\ED - PSpice\BJT\BJT Output Charac\Schematic1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Mon May 25 23:13:59 2020
+
+
+
+** Analysis setup **
+.DC LIN V_EC 0 12 0.1 
++ LIN V_EB 1.6 2.6 1 
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Schematic1.net"
+.INC "Schematic1.als"
+
+
+.probe
+
+
+.END
