@@ -1,0 +1,229 @@
+
+**** 06/02/20 15:19:43 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\bogda\Desktop\FACULTA\ED - Labs\BJT\BJT Amplifier\Schematic1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat May 30 14:57:08 2020
+
+
+
+** Analysis setup **
+.tran 0ns 4ms 0 0.01ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Schematic1.net"
+
+**** INCLUDING Schematic1.net ****
+* Schematics Netlist *
+
+
+
+C_C1         Uin $N_0001  4.7u  
+C_C2         $N_0002 Uout  4.7u  
+R_RE2         0 $N_0003  900  
+R_RB2         0 $N_0001  10k  
+R_RB1         $N_0001 $N_0004  22k  
+R_RC         $N_0002 $N_0004  2.2k  
+V_EC         $N_0004 0 5V
+R_RL         0 Uout  10k  
+V_Eg         Uin 0  
++SIN 0 20m 1k 0 0 0
+R_RE1         $N_0003 $N_0005  100  
+Q_Q1         $N_0002 $N_0001 $N_0005 Q2N2222
+C_CE         0 $N_0003  470u  
+
+**** RESUMING Schematic1.cir ****
+.INC "Schematic1.als"
+
+
+
+**** INCLUDING Schematic1.als ****
+* Schematics Aliases *
+
+.ALIASES
+C_C1            C1(1=Uin 2=$N_0001 )
+C_C2            C2(1=$N_0002 2=Uout )
+R_RE2           RE2(1=0 2=$N_0003 )
+R_RB2           RB2(1=0 2=$N_0001 )
+R_RB1           RB1(1=$N_0001 2=$N_0004 )
+R_RC            RC(1=$N_0002 2=$N_0004 )
+V_EC            EC(+=$N_0004 -=0 )
+R_RL            RL(1=0 2=Uout )
+V_Eg            Eg(+=Uin -=0 )
+R_RE1           RE1(1=$N_0003 2=$N_0005 )
+Q_Q1            Q1(c=$N_0002 b=$N_0001 e=$N_0005 )
+C_CE            CE(1=0 2=$N_0003 )
+_    _(Uin=Uin)
+_    _(Uout=Uout)
+.ENDALIASES
+
+
+**** RESUMING Schematic1.cir ****
+.probe
+
+
+.END
+
+**** 06/02/20 15:19:43 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\bogda\Desktop\FACULTA\ED - Labs\BJT\BJT Amplifier\Schematic1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         
+               NPN             
+          IS   14.340000E-15 
+          BF  255.9          
+          NF    1            
+         VAF   74.03         
+         IKF     .2847       
+         ISE   14.340000E-15 
+          NE    1.307        
+          BR    6.092        
+          NR    1            
+          RB   10            
+          RC    1            
+         CJE   22.010000E-12 
+         MJE     .377        
+         CJC    7.306000E-12 
+         MJC     .3416       
+          TF  411.100000E-12 
+         XTF    3            
+         VTF    1.7          
+         ITF     .6          
+          TR   46.910000E-09 
+         XTB    1.5          
+          CN    2.42         
+           D     .87         
+
+
+**** 06/02/20 15:19:43 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\bogda\Desktop\FACULTA\ED - Labs\BJT\BJT Amplifier\Schematic1.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  Uin)    0.0000  ( Uout)    0.0000  ($N_0001)    1.5221                       
+
+($N_0002)    3.0766                   ($N_0003)     .7921                       
+
+($N_0004)    5.0000                   ($N_0005)     .8802                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_EC        -1.032E-03
+    V_Eg         0.000E+00
+
+    TOTAL POWER DISSIPATION   5.16E-03  WATTS
+
+
+**** 06/02/20 15:19:43 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\bogda\Desktop\FACULTA\ED - Labs\BJT\BJT Amplifier\Schematic1.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         Q_Q1      
+MODEL        Q2N2222   
+IB           5.88E-06 
+IC           8.74E-04 
+VBE          6.42E-01 
+VBC         -1.55E+00 
+VCE          2.20E+00 
+BETADC       1.49E+02 
+GM           3.37E-02 
+RPI          4.89E+03 
+RX           1.00E+01 
+RO           8.65E+04 
+CBE          5.01E-11 
+CBC          4.98E-12 
+CJS          0.00E+00 
+BETAAC       1.65E+02 
+CBX/CBX2     0.00E+00 
+FT/FT2       9.73E+07 
+
+
+**** 06/02/20 15:19:43 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\bogda\Desktop\FACULTA\ED - Labs\BJT\BJT Amplifier\Schematic1.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  Uin)    0.0000  ( Uout)    0.0000  ($N_0001)    1.5221                       
+
+($N_0002)    3.0766                   ($N_0003)     .7921                       
+
+($N_0004)    5.0000                   ($N_0005)     .8802                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_EC        -1.032E-03
+    V_Eg         0.000E+00
+
+    TOTAL POWER DISSIPATION   5.16E-03  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+
