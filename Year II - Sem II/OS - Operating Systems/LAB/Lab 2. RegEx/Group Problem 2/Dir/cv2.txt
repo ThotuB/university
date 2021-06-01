@@ -1,0 +1,3 @@
+Prop. Gresita.
+Sau ceva.
+./script.sh output.txt "/mnt/c/Users/bogda/OneDrive/Documents/GitHub/Code/Shell Scripts/2. Regular Expressions/Group Ex 2/Dir"
