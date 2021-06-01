@@ -1,0 +1,21 @@
+Circuit: * C:\Users\bogda\Desktop\FACULTA\Year II - Sem I\DCS - Digital Circuits & Signals\LAB\Lab 7 - PE Logic & Domino Logic\Resources\Draft2.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Dec 13 17:07:18 2020
+Total elapsed time: 0.145 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 4113
+traniter = 4099
+tranpoints = 1530
+accept = 1418
+rejected = 112
+matrix size = 43
+fillins = 0
+solver = Normal
+Matrix Compiler1: 4.53 KB object code size  0.9/0.5/[0.4]
+Matrix Compiler2: 4.66 KB object code size  0.4/0.6/[0.3]
+

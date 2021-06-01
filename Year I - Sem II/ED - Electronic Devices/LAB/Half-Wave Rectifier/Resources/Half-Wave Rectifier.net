@@ -1,0 +1,11 @@
+* Schematics Netlist *
+
+
+
+R_R1         0 vL  5k  
+D_D1         v1 vL D1N4002 
+V_V1         v1 0  
++SIN 0 18.9 50 0 0 0
+C_C1         0 vL  22u  
+C_C2         0 vL  22u  
+C_C3         0 vL  22u  
