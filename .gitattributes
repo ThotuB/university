@@ -1,0 +1,17 @@
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.PDF filter=lfs diff=lfs merge=lfs -text
+year-III/semester-2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/crime.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]8/all_djt_tweets.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/worldcities.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/database.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/extra_data/eruptions.csv filter=lfs diff=lfs merge=lfs -text
+Year_III/SEM_2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]8/all_djt_tweets.csv filter=lfs diff=lfs merge=lfs -text
+Year_III/SEM_2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/crime.csv filter=lfs diff=lfs merge=lfs -text
+Year_III/SEM_2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/database.csv filter=lfs diff=lfs merge=lfs -text
+Year_III/SEM_2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/extra_data/eruptions.csv filter=lfs diff=lfs merge=lfs -text
+Year_III/SEM_2/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/worldcities.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-1/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]8/all_djt_tweets.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-1/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/crime.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-1/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/database.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-1/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/extra_data/eruptions.csv filter=lfs diff=lfs merge=lfs -text
+year-III/semester-1/DM[[:space:]]-[[:space:]]Data[[:space:]]Mining/LAB/Lab[[:space:]]9/worldcities.csv filter=lfs diff=lfs merge=lfs -text
