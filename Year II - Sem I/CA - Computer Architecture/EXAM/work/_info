@@ -1,0 +1,90 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bogda/Desktop/CA
+vdec
+Z1 !s110 1613918502
+!i10b 1
+!s100 g^mKF7YKK14PkzLNcMgOB2
+IhJL7;Z1g`WaiWF>UhX22E3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1613918493
+Z4 8regfl.v
+Z5 Fregfl.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1613918502.000000
+Z8 !s107 regfl.v|
+Z9 !s90 -reportprogress|300|regfl.v|
+!i113 1
+Z10 tCvgOpt 0
+vregfl
+R1
+!i10b 1
+!s100 `V8]c13?B1?:Bh3j@>fBA3
+IHk@R0k9?_CPkTb16Rj1NQ2
+R2
+R0
+R3
+R4
+R5
+L0 28
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vregfl_tb
+R1
+!i10b 1
+!s100 2A4i@A:l_3U2OHFl[1H6f3
+IRM>F?ojG^Y_g9MmR9;e]71
+R2
+R0
+R3
+R4
+R5
+L0 46
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vrgst
+R1
+!i10b 1
+!s100 LBiJcNIPRAiF_WC`0DaUD2
+IBS0n6n[GN0SOKf][C=3Rj1
+R2
+R0
+R3
+R4
+R5
+L0 15
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10

@@ -1,0 +1,21 @@
+Circuit: * C:\Users\bogda\Desktop\FACULTA\Year II - Sem I\DCS - Lab\Lab 2\Resources\Draft1.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Oct 11 18:04:13 2020
+Total elapsed time: 0.124 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3981
+traniter = 3973
+tranpoints = 1586
+accept = 1438
+rejected = 148
+matrix size = 24
+fillins = 0
+solver = Normal
+Matrix Compiler1: 2.23 KB object code size  0.5/0.2/[0.2]
+Matrix Compiler2: 2.68 KB object code size  0.3/0.4/[0.2]
+

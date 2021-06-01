@@ -1,0 +1,181 @@
+<svg width="2100" height="2240" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="scroll">
+<style>
+	.text { font: bold 20px sans-serif; }
+</style>
+<rect x="1400" y="0" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="35" fill="black" class="text">HANOI(1, A, C, B)</text>
+<rect x="1750" y="0" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="35" fill="white" class="text">MOVE 1: A -> C</text>
+<rect x="1050" y="70" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="105" fill="black" class="text">HANOI(2, A, B, C)</text>
+<rect x="1400" y="70" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="105" fill="white" class="text">MOVE 2: A -> B</text>
+<rect x="1750" y="70" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="105" fill="white" class="text">MOVE 2: A -> B</text>
+<rect x="1400" y="140" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="175" fill="black" class="text">HANOI(1, C, B, A)</text>
+<rect x="1750" y="140" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="175" fill="white" class="text">MOVE 1: C -> B</text>
+<rect x="700" y="210" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="725" y="245" fill="black" class="text">HANOI(3, A, C, B)</text>
+<rect x="1050" y="210" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="245" fill="white" class="text">MOVE 3: A -> C</text>
+<rect x="1400" y="210" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="245" fill="white" class="text">MOVE 3: A -> C</text>
+<rect x="1750" y="210" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="245" fill="white" class="text">MOVE 3: A -> C</text>
+<rect x="1400" y="280" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="315" fill="black" class="text">HANOI(1, B, A, C)</text>
+<rect x="1750" y="280" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="315" fill="white" class="text">MOVE 1: B -> A</text>
+<rect x="1050" y="350" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="385" fill="black" class="text">HANOI(2, B, C, A)</text>
+<rect x="1400" y="350" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="385" fill="white" class="text">MOVE 2: B -> C</text>
+<rect x="1750" y="350" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="385" fill="white" class="text">MOVE 2: B -> C</text>
+<rect x="1400" y="420" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="455" fill="black" class="text">HANOI(1, A, C, B)</text>
+<rect x="1750" y="420" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="455" fill="white" class="text">MOVE 1: A -> C</text>
+<rect x="350" y="490" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="375" y="525" fill="black" class="text">HANOI(4, A, B, C)</text>
+<rect x="700" y="490" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="725" y="525" fill="white" class="text">MOVE 4: A -> B</text>
+<rect x="1050" y="490" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="525" fill="white" class="text">MOVE 4: A -> B</text>
+<rect x="1400" y="490" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="525" fill="white" class="text">MOVE 4: A -> B</text>
+<rect x="1750" y="490" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="525" fill="white" class="text">MOVE 4: A -> B</text>
+<rect x="1400" y="560" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="595" fill="black" class="text">HANOI(1, C, B, A)</text>
+<rect x="1750" y="560" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="595" fill="white" class="text">MOVE 1: C -> B</text>
+<rect x="1050" y="630" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="665" fill="black" class="text">HANOI(2, C, A, B)</text>
+<rect x="1400" y="630" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="665" fill="white" class="text">MOVE 2: C -> A</text>
+<rect x="1750" y="630" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="665" fill="white" class="text">MOVE 2: C -> A</text>
+<rect x="1400" y="700" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="735" fill="black" class="text">HANOI(1, B, A, C)</text>
+<rect x="1750" y="700" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="735" fill="white" class="text">MOVE 1: B -> A</text>
+<rect x="700" y="770" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="725" y="805" fill="black" class="text">HANOI(3, C, B, A)</text>
+<rect x="1050" y="770" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="805" fill="white" class="text">MOVE 3: C -> B</text>
+<rect x="1400" y="770" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="805" fill="white" class="text">MOVE 3: C -> B</text>
+<rect x="1750" y="770" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="805" fill="white" class="text">MOVE 3: C -> B</text>
+<rect x="1400" y="840" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="875" fill="black" class="text">HANOI(1, A, C, B)</text>
+<rect x="1750" y="840" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="875" fill="white" class="text">MOVE 1: A -> C</text>
+<rect x="1050" y="910" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="945" fill="black" class="text">HANOI(2, A, B, C)</text>
+<rect x="1400" y="910" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="945" fill="white" class="text">MOVE 2: A -> B</text>
+<rect x="1750" y="910" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="945" fill="white" class="text">MOVE 2: A -> B</text>
+<rect x="1400" y="980" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1015" fill="black" class="text">HANOI(1, C, B, A)</text>
+<rect x="1750" y="980" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1015" fill="white" class="text">MOVE 1: C -> B</text>
+<rect x="0" y="1050" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="25" y="1085" fill="black" class="text">HANOI(5, A, C, B)</text>
+<rect x="350" y="1050" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="375" y="1085" fill="white" class="text">MOVE 5: A -> C</text>
+<rect x="700" y="1050" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="725" y="1085" fill="white" class="text">MOVE 5: A -> C</text>
+<rect x="1050" y="1050" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="1085" fill="white" class="text">MOVE 5: A -> C</text>
+<rect x="1400" y="1050" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1085" fill="white" class="text">MOVE 5: A -> C</text>
+<rect x="1750" y="1050" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1085" fill="white" class="text">MOVE 5: A -> C</text>
+<rect x="1400" y="1120" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1155" fill="black" class="text">HANOI(1, B, A, C)</text>
+<rect x="1750" y="1120" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1155" fill="white" class="text">MOVE 1: B -> A</text>
+<rect x="1050" y="1190" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="1225" fill="black" class="text">HANOI(2, B, C, A)</text>
+<rect x="1400" y="1190" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1225" fill="white" class="text">MOVE 2: B -> C</text>
+<rect x="1750" y="1190" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1225" fill="white" class="text">MOVE 2: B -> C</text>
+<rect x="1400" y="1260" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1295" fill="black" class="text">HANOI(1, A, C, B)</text>
+<rect x="1750" y="1260" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1295" fill="white" class="text">MOVE 1: A -> C</text>
+<rect x="700" y="1330" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="725" y="1365" fill="black" class="text">HANOI(3, B, A, C)</text>
+<rect x="1050" y="1330" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="1365" fill="white" class="text">MOVE 3: B -> A</text>
+<rect x="1400" y="1330" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1365" fill="white" class="text">MOVE 3: B -> A</text>
+<rect x="1750" y="1330" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1365" fill="white" class="text">MOVE 3: B -> A</text>
+<rect x="1400" y="1400" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1435" fill="black" class="text">HANOI(1, C, B, A)</text>
+<rect x="1750" y="1400" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1435" fill="white" class="text">MOVE 1: C -> B</text>
+<rect x="1050" y="1470" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="1505" fill="black" class="text">HANOI(2, C, A, B)</text>
+<rect x="1400" y="1470" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1505" fill="white" class="text">MOVE 2: C -> A</text>
+<rect x="1750" y="1470" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1505" fill="white" class="text">MOVE 2: C -> A</text>
+<rect x="1400" y="1540" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1575" fill="black" class="text">HANOI(1, B, A, C)</text>
+<rect x="1750" y="1540" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1575" fill="white" class="text">MOVE 1: B -> A</text>
+<rect x="350" y="1610" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="375" y="1645" fill="black" class="text">HANOI(4, B, C, A)</text>
+<rect x="700" y="1610" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="725" y="1645" fill="white" class="text">MOVE 4: B -> C</text>
+<rect x="1050" y="1610" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="1645" fill="white" class="text">MOVE 4: B -> C</text>
+<rect x="1400" y="1610" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1645" fill="white" class="text">MOVE 4: B -> C</text>
+<rect x="1750" y="1610" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1645" fill="white" class="text">MOVE 4: B -> C</text>
+<rect x="1400" y="1680" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1715" fill="black" class="text">HANOI(1, A, C, B)</text>
+<rect x="1750" y="1680" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1715" fill="white" class="text">MOVE 1: A -> C</text>
+<rect x="1050" y="1750" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="1785" fill="black" class="text">HANOI(2, A, B, C)</text>
+<rect x="1400" y="1750" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1785" fill="white" class="text">MOVE 2: A -> B</text>
+<rect x="1750" y="1750" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1785" fill="white" class="text">MOVE 2: A -> B</text>
+<rect x="1400" y="1820" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1855" fill="black" class="text">HANOI(1, C, B, A)</text>
+<rect x="1750" y="1820" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1855" fill="white" class="text">MOVE 1: C -> B</text>
+<rect x="700" y="1890" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="725" y="1925" fill="black" class="text">HANOI(3, A, C, B)</text>
+<rect x="1050" y="1890" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1075" y="1925" fill="white" class="text">MOVE 3: A -> C</text>
+<rect x="1400" y="1890" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="1925" fill="white" class="text">MOVE 3: A -> C</text>
+<rect x="1750" y="1890" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1925" fill="white" class="text">MOVE 3: A -> C</text>
+<rect x="1400" y="1960" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="1995" fill="black" class="text">HANOI(1, B, A, C)</text>
+<rect x="1750" y="1960" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="1995" fill="white" class="text">MOVE 1: B -> A</text>
+<rect x="1050" y="2030" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1075" y="2065" fill="black" class="text">HANOI(2, B, C, A)</text>
+<rect x="1400" y="2030" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1425" y="2065" fill="white" class="text">MOVE 2: B -> C</text>
+<rect x="1750" y="2030" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="2065" fill="white" class="text">MOVE 2: B -> C</text>
+<rect x="1400" y="2100" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(200,30,200)" />
+<text x="1425" y="2135" fill="black" class="text">HANOI(1, A, C, B)</text>
+<rect x="1750" y="2100" width="250" height="50" stroke-width="1" stroke="black" fill="rgb(128, 216, 216)" />
+<text x="1775" y="2135" fill="white" class="text">MOVE 1: A -> C</text>
+</svg>

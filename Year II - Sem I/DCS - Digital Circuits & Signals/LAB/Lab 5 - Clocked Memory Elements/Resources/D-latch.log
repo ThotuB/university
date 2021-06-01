@@ -1,0 +1,30 @@
+Circuit: * C:\Users\bogda\Desktop\FACULTA\Year II - Sem I\DCS - Lab\Lab 5\Resources\D-latch.asc
+
+WARNING: Node X1:VDD is floating.
+WARNING: Node X2:VDD is floating.
+WARNING: Node X5:VDD is floating.
+WARNING: Node X6:VDD is floating.
+
+WARNING: Less than two connections to node X1:VDD.  This node is used by M:X1:2.
+WARNING: Less than two connections to node X2:VDD.  This node is used by M:X2:2.
+WARNING: Less than two connections to node X5:VDD.  This node is used by M:X5:2.
+WARNING: Less than two connections to node X6:VDD.  This node is used by M:X6:2.
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Nov 01 16:26:50 2020
+Total elapsed time: 0.215 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 4332
+traniter = 4301
+tranpoints = 1814
+accept = 1614
+rejected = 200
+matrix size = 82
+fillins = 30
+solver = Normal
+Matrix Compiler1: 12.89 KB object code size  2.6/1.2/[0.9]
+Matrix Compiler2: 10.56 KB object code size  1.1/1.2/[0.6]
+

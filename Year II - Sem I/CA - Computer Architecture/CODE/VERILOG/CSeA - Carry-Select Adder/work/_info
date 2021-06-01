@@ -1,0 +1,115 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bogda/OneDrive/Documents/GitHub/Code/Verilog/FACULTA/COURSE/CSeA - Carry-Select Adder
+vCSeA
+Z1 !s110 1611850879
+!i10b 1
+!s100 Fem7CGTXM^2g4cnR5WiiX3
+IM93`MRjERS0:Q]a2B=QlG1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1611850875
+Z4 8CSeA.v
+Z5 FCSeA.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1611850879.000000
+Z8 !s107 resources/M.v|resources/RCA.v|resources/FAC.v|CSeA.v|
+Z9 !s90 -reportprogress|300|CSeA.v|resources/FAC.v|resources/RCA.v|resources/M.v|
+!i113 1
+Z10 tCvgOpt 0
+n@c@se@a
+vCSeA_tb
+R1
+!i10b 1
+!s100 UWoSZlC8UD8]cHNJd=H7P3
+I1GGOZ_=L5TC<BGERZF:>U2
+R2
+R0
+R3
+R4
+R5
+L0 23
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@c@se@a_tb
+vFAC
+R1
+!i10b 1
+!s100 Q;7;n_E>_BgQFPGJX@4LH0
+I5eRFHnM6QNeSJo`d4icb?0
+R2
+R0
+Z11 w1611849312
+8resources/FAC.v
+Fresources/FAC.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@f@a@c
+vM
+R1
+!i10b 1
+!s100 Aa<AWmCiia48enh9k]aZ12
+IB?YPhNFGNih81f2TV`JME2
+R2
+R0
+w1611850317
+8resources/M.v
+Fresources/M.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@m
+vRCA
+R1
+!i10b 1
+!s100 YQMXc@XF6D[hjMMfPe5;41
+IX2`1diX`0AD3aF5V@1X1D1
+R2
+R0
+R11
+8resources/RCA.v
+Fresources/RCA.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@r@c@a

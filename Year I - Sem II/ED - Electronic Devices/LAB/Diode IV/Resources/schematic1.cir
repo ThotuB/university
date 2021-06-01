@@ -1,0 +1,23 @@
+* D:\CODE\ED - PSpice\schematic1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Tue Mar 24 16:50:59 2020
+
+
+
+** Analysis setup **
+.DC LIN V_V1 -1 10 0.01 
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "schematic1.net"
+.INC "schematic1.als"
+
+
+.probe
+
+
+.END

@@ -1,0 +1,136 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bogda/OneDrive/Documents/GitHub/Code/Verilog/FACULTA/COURSE/BCD Substractor
+vBCD_C9
+Z1 !s110 1611843617
+!i10b 1
+!s100 ?zKF;1l7HNXD`L1DMBnd71
+IlB35UU9[2H?SSe8SP8O021
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1611841740
+8BCD_C9.v
+FBCD_C9.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1611843617.000000
+Z5 !s107 BCDsub.v|BCD_C9.v|BCDadd.v|HAC.v|FAC.v|
+Z6 !s90 -reportprogress|300|FAC.v|HAC.v|BCDadd.v|BCD_C9.v|BCDsub.v|
+!i113 1
+Z7 tCvgOpt 0
+n@b@c@d_@c9
+vBCDadd
+R1
+!i10b 1
+!s100 Ii^O8P9D`WNzVkWWDDDEa2
+I[1l?mXEUnlNIXZo]c5PRe1
+R2
+R0
+w1611840098
+8BCDadd.v
+FBCDadd.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@b@c@dadd
+vBCDsub
+R1
+!i10b 1
+!s100 5J8hObUJDZ@I;h21eQ5h50
+IUOHH=aoj4]EZDf=YMhjCk2
+R2
+R0
+Z8 w1611843612
+Z9 8BCDsub.v
+Z10 FBCDsub.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@b@c@dsub
+vBCDsub_tb
+R1
+!i10b 1
+!s100 2Y89I][Oz;0RZ@LKUoFdF3
+IGdP_:E1NzkTRGDM0XdQG_1
+R2
+R0
+R8
+R9
+R10
+L0 18
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@b@c@dsub_tb
+vFAC
+R1
+!i10b 1
+!s100 Q;7;n_E>_BgQFPGJX@4LH0
+I`5z5hj5j0T>:@;0RI0_9D1
+R2
+R0
+Z11 w1611840093
+8FAC.v
+FFAC.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@f@a@c
+vHAC
+R1
+!i10b 1
+!s100 h9X;@dIcj3z1>F0ghkJV@0
+IYiVL60LjY7N:hE51H`5=h0
+R2
+R0
+R11
+8HAC.v
+FHAC.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@h@a@c

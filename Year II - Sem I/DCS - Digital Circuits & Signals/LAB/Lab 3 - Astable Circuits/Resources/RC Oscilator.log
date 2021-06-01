@@ -1,0 +1,21 @@
+Circuit: * C:\Users\bogda\Desktop\FACULTA\Year II - Sem I\DCS - Lab\Lab 3\Resources\RC Oscilator.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Mon Nov 02 18:11:08 2020
+Total elapsed time: 0.178 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 11648
+traniter = 11640
+tranpoints = 3268
+accept = 2670
+rejected = 598
+matrix size = 21
+fillins = 0
+solver = Normal
+Matrix Compiler1: 2.60 KB object code size  0.5/0.3/[0.2]
+Matrix Compiler2: 2.35 KB object code size  0.2/0.3/[0.2]
+
