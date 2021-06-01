@@ -1,0 +1,17 @@
+* Schematics Netlist *
+
+
+
+C_C1         Uin $N_0001  4.7u  
+C_C2         $N_0002 Uout  4.7u  
+R_RE2         0 $N_0003  900  
+R_RB2         0 $N_0001  10k  
+R_RB1         $N_0001 $N_0004  22k  
+R_RC         $N_0002 $N_0004  2.2k  
+V_EC         $N_0004 0 5V
+R_RL         0 Uout  10k  
+V_Eg         Uin 0  
++SIN 0 20m 1k 0 0 0
+R_RE1         $N_0003 $N_0005  100  
+Q_Q1         $N_0002 $N_0001 $N_0005 Q2N2222
+C_CE         0 $N_0003  470u  
