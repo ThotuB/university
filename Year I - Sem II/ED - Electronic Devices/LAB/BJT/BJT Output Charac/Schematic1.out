@@ -1,0 +1,179 @@
+
+**** 05/26/20 00:02:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Output Charac\Schematic1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Mon May 25 23:13:59 2020
+
+
+
+** Analysis setup **
+.DC LIN V_EC 0 12 0.1 
++ LIN V_EB 1.6 2.6 1 
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Schematic1.net"
+
+**** INCLUDING Schematic1.net ****
+* Schematics Netlist *
+
+
+
+V_EB         $N_0001 0 1.6V
+R_RB         $N_0001 $N_0002  100k  
+V_EC         $N_0003 0 0V
+R_RC         VC $N_0003  1k  
+Q_Q1         VC $N_0002 0 Q2N2222
+
+**** RESUMING Schematic1.cir ****
+.INC "Schematic1.als"
+
+
+
+**** INCLUDING Schematic1.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_EB            EB(+=$N_0001 -=0 )
+R_RB            RB(1=$N_0001 2=$N_0002 )
+V_EC            EC(+=$N_0003 -=0 )
+R_RC            RC(1=VC 2=$N_0003 )
+Q_Q1            Q1(c=VC b=$N_0002 e=0 )
+_    _(VC=VC)
+.ENDALIASES
+
+
+**** RESUMING Schematic1.cir ****
+.probe
+
+
+.END
+
+**** 05/26/20 00:02:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Output Charac\Schematic1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         
+               NPN             
+          IS   14.340000E-15 
+          BF  255.9          
+          NF    1            
+         VAF   74.03         
+         IKF     .2847       
+         ISE   14.340000E-15 
+          NE    1.307        
+          BR    6.092        
+          NR    1            
+          RB   10            
+          RC    1            
+         CJE   22.010000E-12 
+         MJE     .377        
+         CJC    7.306000E-12 
+         MJC     .3416       
+          TF  411.100000E-12 
+         XTF    3            
+         VTF    1.7          
+         ITF     .6          
+          TR   46.910000E-09 
+         XTB    1.5          
+          CN    2.42         
+           D     .87         
+
+
+**** 05/26/20 00:02:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Output Charac\Schematic1.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VC)     .0028  ($N_0001)    1.6000                   ($N_0002)     .5754    
+
+($N_0003)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_EB        -1.025E-05
+    V_EC         2.849E-06
+
+    TOTAL POWER DISSIPATION   1.64E-05  WATTS
+
+
+**** 05/26/20 00:02:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * D:\CODE\ED - PSpice\BJT\BJT Output Charac\Schematic1.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         Q_Q1      
+MODEL        Q2N2222   
+IB           1.02E-05 
+IC          -2.85E-06 
+VBE          5.75E-01 
+VBC          5.73E-01 
+VCE          2.85E-03 
+BETADC      -2.78E-01 
+GM           2.62E-04 
+RPI          4.92E+04 
+RX           1.00E+01 
+RO           4.44E+02 
+CBE          3.54E-11 
+CBC          1.17E-10 
+CJS          0.00E+00 
+BETAAC       1.29E+01 
+CBX/CBX2     0.00E+00 
+FT/FT2       2.73E+05 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+
