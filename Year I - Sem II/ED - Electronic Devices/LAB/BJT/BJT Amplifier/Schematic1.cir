@@ -1,0 +1,23 @@
+* C:\Users\bogda\Desktop\FACULTA\ED - Labs\BJT\BJT Amplifier\Schematic1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat May 30 14:57:08 2020
+
+
+
+** Analysis setup **
+.tran 0ns 4ms 0 0.01ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Schematic1.net"
+.INC "Schematic1.als"
+
+
+.probe
+
+
+.END
