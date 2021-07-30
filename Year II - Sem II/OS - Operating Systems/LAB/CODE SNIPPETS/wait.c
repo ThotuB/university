@@ -1,5 +1,5 @@
 int status;
-pid_t w = wait(&status);
+int w = wait(&status);
 
 if ( w < 0 ) {
     perror("waitpid");

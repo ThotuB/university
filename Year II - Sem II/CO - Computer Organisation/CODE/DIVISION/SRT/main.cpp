@@ -27,38 +27,43 @@ TEST1:      while ( !M[7] ){
                 COUNT2 += 1;
             }
             cout << "   " << A << " " << Q << " " << M << "\n";
-TEST2:      switch ( SRT_Case(A[8], A[7], A[6]) ){
-                case 0:
-                    A.LSH(Q[7]); Q.LSH(0);
-                    Qi.LSH(0);
-                    break;
-                case 1:
-                    A.LSH(Q[7]); Q.LSH(1);
-                    Qi.LSH(0);
-                    A -= M.to_uint();
-                    cout<<"  - "<<M<<"\n   "<<A<<"\n";
-                    break;
-                case -1:
-                    A.LSH(Q[7]); Q.LSH(0);
-                    Qi.LSH(1);
-                    A += M.to_uint();
-                    cout<<"  + "<<M<<"\n   "<<A<<"\n";
-                    break;
+TEST2:      while ( COUNT1 != 8 ){
+                switch ( SRT_Case(A[8], A[7], A[6]) ){
+                    case 0:
+                        A.LSH(Q[7]); Q.LSH(0);
+                        Qi.LSH(0);
+                        break;
+                    case 1:
+                        A.LSH(Q[7]); Q.LSH(1);
+                        Qi.LSH(0);
+                        A -= M.to_uint();
+                        cout<<"  - "<<M<<"\n   "<<A<<"\n";
+                        break;
+                    case -1:
+                        A.LSH(Q[7]); Q.LSH(0);
+                        Qi.LSH(1);
+                        A += M.to_uint();
+                        cout<<"  + "<<M<<"\n   "<<A<<"\n";
+                        break;
+                }
+
+ INCR:          COUNT1 += 1; 
+                cout << COUNT1.to_uint() << "  " << A << " " << Q << "\n";
+                cout << "             " << Qi << "\n";
             }
-TEST3:      if ( COUNT1 == XBITS-1 ) goto CRCT;
- INCR:      COUNT1 += 1; 
-            cout << COUNT1.to_uint() << "  " << A << " " << Q << "\n";
-            goto TEST2;
  CRCT:      if ( A[8] ){
                 A += M.to_uint();
-                Q -= 1;
+                Qi += 1;
                 cout << "C  " << A << " " << Q << "\n";
+                cout << "             " << Qi << "\n";
             }
 SHIFT:      while ( COUNT2 != 0 ){
                 A.RSH(0);
                 COUNT2 -= 1;
             }
             cout << "S  " << A << " " << Q << "\n";
+                cout << "           - " << Qi << "\n";
+ SUBS:      Q -= Qi;      
 ISINT:      if ( integers ) {
                 goto COUT;
             }
@@ -69,5 +74,5 @@ ISINT:      if ( integers ) {
 }
 
 int main(){
-    SRT(173, 0, 6, 0, 1);
+    SRT(105, 0, 32, 0, 1);
 }

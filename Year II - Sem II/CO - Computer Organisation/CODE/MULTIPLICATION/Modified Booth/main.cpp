@@ -49,5 +49,5 @@ ISINT:      if ( integers ) {Q.RSH(A[0]); A.RSH(A[7] ^ OVR); goto COUT;}
 }
 
 int main(){
-    Modified_Booth(-103, 0, -123, 0, 1);
+    Modified_Booth(105, 0, 32, 0, 1);
 }
