@@ -1,0 +1,38 @@
+html * {
+    font: 20px sans-serif !important;
+    color: white;
+    background-color: black;
+}
+
+table {
+    text-align: right;
+}
+
+th {
+    text-align: center;
+}
+
+#tables {
+    width: 1200px;
+    clear:both;
+}
+
+#table1 {
+    width: 500px;
+    float:left;
+}
+
+#table2 {
+    width: 200px;
+    float:left;
+}
+
+#table3{
+    width: 200px;
+    float:left;
+}
+
+#table4{
+    width: 300px;
+    float:left;
+}
