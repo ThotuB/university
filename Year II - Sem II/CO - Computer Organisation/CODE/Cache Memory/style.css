@@ -1,0 +1,37 @@
+html * {
+    font: 20px sans-serif !important;
+    color: white;
+    background-color: black;
+}
+
+table {
+    text-align: right;
+}
+
+.smolTableSize {
+    text-align: center;
+}
+
+.smolTableValues {
+    text-align: left;
+}
+
+#tables {
+    width: 1500px;
+    clear:both;
+}
+
+#table1 {
+    width: 500px;
+    float:left;
+}
+
+#table2 {
+    width: 450px;
+    float:left;
+}
+
+#table3 {
+    width: 300px;
+    float:left;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Memory Problem</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="sketch.js"></script>
+    <script src="address.js"></script>
+    <script src="filter.js"></script>
+  </head>
+  <body>
+    <div id="tables">
+      <div id="table1">
+        <table>
+          <tr>
+            <td>Main Memory Size: </td>
+            <td><input id="inputMainMemorySize" style="width:150px"></td>
+            <td><select id="inputMainMemorySizeUnit" style="width:100px">
+              <option>GiB</option>
+              <option>MiB</option>
+              <option>KiB</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Addressable Unit: </td>
+            <td colspan="2"><select id="inputAddressableUnit" style="width:100%">
+              <option>BYTE</option>
+              <option>WORD</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Word Size: </td>
+            <td><input id="inputWordSize" style="width:150px"></td>
+            <td><select id="inputWordSizeUnit" style="width:100px">
+              <option value=8>BITS</option>
+              <option value=1>BYTES</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Block Size: </td>
+            <td><input id="inputBlockSize" style="width:150px"></td>
+            <td>WORDS</td>
+          </tr>
+          <tr>
+            <td>Cache Sets: </td>
+            <td colspan="2"><select id="inputCacheSets" style="width:100%">
+              <option value="1">Direct Mapped</option>
+              <option value="2">2-way Set Associative</option>
+              <option value="4">4-way Set Associative</option>
+              <option value="8">8-way Set Associative</option>
+              <option value="16">16-way Set Associative</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Cache Data Size: </td>
+            <td><input id="inputCacheDataSize" style="width:150px"></td>
+            <td><select id="inputCacheDataSizeUnit" style="width:100px">
+              <option>B</option>
+              <option selected>KiB</option>
+              <option>MiB</option>
+              <option>GiB</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="button" id="inputCacheDataSize" value="GO" onclick="updateAddress()"></td>
+          </tr>
+        </table>
+      </div>
+      <div id="table2">
+        <table>
+          <tr>
+            <td>Address: </td>
+            <td colspan="2"><input id="inputAddressFrom" onkeyup="outputAddress()"></td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>TAG</td>
+            <td id="tagSizeOut" class="smolTableSize"><></td>
+            <td id="tagOut" class="smolTableValues"></td>
+          </tr>
+          <tr>
+            <td>INDEX</td>
+            <td id="indexSizeOut" class="smolTableSize"><></td>
+            <td id="indexOut" class="smolTableValues"></td>
+          </tr>
+          <tr>
+            <td>BLOCK OFFSET</td>
+            <td id="blockSizeOut" class="smolTableSize"><></td>
+            <td id="blockOut" class="smolTableValues"></td>
+          </tr>
+          <tr>
+            <td id="addressableUnitOffset">BYTE OFFSET</td>
+            <td id="wordSizeOut" class="smolTableSize"><></td>
+            <td id="wordOut" class="smolTableValues"></td>
+          </tr>
+        </table>
+      </div>
+      <div id="table3">
+        <table>
+          <tr>
+            <th>TOTAL CACHE CAPACITY</th>
+          </tr>
+          <tr>
+            <td id="totalCacheCapacityText"><br></td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <th>DATA CACHE CAPACITY</th>
+          </tr>
+          <tr>
+            <td id="dataCacheCapacityText"><br></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
