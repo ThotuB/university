@@ -1,0 +1,5 @@
+; TODO
+
+(defun rev (lst)
+    
+)

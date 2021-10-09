@@ -1,0 +1,10 @@
+(declaim (sb-ext:muffle-conditions cl:warning))
+
+(print (SETQ ZERO 0 ONE 1 TWO 2 THREE 3 FOUR 4 FIVE 5 SIX 6 SEVEN 7 EIGHT 8 NINE 9))
+(print ZERO)
+(print EIGHT)
+(print (SETQ A 'B))
+(print (SETQ B 'C))
+(print A)
+(print B)
+(print (EVAL A))
