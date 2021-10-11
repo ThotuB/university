@@ -6,30 +6,21 @@ namespace Task_2
 {
 	class Program
 	{
-		static byte[] ImageToByteArray(String path)
-		{
-			byte[] imageBytes;
-			using (var br = new BinaryReader(File.Open(path, FileMode.Open)))
-			{
-				imageBytes = br.ReadBytes((int)br.BaseStream.Length);
-			}
-			return imageBytes;
-		}
-
-		static Image ByteArrayToImage(byte[] byteArrayIn)
-		{
-			using (var ms = new MemoryStream(byteArrayIn))
-			{
-				return Image.FromStream(ms);
-			}
-		}
-
-		static String StringifyBytes(byte[] bytes)
-		{
+		static String StringifyBytes(byte[] bytes){
 			String output = "";
-			foreach (byte b in bytes)
+			int i = 0;
+			for ( ; i < bytes.Length ; i++)
 			{
-				output += b.ToString("x2") + " ";
+				if (i % 16 == 0)
+				{
+					output += "\n";
+				}
+				output += bytes[i].ToString("x2") + " ";
+			}
+			while ( i % 16 != 0 )
+			{
+				output += "00 ";
+				i++;
 			}
 			output += "\n";
 			return output;
@@ -37,22 +28,14 @@ namespace Task_2
 
 		static void Main(String[] args)
 		{
-			string path = @"resources\\sample_image.png";
-			Console.WriteLine("Image file path: " + path);
+			string plain_text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+			byte[] plaintext_bytes = Encoding.ASCII.GetBytes(plain_text);
+			byte[] ciphertext_bytes = Crypto.Encrypt(plaintext_bytes);
 
-			byte[] imageBytes = ImageToByteArray(path);
-			// Console.WriteLine("Length: " + imageBytes.Length); 
+			Console.WriteLine("Plaintext: " + plain_text);
+			Console.WriteLine("Plaintext bytes: " + StringifyBytes(plaintext_bytes));
+			Console.WriteLine("Ciphertext: " + Encoding.ASCII.GetString(ciphertext_bytes));
+			Console.Write("Ciphertext bytes:\n" + StringifyBytes(ciphertext_bytes));
 		}
 	}
 }
-			// byte[] plaintext_bytes = Encoding.ASCII.GetBytes(plaintext);
-			// byte[] ciphertext_bytes = Crypto.Encrypt(plaintext_bytes);
-
-			// Console.WriteLine("Plaintext: " + plaintext);
-			// Console.Write("Plaintext bytes: " + StringifyBytes(plaintext_bytes));
-			// Console.WriteLine();
-			// Console.Write("Ciphertext bytes: " + StringifyBytes(ciphertext_bytes));
-			// Console.Write("Ciphertext: " + Encoding.ASCII.GetString(ciphertext_bytes));
-// 		}
-// 	}
-// }

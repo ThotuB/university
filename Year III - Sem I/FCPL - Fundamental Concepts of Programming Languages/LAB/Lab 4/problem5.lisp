@@ -1,5 +1,3 @@
-; TODO
-
 (defun trim_tail (lst n)
     (defun trim_head (lst n)
         (cond 
@@ -12,5 +10,5 @@
 )
 
 (print
-    (trim_tail '(1 2 3 4 5 6) 3)
+    (trim_tail '(1 2 3 4 5 6) 2)
 )

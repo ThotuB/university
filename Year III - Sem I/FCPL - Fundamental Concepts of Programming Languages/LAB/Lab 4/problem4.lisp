@@ -4,7 +4,6 @@
         ((zerop n) lst)
         (t (trim_head (cdr lst) (- n 1)))
     )
-    
 )
 
 (print

@@ -1,24 +1,23 @@
-(declaim (sb-ext:muffle-conditions cl:warning))
+; OPERATIONS
 ; (not x)   -> (nand x x)
 ; (and x y) -> (nand (nand x y) true)
-; (and x y) -> (not (nand x y))       -> (nand (nand x y) (nand x y))
 ; (or x y)  -> (nand (not x) (not y)) -> (nand (nand x x) (nand y y))
+; ALTERNATE AND
+; (and x y) -> (not (nand x y))       -> (nand (nand x y) (nand x y))
 
 (defun DeMorgan (lst)
-    (cond 
-        ((atom lst)
-            lst
+    (if (atom lst)
+        lst
+        (let (
+            (operation  (car lst))
+            (ops (cdr lst))
         )
-        (t
-            (setq operation  (car lst))
-            (setq ops (cdr lst))
             (cond
                 ((equal operation 'nand) ; NAND
                     (cons 'nand (mapcar 'DeMorgan ops))
                 )
                 ((equal operation 'not)  ; NOT
-                    (setq res (DeMorgan (car ops)))
-                    (list 'nand res res)
+                    (list 'nand (DeMorgan (car ops)) (DeMorgan (car ops)))
                 )
                 ((equal operation 'and)  ; AND
                     (list 'nand (DeMorgan (cons 'nand ops)) 'true )
