@@ -10,20 +10,21 @@ namespace Task_2
             SymmetricAlgorithm alg = AesManaged.Create();
 
             alg.Mode = CipherMode.ECB;
+            alg.KeySize = 128;
             alg.GenerateKey();
 
             return alg;
         }
 
         private static byte[] EncryptProcess(SymmetricAlgorithm alg, byte[] plaintext_bytes) { 
-            MemoryStream memory_stream = new MemoryStream();
-            CryptoStream crypto_stream = new CryptoStream(memory_stream, alg.CreateEncryptor(), CryptoStreamMode.Write);
+            MemoryStream ms = new MemoryStream();
+            CryptoStream cs = new CryptoStream(ms, alg.CreateEncryptor(), CryptoStreamMode.Write);
 
-            crypto_stream.Write(plaintext_bytes, 0, plaintext_bytes.Length);
-            crypto_stream.Close();
+            cs.Write(plaintext_bytes, 0, plaintext_bytes.Length);
+            cs.Close();
 
-            byte[] ciphertext_bytes = memory_stream.ToArray();
-            memory_stream.Close();
+            byte[] ciphertext_bytes = ms.ToArray();
+            ms.Close();
 
             return ciphertext_bytes;
         }
