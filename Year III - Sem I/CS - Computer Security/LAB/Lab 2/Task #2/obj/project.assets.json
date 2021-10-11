@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 2\\Task 2\\Task 2.csproj",
+      "projectUniqueName": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 2\\Task #2\\Task 2.csproj",
       "projectName": "Task 2",
-      "projectPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 2\\Task 2\\Task 2.csproj",
+      "projectPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 2\\Task #2\\Task 2.csproj",
       "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 2\\Task 2\\obj\\",
+      "outputPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 2\\Task #2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bogda\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -27,6 +27,15 @@
     )
 )
 
-(print
-    (depth '(1 ((2) 3 (4 5 6)) (7 (8)) 9))
+(defun expt (m n)
+    (do (
+        (result 1)
+        (exponent n)
+    )(
+        (zerop exponent) 
+        result
+    )
+        (setq result (* m result))
+        (setq exponent (- exponent 1))
+    )
 )
