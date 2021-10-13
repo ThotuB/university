@@ -1,0 +1,40 @@
+Student:
+    id: varchar2(10)
+    name: varchar2(20)
+    surname: varchar(20)
+    study_year: number(1,0)
+    department: number(2,0)
+
+    primary key: id
+
+Teacher:
+    id: varchar2(10)
+    name: varchar2(20)
+    surname: varchar(20)
+    salary: number(7,2)
+    department: number(2,0)
+
+    primary key: id
+
+Course:
+    id: varchar2(10)
+    teacher_id: varchar2(10)
+    credits: number(2,0)
+    + name: varchar2(30)
+
+    primary key: id
+
+Department:
+    id: number(2,0)
+    name: varchar2(20)
+    faculty: varchar2(5)
+
+    primary key: id
+
+Student_Course:
+    student id: varchar2(10)
+    course id: varchar2(10)
+
+    primary key: student id, course id
+    
+    + DROP TABLE

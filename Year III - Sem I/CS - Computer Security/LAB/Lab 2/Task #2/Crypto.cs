@@ -7,10 +7,9 @@ namespace Task_2
 	{
         private static SymmetricAlgorithm EncryptSetup()
         {
-            SymmetricAlgorithm alg = AesManaged.Create();
+            SymmetricAlgorithm alg = DES.Create();
 
             alg.Mode = CipherMode.ECB;
-            alg.KeySize = 128;
             alg.GenerateKey();
 
             return alg;
