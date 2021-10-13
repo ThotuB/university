@@ -1,7 +1,5 @@
 ; TODO
 
-; TODO 
-
 ;(defun rev (lst)
 ;     (do (
 ;         (left 0 (1+ left))
