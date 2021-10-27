@@ -1,0 +1,4 @@
+,512 bit,640 bit,768 bit,1024 bit,
+Key Generation,7.489 ms,6.786 ms,8.931 ms,6.231 ms,
+Signing,657.595 ms,1155.149 ms,1119.879 ms,1283.414 ms,
+Verification,473.633 ms,999.772 ms,967.073 ms,991.97 ms,

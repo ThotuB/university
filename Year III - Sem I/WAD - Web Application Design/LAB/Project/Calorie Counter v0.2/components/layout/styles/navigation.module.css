@@ -1,0 +1,13 @@
+.nav {
+    max-width: 80rem;
+}
+
+.nav_bar {
+    max-width: fit-content;
+    display: flex;
+    margin: auto;
+}
+
+.Link {
+    color: white;
+}
