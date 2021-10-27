@@ -3,7 +3,7 @@
         ((null lst)
             nil
         )
-        ((equal (car lst) elem) 
+        ((eql (car lst) elem) 
             t
         )
         (t 
@@ -12,5 +12,32 @@
     )
 )
 
-(print (is_present 'c '(a b c d)))
-(print (is_present 'e '(a b c d)))
+(defun is_present_nested (elem lst)
+    (let (
+        (head (car lst))
+        (tail (cdr lst))
+    )
+        (cond
+            ((null lst)
+                nil
+            )
+            ((listp head)
+                (is_present_nested elem head)
+            )
+            ((eql (car lst) elem) 
+                t
+            )
+            (t 
+                (is_present_nested elem (cdr lst))
+            )
+        )
+    )
+)
+
+(print (is_present 3 '(1 2 3 4 5)))
+(print (is_present 3 '(1 2 (3 4) 5)))
+(print (is_present 6 '(1 2 3 4 5)))
+
+(print (is_present_nested 3 '(1 2 3 4 5)))
+(print (is_present_nested 3 '(1 2 (3 4) 5)))
+(print (is_present_nested 6 '(1 2 3 4 5)))

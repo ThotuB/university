@@ -2,7 +2,7 @@
     (defun trim_head (lst n)
         (cond 
             ((null lst) nil)
-            ((zerop n) lst)
+            ((= 0 n) lst)
             (t (trim_head (cdr lst) (- n 1)))
         )
     )
@@ -10,5 +10,17 @@
 )
 
 (print
-    (trim_tail '(1 2 3 4 5 6) 2)
+    (trim_tail '(1 2 3 4 5 6) 3)
+)
+
+(print
+    (trim_tail '(1 2 3) 3)
+)
+
+(print
+    (trim_tail '(1) 3)
+)
+
+(print
+    (trim_tail nil 3)
 )

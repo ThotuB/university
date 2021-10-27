@@ -2,16 +2,15 @@
 
 (defun median1 (a b c)
     (if (> a b)
-        (if (> b c)
-            b
-            (if (> a c)
-                c
-                a))
-        (if (> b c)
-            (if (> a c)
-                a
-                c)
-            b
+        (cond 
+            ((> b c) b)
+            ((> a c) c)
+            (t a)
+        )
+        (cond 
+            ((> c b) b)
+            ((> a c) a)
+            (t c)
         )
     )
 )
@@ -28,6 +27,25 @@
     )
 )
 
+
+(print
+    (median1 1 2 3)
+)
+(print
+    (median1 1 3 2)
+)
+(print
+    (median1 2 1 3)
+)
+(print
+    (median1 2 3 1)
+)
+(print
+    (median1 3 1 2)
+)
+(print
+    (median1 3 2 1)
+)
 
 (print
     (median2 1 2 3)

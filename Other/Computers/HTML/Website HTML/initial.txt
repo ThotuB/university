@@ -1,0 +1,9 @@
+<hmtl>
+<head>
+	<title>Initial</title>
+</head>
+<body>
+	<center></center>
+	<p></p>
+</body>
+</html>

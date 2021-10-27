@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "e17ZqlsEhQWKpjsmTs8vwZIqs3B3dEyHv6r3WVrDmC68Tul2cqk1nfvdfwXc4adqqEzUXxt0t2rlUVqipJYCaA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #2\\Task 2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bogda\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.16\\microsoft.netcore.app.host.win-x64.3.1.16.nupkg.sha512"
+  ],
+  "logs": []
+}

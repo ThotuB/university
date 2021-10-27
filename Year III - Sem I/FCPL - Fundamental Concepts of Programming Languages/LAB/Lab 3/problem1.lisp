@@ -36,5 +36,5 @@
 )
 
 (print 
-    (construct 'a '(b c d e))
+    (construct 1 '(2 3 4 5))
 )

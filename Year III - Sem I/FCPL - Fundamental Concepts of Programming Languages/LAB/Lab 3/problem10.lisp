@@ -31,6 +31,7 @@
     (cond_not nil)
 )
 
+
 (print
     (cond_or 1 2 3)
 )
@@ -38,6 +39,11 @@
 (print
     (cond_or nil 2 3)
 )
+
+(print
+    (cond_or nil nil nil)
+)
+
 
 (print
     (cond_and 1 2 3)

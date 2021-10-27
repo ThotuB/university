@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Meniu</title>
+</head>
+<body link=red vlink=purple>
+	<font size=10px>
+		<ul type=circle>Meniu
+			<li><a href="pagina1.html" name=pagina1>Pagina 1</a>
+			<li><a href="pagina2.html" name=pagina2>Pagina 2</a>
+			<li><a href="pagina3.html" name=pagina3>Pagina 3</a>
+		</ul>
+	</font>
+</body>
+</html>
