@@ -1,0 +1,6 @@
+,1024 bit,2048 bit,3072 bit,4096 bit,
+Key Generation,0.2 ms,0.142 ms,1.054 ms,0.143 ms,
+Encryption,203.115 ms,871.783 ms,3109.355 ms,4145.782 ms,
+Decryption,154.009 ms,813.42 ms,2550.023 ms,5628.63 ms,
+Signing,208.378 ms,806.718 ms,2534.049 ms,5636.516 ms,
+Verification,25.105 ms,43.425 ms,76.597 ms,121.056 ms,

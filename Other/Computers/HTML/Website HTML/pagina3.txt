@@ -1,0 +1,8 @@
+<hmtl>
+<head>
+	<title>Pagina 3</title>
+</head>
+<body>
+	<img src="Imagini\Doi.png" width=1000px height=1000px>
+</body>
+</html>
