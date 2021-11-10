@@ -1,22 +1,77 @@
-(defun to_matrix (ll)
+(defun to_matrix_1 (lst2d)
+    (defun elem_to_matrix (lst row col matrix)
+        (cond
+            ((null lst) matrix)
+            (t 
+                (setf (aref matrix row col) (car lst))
+                (elem_to_matrix (cdr lst) row (1+ col) matrix)
+            )
+        )
+    )
+
+    (defun row_to_matrix (lst2d row matrix)
+        (cond
+            ((null lst2d) matrix)
+            (t
+                (elem_to_matrix (car lst2d) row 0 matrix)
+                (row_to_matrix (cdr lst2d) (1+ row) matrix)
+            )
+        )
+    )
+
     (let* (
-        (rows (length ll))
-        (cols (length (car ll)))
+        (rows (length lst2d))
+        (cols (length (car lst2d)))
         (matrix (make-array (list rows cols)))
     )
-        (do ((i 0 (1+ i))) ((= i rows))
-            (do ((j 0 (1+ j))) ((= j cols))
-                (setf (aref matrix i j) (nth j (nth i ll)))
+        (row_to_matrix lst2d 0 matrix)
+    )
+)
+
+(defun to_matrix_2 (lst2d)
+    (let* (
+        (rows (length lst2d))
+        (cols (length (car lst2d)))
+        (matrix (make-array (list rows cols)))
+        (row 0)
+        (col 0)
+    )
+        (mapcar (lambda (lst) 
+                (mapcar (lambda (elem)
+                        (setf (aref matrix row col) elem)
+                        (setq col (1+ col))
+                    )
+                    lst
+                )
+                (setq row (1+ row))
+                (setq col 0)
             )
+            lst2d
         )
         matrix
     )
 )
 
-(defvar mat '(
+(print (to_matrix_2 '(
     (1 2)
     (3 4)
     (5 6)
-))
+)))
 
-(print (to_matrix mat))
+(print (to_matrix_1 '(
+    (1)
+    (2)
+    (3)
+)))
+
+(print (to_matrix_1 '(
+    (1)
+)))
+
+(print (to_matrix_1 '(
+    ()
+)))
+
+(print (to_matrix_1 '(
+    
+)))

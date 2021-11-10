@@ -1,0 +1,11 @@
+[16 bit]
+
+EEPROM : 
+    total memory: 126KB
+    address: ... - ...
+    memories: 64KB * 8bit
+
+DRAM :
+    total memory: 512KB
+    address: ... - ...
+    memories: 64KB * 8bit

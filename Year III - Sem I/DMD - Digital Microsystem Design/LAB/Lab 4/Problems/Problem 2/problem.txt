@@ -1,0 +1,17 @@
+[16 bit]
+
+EEPROM : 
+    total memory: 256KB
+    address: 0x4_0000 - ...
+    memories: 64KB * 8bit
+
+DRAM :
+    total memory: 256KB
+    address: ... - ...
+    memories: 64 * 1bit
+
+
+# STEP 1 - Circuits
+EEPROM = 256KB / 64KB * 8bit = 256KB / 64KB = 4
+
+DRAM = 256KB / 32KB * 8bit = 128KB / 32KB = 4

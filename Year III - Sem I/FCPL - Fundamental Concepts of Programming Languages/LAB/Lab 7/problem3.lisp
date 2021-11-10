@@ -1,41 +1,58 @@
 (defun grandfather (person)
     (let* (
-        (father (get (get person 'parents) 'father))
-        (grandfather (get ( get father 'parents) 'father))
+        (father (get person 'father))
+        (grandfather (get father 'father))
     )
-        (if (null grandfather)
-            nil
-            (get grandfather 'name)
-        )
+        grandfather
     )
 )
 
 (defun make_person (name father mother)
     (let (
         (person (gensym "PERSON"))
-        (parents (gensym "PARENTS"))
     )
-        (setf (get parents 'father) father)
-        (setf (get parents 'mother) mother)
-        (setf (get person 'parents) parents)
+        (setf (get person 'father) father)
+        (setf (get person 'mother) mother)
         (setf (get person 'name) name)
         person
     )
 )
-; Grandparents
-(defvar dad_gf (make_person "John" nil nil))
-(defvar dad_gm (make_person "Mary" nil nil))
-(defvar mom_gf (make_person "Dave" nil nil))
-(defvar mom_gm (make_person "Jane" nil nil))
+
+; GGG Grandparent
+(defvar jon (make_person "Jon" nil nil))
+
+; Great Great Grandparents
+(defvar john (make_person "John" jon nil))
+(defvar emi  (make_person "Emi"  nil nil))
+
+; Great Grandparents
+(defvar john2 (make_person "John II" john nil))
+(defvar sara  (make_person "Sara"    nil  nil))
+(defvar rich  (make_person "John II" nil  nil))
+(defvar cara  (make_person "Cara"    nil  emi))
+
+; Grand Parents
+(defvar jonh3 (make_person "John III" john2 sara))
+(defvar ali   (make_person "Ali"      rich  cara))
 
 ;Parents
-(defvar dad (make_person "Dan" dad_gf dad_gm))
-(defvar mom (make_person "Theo" mom_gf mom_gm))
+(defvar dad (make_person "Dan" jonh3 ali))
 
 ; Person
-(defvar person (make_person "Gion" dad mom))
+(defvar person (make_person "Gion" dad nil))
 
 
 (print
-    (grandfather person)
+    (get (grandfather person) 'name)
 )
+; "John III" 
+
+(print
+    (get (grandfather rich) 'name)
+)
+; NIL
+
+(print
+    (get (grandfather john2) 'name)
+)
+; "John" 

@@ -2,8 +2,6 @@ function FormSection(props) {
     const { children } = props;
     const [ label, field, description ] = children;
 
-    console.log(label, field, description);
-
     const descElem = description ?
         <div className="mt-2 text-sm text-gray-500">
             {description}

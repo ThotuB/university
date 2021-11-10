@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dQf0eOdaCFzr59Sx9vaS817X3SLRxRsuqAbnirzqvpjMsLVETEmRpkAgPyDeknoSy601C/jeMrVVasKspZnrxQ==",
+  "dgSpecHash": "kheqH4exOd7UIBp13GYDpeKvEQx8f6H63UdGkWsplk5f+LfzWfO0vZh+7RNsZZwfygrvKKk+It0E3bhW10dp4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task 1\\Task 1.csproj",
+  "projectFilePath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #1\\Task 1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bogda\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.16\\microsoft.netcore.app.host.win-x64.3.1.16.nupkg.sha512"
   ],
