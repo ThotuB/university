@@ -9,9 +9,12 @@
             :if-does-not-exist :create
         ))
     )
-        (loop for chr = (read-char input_stream nil :eof)
-            until (eq chr :eof)
-            do (write-char chr output_stream)
+        (do (
+            (line (read-line input_stream nil :eof) (read-line input_stream nil :eof) )
+        )(
+            (eq line :eof)
+        )
+            (write-line line output_stream)
         )
         (close input_stream)
         (close output_stream)

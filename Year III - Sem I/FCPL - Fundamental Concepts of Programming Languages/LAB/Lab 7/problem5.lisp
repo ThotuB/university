@@ -4,9 +4,17 @@
         (let (
             (father (get person 'father))
             (mother (get person 'mother))
-            (name (get person 'name))
         )
-            (append (list name) (ancestors father) (ancestors mother))
+            (append (list person) (ancestors father) (ancestors mother))
+        )
+    )
+)
+
+(defun print_names (people)
+    (cond 
+        ((not (null people))
+            (print (get (car people) 'name))
+            (print_names (cdr people))
         )
     )
 )
@@ -21,20 +29,56 @@
         person
     )
 )
-; Grandparents
-(defvar dad_gf (make_person "John" nil nil))
-(defvar dad_gm (make_person "Mary" nil nil))
-(defvar mom_gf (make_person "Dave" nil nil))
-(defvar mom_gm (make_person "Jane" nil nil))
+
+; GGG Grandparent
+(defvar jon (make_person "Jon" nil nil))
+
+; Great Great Grandparents
+(defvar john (make_person "John" jon nil))
+
+(defvar emi  (make_person "Emi"  nil nil))
+
+; Great Grandparents
+(defvar john2 (make_person "John II" john nil))
+(defvar sara  (make_person "Sara"    nil  nil))
+
+(defvar rich  (make_person "Rich" nil  nil))
+(defvar cara  (make_person "Cara"    nil  emi))
+
+; Grand Parents
+(defvar jonh3 (make_person "John III" john2 sara))
+(defvar ali   (make_person "Ali"      rich  cara))
 
 ;Parents
-(defvar dad (make_person "Dan" dad_gf dad_gm))
-(defvar mom (make_person "Theo" mom_gf mom_gm))
+(defvar dad (make_person "Dan" jonh3 ali))
 
 ; Person
-(defvar person (make_person "Gion" dad mom))
+(defvar person (make_person "Gion" dad nil))
 
-
-(print
+(print_names
     (ancestors person)
 )
+; "Gion"
+; "Dan"
+; "John III" 
+; "John II" 
+; "John" 
+; "Jon" 
+; "Sara" 
+; "Ali" 
+; "Rich" 
+; "Cara" 
+; "Emi" 
+
+(print_names 
+    (ancestors ali)
+)
+; "Ali" 
+; "Rich" 
+; "Cara" 
+; "Emi" 
+
+(print_names
+    (ancestors jon)
+)
+; "Jon"

@@ -8,3 +8,4 @@ C:\Users\bogda\Desktop\University\Year III - Sem I\CS - Computer Security\LAB\La
 C:\Users\bogda\Desktop\University\Year III - Sem I\CS - Computer Security\LAB\Lab 3\Task #1\obj\Debug\Task 1.csproj.CoreCompileInputs.cache
 C:\Users\bogda\Desktop\University\Year III - Sem I\CS - Computer Security\LAB\Lab 3\Task #1\obj\Debug\Task 1.exe
 C:\Users\bogda\Desktop\University\Year III - Sem I\CS - Computer Security\LAB\Lab 3\Task #1\obj\Debug\Task 1.pdb
+C:\Users\bogda\Desktop\University\Year III - Sem I\CS - Computer Security\LAB\Lab 3\Task #1\obj\Debug\Task 1.csproj.AssemblyReference.cache

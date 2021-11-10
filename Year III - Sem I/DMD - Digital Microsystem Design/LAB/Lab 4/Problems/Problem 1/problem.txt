@@ -1,0 +1,24 @@
+[16 bit]
+
+EEPROM : 
+    total memory: 256KB
+    address: ... - 0xF_FFFF
+    memories: 64K * 16bit
+
+DRAM :
+    total memory: 128KB
+    address: ... - ...
+    memories: 32K * 8bit
+
+
+# STEP 1 - Circuits
+EEPROM = 256KB / 64KB * 16bit = 256KB / 128KB = 2
+
+DRAM = 128KB / 32KB * 8bit = 128KB / 32KB = 4
+
+# STEP 2 - 
+EEPROM circuits/block = 16 / 16 = 1
+EEPROM blocks = 2 / 1 = 2
+
+DRAM circuits/block = 16 / 8 = 2
+DRAM blocks = 4 / 2 = 2

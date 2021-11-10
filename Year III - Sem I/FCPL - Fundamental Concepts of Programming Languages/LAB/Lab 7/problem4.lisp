@@ -1,10 +1,9 @@
 (defun adam (person)
     (let (
         (father (get person 'father))
-        (name (get person 'name))
     )
         (if (null father)
-            name
+            person
             (adam father)
         )
     )
@@ -46,5 +45,21 @@
 
 
 (print
-    (adam person)
+    (get (adam person) 'name)
 )
+; "Jon" 
+
+(print
+    (get (adam dad) 'name)
+)
+; "Jon" 
+
+(print
+    (get (adam rich) 'name)
+)
+; "John II"
+
+(print
+    (get (adam jon) 'name)
+)
+; "Jon" 

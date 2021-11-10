@@ -9,7 +9,7 @@ namespace Task_2
 		static Stopwatch stopwatch = new Stopwatch();
 
 		private static float TimeFunction(){
-			return stopwatch.ElapsedTicks / (float)COUNT;
+			return stopwatch.ElapsedTicks / (COUNT * 10.0f);
 		}
 
 		public static (DSACryptoServiceProvider, float) TimeKeyGenerate(int keySize)

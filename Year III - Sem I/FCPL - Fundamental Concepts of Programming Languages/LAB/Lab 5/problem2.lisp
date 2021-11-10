@@ -5,6 +5,7 @@
 ; ALTERNATE AND
 ; (and x y) -> (not (nand x y))       -> (nand (nand x y) (nand x y))
 
+
 (defun DeMorgan (lst)
     (if (atom lst)
         lst

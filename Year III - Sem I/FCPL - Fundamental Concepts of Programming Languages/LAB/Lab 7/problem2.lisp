@@ -14,3 +14,11 @@
 (print
     (list_keys bob)
 )
+; (TEMPERATURE PRESSURE PULSE)
+
+(defvar dan nil)
+
+(print
+    (list_keys dan)
+)
+; NIL
