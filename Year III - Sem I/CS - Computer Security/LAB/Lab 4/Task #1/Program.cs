@@ -53,6 +53,7 @@ namespace Task_1
 			{
 				int keySize = keySizes[i];
 
+				Console.WriteLine($"Size: {keySize}");
 				(rsa, times[0, i]) = Timer.TimeKeyGenerate(keySize);
 				(cipher_bytes, times[1, i]) = Timer.TimeEncrypt(rsa, plain_bytes);
 				(plain_bytes, times[2, i]) = Timer.TimeDecrypt(rsa, cipher_bytes);

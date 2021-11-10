@@ -1,6 +1,6 @@
 (defun count_atom (elem nums)
-    (if (atom nums) ; stopping condition: nums =/= list
-        (if (equal elem nums)
+    (if (atom nums)
+        (if (eq elem nums)
             1
             0
         )
@@ -14,5 +14,5 @@
 )
 
 (print
-    (count_atom 3 '(2 2 3 (4 2 4 (3) 3) 4))
+    (count_atom nil '(2 b () a (4 nil nil c v a (a) 3) a))
 )

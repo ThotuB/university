@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task 1\\Task 1.csproj": {}
+    "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #1\\Task 1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task 1\\Task 1.csproj": {
+    "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #1\\Task 1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task 1\\Task 1.csproj",
+        "projectUniqueName": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #1\\Task 1.csproj",
         "projectName": "Task 1",
-        "projectPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task 1\\Task 1.csproj",
+        "projectPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #1\\Task 1.csproj",
         "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task 1\\obj\\",
+        "outputPath": "C:\\Users\\bogda\\Desktop\\University\\Year III - Sem I\\CS - Computer Security\\LAB\\Lab 4\\Task #1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bogda\\AppData\\Roaming\\NuGet\\NuGet.Config",

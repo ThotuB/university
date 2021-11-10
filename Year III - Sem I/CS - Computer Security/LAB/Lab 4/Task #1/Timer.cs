@@ -12,7 +12,7 @@ namespace Task_1
 		static readonly Stopwatch stopwatch = new Stopwatch();
 
 		private static float TimeFunction(){
-			return stopwatch.ElapsedTicks / (float)COUNT;
+			return stopwatch.ElapsedTicks / (COUNT * 10.0f);
 		}
 
 		public static (RSACryptoServiceProvider, float) TimeKeyGenerate(int keySize)

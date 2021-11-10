@@ -53,6 +53,7 @@ namespace Task_2
 			{
 				int keySize = keySizes[i];
 
+				Console.WriteLine($"Size {keySize}");
 				(dsa, times[0, i]) = Timer.TimeKeyGenerate(keySize);
 				(signature, times[1, i]) = Timer.TimeSign(dsa, data);
 				(verified, times[2, i]) = Timer.TimeVerify(dsa, data, signature);
