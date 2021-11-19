@@ -12,19 +12,21 @@ function Auth() {
   };
 
   return (
-    <div className="w-full max-w-sm p-6 m-auto bg-white rounded-xl shadow-md flex flex-col border">
-      <h1 className="text-3xl font-semibold text-center text-gray-700">Calorie Counter</h1>
+    <div className="h-screen w-screen mt-56">
+      <div className="w-full max-w-sm p-6 m-auto bg-white rounded-xl shadow-md flex flex-col border">
+        <h1 className="text-3xl font-semibold text-center text-gray-700">Calorie Counter</h1>
 
-      { isLogin ? <LoginAuth /> : <CreateAuth /> }
+        { isLogin ? <LoginAuth /> : <CreateAuth /> }
 
-      <Divider />
+        <Divider />
 
-      <SocialAuth />
-      
-      <AuthFooter buttonClick={toggleAuth}
-        text={isLogin ? "Don't have an account? " : "Already have an account? "}
-        buttonText={isLogin ? "Create One" : "Login"}
-      />
+        <SocialAuth />
+        
+        <AuthFooter buttonClick={toggleAuth}
+          text={isLogin ? "Don't have an account? " : "Already have an account? "}
+          buttonText={isLogin ? "Create One" : "Login"}
+        />
+      </div>
     </div>
   );
 }

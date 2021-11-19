@@ -1,6 +1,10 @@
+import Summary from '../goal/Summary'
+
 function Home() {
     return (
-        <div></div>
+        <div>
+            <Summary />
+        </div>
     )
 }
 

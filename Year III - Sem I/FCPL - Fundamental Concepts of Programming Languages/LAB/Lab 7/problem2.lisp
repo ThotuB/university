@@ -1,13 +1,15 @@
 (defun list_keys (assoc_list)
     (mapcar 
-        (lambda (kv_pair) (car kv_pair))
+        (lambda (kv_pair)
+            (car kv_pair)
+        )
         assoc_list
     )
 )
 
 (defvar bob '(
     (temperature 100)
-    (pressure (120))
+    (pressure (120 60))
     (pulse 72)
 ))
 

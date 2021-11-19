@@ -10,75 +10,46 @@
     )
 )
 
-(defun print_names (people)
-    (cond 
-        ((not (null people))
-            (print (get (car people) 'name))
-            (print_names (cdr people))
-        )
-    )
-)
-
 (defun make_person (name father mother)
-    (let (
-        (person (gensym "PERSON"))
-    )
-        (setf (get person 'father) father)
-        (setf (get person 'mother) mother)
-        (setf (get person 'name) name)
-        person
-    )
+    (setf (get name 'father) father)
+    (setf (get name 'mother) mother)
 )
 
 ; GGG Grandparent
-(defvar jon (make_person "Jon" nil nil))
+(make_person 'markus nil nil)
 
 ; Great Great Grandparents
-(defvar john (make_person "John" jon nil))
-
-(defvar emi  (make_person "Emi"  nil nil))
+(make_person 'john 'markus nil)
+(make_person 'emi   nil nil)
 
 ; Great Grandparents
-(defvar john2 (make_person "John II" john nil))
-(defvar sara  (make_person "Sara"    nil  nil))
-
-(defvar rich  (make_person "Rich" nil  nil))
-(defvar cara  (make_person "Cara"    nil  emi))
+(make_person 'john_II 'john  nil)
+(make_person 'sara     nil   nil)
+(make_person 'rich     nil   nil)
+(make_person 'cara     nil  'emi)
 
 ; Grand Parents
-(defvar jonh3 (make_person "John III" john2 sara))
-(defvar ali   (make_person "Ali"      rich  cara))
+(make_person 'john_III 'john_II 'sara)
+(make_person 'ali      'rich    'cara)
 
 ;Parents
-(defvar dad (make_person "Dan" jonh3 ali))
+(make_person 'dan 'john_III 'ali)
 
 ; Person
-(defvar person (make_person "Gion" dad nil))
+(make_person 'bob 'dan nil)
 
-(print_names
-    (ancestors person)
-)
-; "Gion"
-; "Dan"
-; "John III" 
-; "John II" 
-; "John" 
-; "Jon" 
-; "Sara" 
-; "Ali" 
-; "Rich" 
-; "Cara" 
-; "Emi" 
 
-(print_names 
-    (ancestors ali)
+(print
+    (ancestors 'bob)
 )
-; "Ali" 
-; "Rich" 
-; "Cara" 
-; "Emi" 
+; (BOB DAN JOHN_III JOHN_II JOHN MARKUS SARA ALI RICH CARA EMI) 
 
-(print_names
-    (ancestors jon)
+(print 
+    (ancestors 'ali)
 )
-; "Jon"
+; (ALI RICH CARA EMI)  
+
+(print
+    (ancestors 'john)
+)
+; (MARKUS) 

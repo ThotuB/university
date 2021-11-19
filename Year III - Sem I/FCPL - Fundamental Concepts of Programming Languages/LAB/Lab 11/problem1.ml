@@ -23,6 +23,7 @@ let rec search elem root = match root with
             search elem right
         else
             true
+;;
 
 let rec preorder root = match root with
     | Null -> []
@@ -55,6 +56,9 @@ let root = insert 4 root;;
 Printf.printf "Search (3): %b\n" (search 3 root);;
 Printf.printf "Search (7): %b\n" (search 7 root);;
 Printf.printf "Search (10): %b\n" (search 10 root);;
+(* Search (3): true *)
+(* Search (7): true *)
+(* Search (10): false *)
 
 Printf.printf "Preorder: ";;
 List.iter (Printf.printf "%d ") (preorder root);
@@ -62,4 +66,6 @@ Printf.printf "\nInorder: ";;
 List.iter (Printf.printf "%d ") (inorder root);
 Printf.printf "\nPostorder ";;
 List.iter (Printf.printf "%d ") (postorder root);
-Printf.printf "\n"
+(* Preorder: 5 2 1 3 4 6 7 8 9 *)
+(* Inorder: 1 2 3 4 5 6 7 8 9 *)
+(* Postorder 1 2 3 4 6 7 8 9 5 *)

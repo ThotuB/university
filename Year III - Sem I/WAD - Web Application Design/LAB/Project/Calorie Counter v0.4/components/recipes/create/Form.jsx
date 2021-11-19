@@ -1,11 +1,11 @@
-import RecipeInfo from "./RecipeInfo";
-import RecipeIngredients from "./RecipeIngredients";
-import RecipeSteps from "./RecipeSteps";
+import RecipeInfo from "./InfoField";
+import RecipeIngredients from "./IngredientField";
+import RecipeSteps from "./StepField";
 
 import Button from "../../common/Button";
 import { useState } from "react";
 
-function RecipesForm(props) {
+function Form(props) {
     const [extend, setExtend] = useState(false);
 
     return (
@@ -27,4 +27,4 @@ function RecipesForm(props) {
     );
 }
 
-export default RecipesForm;
+export default Form;

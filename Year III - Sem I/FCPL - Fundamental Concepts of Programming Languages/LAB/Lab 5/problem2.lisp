@@ -37,5 +37,10 @@
 ; )
 
 (print (DeMorgan '(and a (not b)) ))
+; (NAND (NAND A (NAND B B)) TRUE) 
+
 (print (DeMorgan '(or a b c) ))
+; (NAND (NAND A A) (NAND B B) (NAND C C))
+
 (print (DeMorgan '(and a (or c d) (not e)) ))
+; (NAND (NAND A (NAND (NAND C C) (NAND D D)) (NAND E E)) TRUE)

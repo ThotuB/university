@@ -1,7 +1,6 @@
 import java.security.*;
 import javax.crypto.*;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.spec.*;
 
 class SymEncryption {
     public static class Builder {
@@ -95,17 +94,23 @@ class Main {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println("CBC MODE");
+    private static void task(String inputPassword, String message){
         try {
+            byte[] salt = new SecureRandom().generateSeed(16);
+            int iterCount = 1000;
+            int keySize = 128;
+            PBEKeySpec spec = new PBEKeySpec(inputPassword.toCharArray(), salt, iterCount, keySize);
+            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            byte[] key = factory.generateSecret(spec).getEncoded();
+
             SymEncryption symEncryption = new SymEncryption.Builder("AES")
                 .setMode("CBC")
                 .setPadding("PKCS5Padding")
-                .setKey(new byte[] {0x02, 0x02, 0x03, 0x05, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10})
+                .setKey(key)
                 .setIV(new byte[] {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00})
                 .build();
 
-            byte[] plainText = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".getBytes();
+            byte[] plainText = message.getBytes();
             byte[] cipherText = symEncryption.encrypt(plainText);
             byte[] decryptedText = symEncryption.decrypt(cipherText);
 
@@ -116,25 +121,10 @@ class Main {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        System.out.println("\nECB MODE");
-        try {
-            SymEncryption symEncryption = new SymEncryption.Builder("AES")
-                .setMode("ECB")
-                .setPadding("PKCS5Padding")
-                .setKey(new byte[] {0x02, 0x02, 0x03, 0x05, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10})
-                .build();
-
-            byte[] plainText = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".getBytes();
-            byte[] cipherText = symEncryption.encrypt(plainText);
-            byte[] decryptedText = symEncryption.decrypt(cipherText);
-
-            System.out.println("Plain Text:\n" + new String(plainText));
-            System.out.println("\nCipher Text:\n" + bytesToString(cipherText, 16));
-            System.out.println("Decrypted Text:\n" + new String(decryptedText));
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) {
+        task("password12345", "hello...");
+        task("password12345", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     }
 }
