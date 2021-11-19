@@ -1,0 +1,13 @@
+# Ex 1
+40 bits, 40 address lines
+0x00_0000_0000 - 0xFF_FFFF_FFFF
+1 TB
+
+# Ex 2
+A_0000 - B_FFFF
+size: B_FFFF - A_0000 + 1 = 0x2_0000 = 2 ^ 17 = 128KB
+
+FED4_5000 -> FED8_FFFF
+size: FED8_FFFF - FED4_5000 + 1 = 0x0004_B000 = 2 ^ 12 + 2 ^ 13 + 2 ^ 15 + 2 18 = 4 KB + 8 KB + 32 KB + 256 KB = 300 KB
+
+# Ex 3

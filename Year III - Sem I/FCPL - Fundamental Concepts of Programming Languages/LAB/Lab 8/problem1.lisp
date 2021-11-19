@@ -14,3 +14,11 @@
 )
 
 (print (add 1 2 3))
+; 6
+
+(define (hello_world)
+    (print 'hello_world)
+)
+
+(hello_world)
+; HELLO_WORLD

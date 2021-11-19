@@ -1,8 +1,11 @@
-import RecipeForm from '../../../components/recipes/create/RecipeForm';
+import RecipeForm from '../../../components/recipes/create/Form'
+import Layout from '../../../components/layout/navigation/Layout'
 
 function Index(props) {
     return (
-        <RecipeForm />
+        <Layout>
+            <RecipeForm />
+        </Layout>
     );
 }
 

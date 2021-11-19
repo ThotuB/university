@@ -1,6 +1,8 @@
 import FoodList from '../../components/food/FoodList';
 import Summary from '../../components/goal/Summary';
 import Pagination from '../../components/pagination/Pagination';
+import Layout from '../../components/layout/navigation/Layout';
+
 
 const dummy_foods = [
     {
@@ -85,11 +87,13 @@ const dummy_foods = [
 
 function Home() {
     return (
-        <div className="flex flex-col gap-6">
-            <Summary />
-            <FoodList items={dummy_foods}/>
-            <Pagination />
-        </div>
+        <Layout>
+            <div className="flex flex-col gap-6">
+                <Summary />
+                <FoodList items={dummy_foods}/>
+                <Pagination />
+            </div>
+        </Layout>
     );
 }
 

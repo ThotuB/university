@@ -1,4 +1,4 @@
-import Auth from '../components/account/Auth.jsx'
+import Auth from '../components/auth/Auth.jsx'
 
 function AccountAuth() {
   return (

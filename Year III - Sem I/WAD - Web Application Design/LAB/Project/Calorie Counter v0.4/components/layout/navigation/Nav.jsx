@@ -2,7 +2,7 @@ import Link from 'next/link';
 import NavLink from "./NavLink";
 import SearchBar from "./Search";
 import DropdownMenu from "./Menu";
-import AccountIcon from "../common/AccountIcon";
+import AccountIcon from "../../common/AccountIcon";
 
 function Navigation() {
   return (

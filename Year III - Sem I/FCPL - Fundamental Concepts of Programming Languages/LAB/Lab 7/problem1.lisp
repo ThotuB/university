@@ -1,6 +1,6 @@
 (defun fetch (key assoc_list)
     (if (assoc key assoc_list)
-        (cadr (assoc key assoc_list))
+        (cdr (assoc key assoc_list))
         '?
     )
 )
@@ -12,7 +12,7 @@
 ))
 
 (print
-    (fetch 'temperature bob)
+    (fetch temperature bob)
 )
 ; 100
 

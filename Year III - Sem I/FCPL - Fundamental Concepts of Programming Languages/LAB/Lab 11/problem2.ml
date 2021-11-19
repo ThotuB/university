@@ -45,3 +45,4 @@ Add(
 );;
 
 Printf.printf "Expression = %.2f\n" (evaluate eq);;
+(* Expression = -6.00 *)

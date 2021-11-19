@@ -7,7 +7,11 @@ let rec gcd = fun a b ->
         gcd (a - b) b
 ;;
 
-let a = 32
-and b = 52;;
+gcd 36 48;;
+(* int = 12 *)
 
-Printf.printf "gcd(%d, %d): %d" a b (gcd a b);;
+gcd 103 4501;;
+(* int = 1 *)
+
+gcd 234 24;;
+(* int = 6 *)
