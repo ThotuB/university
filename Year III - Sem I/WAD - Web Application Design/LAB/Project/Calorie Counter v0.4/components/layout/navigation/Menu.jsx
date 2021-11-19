@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MenuItem from "./MenuItem";
-import { DotsVertical, User, Cog, UserAdd, Logout, Help } from "../svg/Heroicons"
+import { DotsVertical, User, Cog, UserAdd, Logout, Help } from "../../svg/Heroicons"
 
 function DropdownMenu() {
   let [isOpen, setIsOpen] = useState(false);

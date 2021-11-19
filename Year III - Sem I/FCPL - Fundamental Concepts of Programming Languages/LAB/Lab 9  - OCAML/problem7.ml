@@ -19,15 +19,25 @@ let my_or = fun cond1 cond2 ->
         cond2
 ;;
 
-Printf.printf "my_not(true) = %b\n" (my_not true);;
-Printf.printf "my_not(false) = %b\n" (my_not false);;
+Printf.printf "my_not(T) = %b\n" (my_not true);;
+Printf.printf "my_not(F) = %b\n" (my_not false);;
+(* my_not(T) = false *)
+(* my_not(F) = true *)
 
-Printf.printf "my_and(true, true) = %b\n" (my_and true true);;
-Printf.printf "my_and(true, false) = %b\n" (my_and true false);;
-Printf.printf "my_and(false, true) = %b\n" (my_and false true);;
-Printf.printf "my_and(false, false) = %b\n" (my_and false false);;
+Printf.printf "my_and(T, T) = %b\n" (my_and true true);;
+Printf.printf "my_and(T, F) = %b\n" (my_and true false);;
+Printf.printf "my_and(F, T) = %b\n" (my_and false true);;
+Printf.printf "my_and(F, F) = %b\n" (my_and false false);;
+(* my_and(T, T) = true  *)
+(* my_and(T, F) = false *)
+(* my_and(F, T) = false *)
+(* my_and(F, F) = false *)
 
-Printf.printf "my_or(true, true) = %b\n" (my_or true true);;
-Printf.printf "my_or(true, false) = %b\n" (my_or true false);;
-Printf.printf "my_or(false, true) = %b\n" (my_or false true);;
-Printf.printf "my_or(false, false) = %b\n" (my_or false false);;
+Printf.printf "my_or(T, T) = %b\n" (my_or true true);;
+Printf.printf "my_or(T, F) = %b\n" (my_or true false);;
+Printf.printf "my_or(F, T) = %b\n" (my_or false true);;
+Printf.printf "my_or(F, F) = %b\n" (my_or false false);;
+(* my_or(T, T) = true  *)
+(* my_or(T, F) = true  *)
+(* my_or(F, T) = true  *)
+(* my_or(F, F) = false *)

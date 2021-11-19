@@ -5,4 +5,8 @@ let rec geninterval = fun a b ->
         a :: geninterval (a + 1) b
 ;;
 
-List.iter (Printf.printf "%d ") (geninterval 1 10);
+geninterval 1 10;;
+(* int list = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10] *)
+
+geninterval (-2) 2;;
+(* int list = [-2; -1; 0; 1; 2] *)

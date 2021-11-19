@@ -1,4 +1,4 @@
-import { Search } from '../svg/Heroicons'
+import { Search } from '../../svg/Heroicons'
 
 function SearchBar() {
   return (

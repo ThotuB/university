@@ -6,4 +6,5 @@ let rec fib = fun n ->
 ;;
 
 let n = 21;;
-Printf.printf "fib %d: %d\n" n (fib n)
+Printf.printf "fib %d: %d\n" n (fib n);;
+(* fib 21: 10946 *)

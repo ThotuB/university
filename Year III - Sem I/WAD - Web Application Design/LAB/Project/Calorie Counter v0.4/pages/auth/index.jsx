@@ -1,8 +1,8 @@
-import CreateAccount from '../../components/account/CreateAccount'
+import CreateAccount from '../../components/auth/Auth'
 
 function Index() {
     return (
-        <CreateAccount />
+        <Auth />
     )
 }
 

@@ -1,8 +1,12 @@
 import Home from '../../components/home/Home'
 
+import Layout from '../../components/layout/navigation/Layout';
+
 function HomeScreen() {
     return (
-        <Home />
+        <Layout>
+            <Home />
+        </Layout>
     );
 }
 

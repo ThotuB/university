@@ -5,3 +5,7 @@ let rec maximum list = match list with
 ;;
 
 Printf.printf "maximum: %d " (maximum [1; 2; 3; 4; 5; 3; 4; 1]);;
+(* int = 5 *)
+
+Printf.printf "maximum: %d " (maximum []);;
+(* Exception: (Failure "maximum: empty list") *)

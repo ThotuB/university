@@ -16,3 +16,4 @@
 (print
     (count_atom nil '(2 b () a (4 nil nil c v a (a) 3) a))
 )
+; 3
