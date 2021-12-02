@@ -1,0 +1,14 @@
+Design and simulate a time-measurement circuit. The circuit will be composed of two
+main components:
+1. 
+A time unit (e.g. ms, s) measurement component. This block will count an integer
+number of clock periods, based on the clock frequence (e.g. for 50 MHz clock signal, a
+second will consist of 50 millions clock periods).
+2. 
+A component that will count the number of time units passed since 0.
+
+The assignment will consist of:
+1. 
+Provide the scheme for this type of circuit (handwritten on paper).
+2. 
+Simulate your design for a clock frequency of 2.5 MHz and a time unit of 1 ms
