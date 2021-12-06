@@ -18,7 +18,7 @@ let num1 = {re = 1.2; im = 2.3};;
 let num2 = {re = 3.5; im = 4.25};;
 
 add num1 num2;;
-(* complex = {re = 4.7; im = 6.55};; *)
+(* complex = {re = 4.7; im = 6.55} *)
 
 mult num1 num2;;
-(* complex = {re = -5.575; im = 13.15};; *)
+(* complex = {re = -5.575; im = 13.15} *)
