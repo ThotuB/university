@@ -14,6 +14,12 @@ get_head [1; 2; 3];;
 get_tail [1; 2; 3];;
 (* int list = [2; 3] *)
 
+get_head [1];;
+(* int = 1 *)
+
+get_tail [1];;
+(* int list = [] *)
+
 get_head [];;
 (* Exception: (Failure "get_head: empty list") *)
 
