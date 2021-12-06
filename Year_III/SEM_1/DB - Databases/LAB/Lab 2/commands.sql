@@ -21,14 +21,12 @@ create table "SIGNUP" (
 
 -- CREATE GRADE TABLE
 create table "GRADE" (
-    "STUDENT_ID" varchar2(10),
-    "COURSE_ID" number(4, 0),
+    "SIGNUP_ID" number(10, 0),
     "DATE" date,
     "ELP" char(1),
-    "VALUE" number(3,1),
+    "VALUE" number(4,2),
 
-    constraint "GRADE_FK_STUDENT" foreign key ("STUDENT_ID") references "STUDENT" ("ID") on delete cascade,
-    constraint "GRADE_FK_COURSE" foreign key ("COURSE_ID") references "COURSE" ("ID") on delete cascade,
+    constraint "GRADE_FK_SIGNUP" foreign key ("SIGNUP_ID") references "SIGNUP" ("ID") on delete cascade,
 
     constraint "GRADE_CK_ELP" check ("ELP" in ('E', 'L', 'P')),
     constraint "GRADE_CK_VALUE" check ("VALUE" between 1 and 10)
@@ -86,13 +84,13 @@ values ('LM8-18.112', 1, TO_DATE('2019', 'yyyy'))
 
 -- INSERT IN GRADE
 insert into "GRADE"
-values ('LM6-10.425', 2, CURRENT_DATE, 'E', 9)
+values (1, CURRENT_DATE, 'E', 9)
 
 insert into "GRADE"
-values ('LM6-10.425', 2, CURRENT_DATE, 'L', 7)
+values (1, CURRENT_DATE, 'L', 7)
 
 insert into "GRADE"
-values ('LM6-10.425', 2, CURRENT_DATE, 'L', 10)
+values (1, CURRENT_DATE, 'L', 10)
 
 -- DELETE FROM STUDENT
 delete from "STUDENT"

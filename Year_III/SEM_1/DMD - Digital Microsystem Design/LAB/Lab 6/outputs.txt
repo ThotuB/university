@@ -1,0 +1,37 @@
+No of records: 36
+RelationProcessorPackage: mask 65535
+RelationNumaNode: mask 65535, node number 0
+RelationProcessorCore: mask 3, flags 1
+RelationCache: mask 3, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 3, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 3, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationProcessorCore: mask 12, flags 1
+RelationCache: mask 12, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 12, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 12, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationProcessorCore: mask 48, flags 1
+RelationCache: mask 48, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 48, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 48, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationProcessorCore: mask 192, flags 1
+RelationCache: mask 192, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 192, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 192, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationCache: mask 255, level 3, associativity 16, line size 64, cache size 8388608, type 0
+RelationProcessorCore: mask 768, flags 1
+RelationCache: mask 768, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 768, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 768, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationProcessorCore: mask 3072, flags 1
+RelationCache: mask 3072, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 3072, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 3072, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationProcessorCore: mask 12288, flags 1
+RelationCache: mask 12288, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 12288, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 12288, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationProcessorCore: mask 49152, flags 1
+RelationCache: mask 49152, level 1, associativity 8, line size 64, cache size 32768, type 2
+RelationCache: mask 49152, level 1, associativity 4, line size 64, cache size 65536, type 1
+RelationCache: mask 49152, level 2, associativity 8, line size 64, cache size 524288, type 0
+RelationCache: mask 65280, level 3, associativity 16, line size 64, cache size 8388608, type 0
