@@ -20,6 +20,5 @@
     )
 )
 
-(print
-    (squash '(1 nil (two 3) 4 (5 (6 7) 8) 9 nil))
-)
+(print (squash '(1 nil (two 3) 4 (5 (6 7) 8) 9 nil)))
+; (1 nil two 3 4 5 6 7 8 9 nil)

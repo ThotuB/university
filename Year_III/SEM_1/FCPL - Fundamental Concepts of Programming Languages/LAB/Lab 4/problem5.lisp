@@ -9,18 +9,14 @@
     (reverse (trim_head (reverse lst) n))
 )
 
-(print
-    (trim_tail '(1 2 3 4 5 6) 3)
-)
+(print (trim_tail '(1 2 3 4 5 6) 3))
+; (1 2 3)
 
-(print
-    (trim_tail '(1 2 3) 3)
-)
+(print (trim_tail '(1 2 3) 3))
+; NIL
 
-(print
-    (trim_tail '(1) 3)
-)
+(print (trim_tail '(1) 3))
+; NIL
 
-(print
-    (trim_tail nil 3)
-)
+(print (trim_tail nil 3))
+; NIL
