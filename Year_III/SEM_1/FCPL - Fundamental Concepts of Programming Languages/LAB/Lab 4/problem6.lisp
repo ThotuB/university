@@ -16,14 +16,11 @@
     )
 )
 
-(print
-    (count_atoms '(1 2 (three 4) 5 (6 (seven 8) nine) 10))
-)
+(print (count_atoms '(1 2 nil (three 4) 5 (6 (seven 8) nine) 10)))
+; 11
 
-(print
-    (count_atoms nil)
-)
+(print (count_atoms nil))
+; 0
 
-(print
-    (count_atoms '(1 2 3))
-)
+(print (count_atoms '(1 2 3)))
+; 3

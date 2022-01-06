@@ -1,0 +1,43 @@
+Processor Package - Mask: 65535 Number of Processors: 16
+NumaNode - Mask: 65535 Node Number: 0
+Processor Core - Mask: 3 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Processor Core - Mask: 12 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Processor Core - Mask: 48 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Processor Core - Mask: 192 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Cache L3: Type: Unified, Cache Size: 8388608 Bytes, Linesize: 64, Associativity: 16
+Processor Core - Mask: 768 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Processor Core - Mask: 3072 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Processor Core - Mask: 12288 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Processor Core - Mask: 49152 -> Threads: 2
+Cache L1: Type: Data, Cache Size: 32768 Bytes, Linesize: 64, Associativity: 8
+Cache L1: Type: Instruction, Cache Size: 65536 Bytes, Linesize: 64, Associativity: 4
+Cache L2: Type: Unified, Cache Size: 524288 Bytes, Linesize: 64, Associativity: 8
+Cache L3: Type: Unified, Cache Size: 8388608 Bytes, Linesize: 64, Associativity: 16
+Numa Nodes: 1
+Processor Packages1
+Processor Cores: 8
+Processor Threads: 16
+L1 Cache: 16
+L2 Cache: 8
+L3 Cache: 2

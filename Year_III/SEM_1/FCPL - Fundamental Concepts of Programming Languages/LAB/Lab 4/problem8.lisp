@@ -9,9 +9,11 @@
     )
 )
 
-(print (reverse '(1 2 3 4 5)))
-(print (my_reverse '(1 2 3 4 5)))
+(print (my_reverse nil))
+; nil
 
-(print (reverse '(1 2 (3 4) 5)))
+(print (my_reverse '(1 2 3 4 5)))
+; (5 4 3 2 1)
+
 (print (my_reverse '(1 2 (3 4) 5)))
-    
+; (5 (3 4) 2 1)
