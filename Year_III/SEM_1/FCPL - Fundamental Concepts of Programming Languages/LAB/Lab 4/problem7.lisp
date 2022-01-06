@@ -6,5 +6,7 @@
 )
 
 (print (add 5 7))
+; 12
 
 (print (add 7 5))
+; 12
