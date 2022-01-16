@@ -20,7 +20,7 @@ interface FoodProps {
     servingUnit: string;
 }
 
-export default function Food({id, name, description, calories, macros, company, rating, servingSize, servingUnit}: FoodProps) {
+export default function Food({ id, name, description, calories, macros, company, rating, servingSize, servingUnit }: FoodProps) {
     const handleSize = () => {
 
     }
@@ -63,11 +63,11 @@ export default function Food({id, name, description, calories, macros, company, 
                     <div className="flex gap-2">
                         <ChevronLeftIcon />
                         <Button onClick={handleSize} className="px-3">
-                            <ChevronLeftIcon className="w-5"/>
-                            <ChevronUpIcon className="hidden "/>
+                            <ChevronLeftIcon className="w-5" />
+                            <ChevronUpIcon className="hidden " />
                         </Button>
                         <Button onClick={handleAdd} className="px-2">
-                            <PlusIcon className='w-5'/>
+                            <PlusIcon className='w-5' />
                         </Button>
                         <Button onClick={handleDetails}>
                             DETAILS
@@ -76,7 +76,7 @@ export default function Food({id, name, description, calories, macros, company, 
                 </div>
             </div>
 
-            <FoodGraph macros={macros} calories={macros.calories}/>
+            <FoodGraph macros={macros} calories={macros.calories} />
         </div>
     )
 }

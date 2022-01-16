@@ -1,0 +1,44 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 5 -x 1770 -y 350 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1770 -y 370 -defaultsOSRD
+preplace port leds_8bits -pg 1 -lvl 5 -x 1770 -y 570 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 4 -x 1490 -y 380 -defaultsOSRD
+preplace inst microblaze_0 -pg 1 -lvl 2 -x 640 -y 340 -defaultsOSRD
+preplace inst microblaze_0_local_memory -pg 1 -lvl 3 -x 1090 -y 650 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 1 -x 210 -y 340 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 210 -y 660 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 1090 -y 150 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 3 -x 1090 -y 430 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 4 -x 1490 -y 570 -defaultsOSRD
+preplace netloc microblaze_0_Clk 1 0 5 40 440 400 440 910 0 1250 250 1720
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 5 20 -10 NJ -10 NJ -10 NJ -10 1730
+preplace netloc rst_ps7_0_100M_mb_reset 1 1 1 390 370n
+preplace netloc rst_ps7_0_100M_bus_struct_reset 1 1 2 400 680 NJ
+preplace netloc mdm_1_debug_sys_rst 1 0 2 30 410 380
+preplace netloc ARESETN_1 1 1 2 380J 670 940
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 3 390 730 NJ 730 1250J
+preplace netloc processing_system7_0_DDR 1 4 1 1750J 310n
+preplace netloc microblaze_0_debug 1 1 1 N 330
+preplace netloc processing_system7_0_FIXED_IO 1 4 1 1740J 330n
+preplace netloc axi_interconnect_0_M00_AXI 1 3 1 1260 150n
+preplace netloc microblaze_0_M_AXI_IC 1 2 1 920 80n
+preplace netloc microblaze_0_ilmb_1 1 2 1 890 320n
+preplace netloc microblaze_0_dlmb_1 1 2 1 930 300n
+preplace netloc microblaze_0_M_AXI_DC 1 2 1 880 60n
+preplace netloc axi_interconnect_1_M00_AXI 1 3 1 1240 360n
+preplace netloc microblaze_0_M_AXI_DP 1 2 1 900 340n
+preplace netloc axi_interconnect_1_M01_AXI 1 3 1 1240 440n
+preplace netloc axi_gpio_0_GPIO 1 4 1 N 570
+levelinfo -pg 1 0 210 640 1090 1490 1770
+pagesize -pg 1 -db -bbox -sgen 0 -60 1890 1040
+"
+}
+{
+   "da_board_cnt":"1",
+   "da_clkrst_cnt":"1",
+   "da_mb_cnt":"1",
+   "da_ps7_cnt":"1"
+}

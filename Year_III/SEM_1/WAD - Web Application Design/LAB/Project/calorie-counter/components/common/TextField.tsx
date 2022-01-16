@@ -22,9 +22,11 @@ export default function TextField({ className, type, label, placeholder, require
                 {label} {required ? '*' : ''}
             </div>}
             <div className="relative">
-                <div className="absolute text-red-400 pointer-events-none font-semibold right-0 pr-4 py-2 text-right">
-                    {error && errorText}
-                </div>
+                {error &&
+                    <div className="absolute text-red-400 pointer-events-none font-semibold right-0 pr-4 py-2 text-right">
+                        {errorText}
+                    </div>
+                }
                 <input className={`${className} w-full px-4 py-2 text-gray-700 bg-white border ${inputRingColor} rounded-md focus:outline-none focus:ring focus:ring-purple-300`}
                     type={type}
                     placeholder={placeholder}

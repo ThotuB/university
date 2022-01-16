@@ -1,40 +1,48 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.IO;
-using System.Text;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Ex_3
 {
-    class RSA {
+    class RSA
+    {
         RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
 
-        public RSA(int keySize) {
+        public RSA(int keySize)
+        {
             rsa = new RSACryptoServiceProvider(keySize);
         }
 
-        public byte[] Encrypt(byte[] data) {
+        public byte[] Encrypt(byte[] data)
+        {
             return rsa.Encrypt(data, true);
         }
 
-        public byte[] Decrypt(byte[] data) {
+        public byte[] Decrypt(byte[] data)
+        {
             return rsa.Decrypt(data, true);
         }
 
-        public byte[] Sign(byte[] data, HashAlgorithm hashAlgorithm) {
+        public byte[] Sign(byte[] data, HashAlgorithm hashAlgorithm)
+        {
             return rsa.SignData(data, hashAlgorithm);
         }
 
-        public bool Verify(byte[] data, byte[] signature, HashAlgorithm hashAlgorithm) {
+        public bool Verify(byte[] data, byte[] signature, HashAlgorithm hashAlgorithm)
+        {
             return rsa.VerifyData(data, hashAlgorithm, signature);
         }
     }
 
     class Program
     {
-        static string ToHex(byte[] data) {
+        static string ToHex(byte[] data)
+        {
             string hex = "";
-            foreach (byte b in data){
+            foreach (byte b in data)
+            {
                 hex += b.ToString("X2");
             }
             return hex;

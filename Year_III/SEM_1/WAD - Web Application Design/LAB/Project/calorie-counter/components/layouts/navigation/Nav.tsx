@@ -3,8 +3,11 @@ import NavLink from "./NavLink";
 import SearchBar from "./Search";
 import DropdownMenu from "./Menu";
 import AccountIcon from "components/common/AccountIcon";
+import { useUser } from "contexts/UserContext";
 
 export default function Nav() {
+    let { user } = useUser();
+
     return (
         <nav className="bg-white shadow sticky top-0 z-50">
             <div className="container px-6 py-3 mx-auto">
@@ -16,15 +19,18 @@ export default function Nav() {
                             </button>
                         </Link>
 
-                        <SearchBar/>
+                        <SearchBar />
                     </div>
 
                     <div className="flex items-center gap-3">
-                            <NavLink href="/home" label='Home'/>
-                            <NavLink href="/food" label='Food'/>
-                            <NavLink href="/recipes" label='Recipes'/>
+                        <NavLink href="/home" label='Home' />
+                        <NavLink href="/food" label='Food' />
+                        <NavLink href="/recipes" label='Recipes' />
 
-                        <AccountIcon name="Tatu Bogdan"/>
+                        {user ?
+                            <AccountIcon name={user.displayName} image={user.photoURL} /> :
+                            <NavLink href="/" label='Login / Sign Up' />
+                        }
                         <DropdownMenu />
                     </div>
                 </div>

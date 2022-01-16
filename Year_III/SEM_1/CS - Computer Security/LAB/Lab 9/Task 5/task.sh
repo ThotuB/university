@@ -1,8 +1,14 @@
 #!/bin/bash
+gcc env.c -o env
+
+sudo chown root env
+sudo chmod 4755 env
+
+# export PATH=...
 export LD_LIBRARY_PATH=/usr/local/lib
 export MY_VAR=sleepy
 
-OUT_SYSTEMCALL=`env`
-OUT_CPROGRAM=`./env`
+env > out_env.txt
+./env > out_cenv.txt
 
-diff <(echo "$OUT_SYSTEMCALL") <(echo "$OUT_CPROGRAM")
+diff out_env.txt out_cenv.txt
