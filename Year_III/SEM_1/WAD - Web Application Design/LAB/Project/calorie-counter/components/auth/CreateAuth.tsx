@@ -1,19 +1,11 @@
 import Button from 'components/common/Button'
 import TextField from 'components/common/TextField'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
-
-type SetError = Dispatch<SetStateAction<Error>>
-
-interface Error {
-    error: boolean
-    message: string
-}
-
-const defaultError = {
-    error: false,
-    message: ''
-}
+import { useUser } from 'contexts/UserContext'
+import { Error, defaultError, validateConfirmPassword, validateEmail, validatePassword, validateUsername } from '../../utils/validation/validation'
+import Router from 'next/router'
+import { getAuth } from 'firebase/auth'
 
 export default function CreateAuth() {
     const [username, setUsername] = useState('')
@@ -27,6 +19,9 @@ export default function CreateAuth() {
     const [confirmPasswordError, setConfirmPasswordError] = useState<Error>(defaultError)
 
     const [showPassword, setShowPassword] = useState(false)
+    const [loading, setLoading] = useState(false)
+
+    const { signUp, update } = useUser()
 
     const validate = () => {
         let isValid = validateUsername(username, setUsernameError)
@@ -37,9 +32,21 @@ export default function CreateAuth() {
         return isValid
     }
 
-    const handleCreate = () => {
+    const handleCreate = async () => {
         if (!validate()) return
-        console.log('Create user')
+
+        setLoading(true)
+
+        try {
+            await signUp(email, password)
+            await update(getAuth().currentUser, username)
+            Router.push('/home')
+        }
+        catch (error) {
+            console.error(error)
+        }
+
+        setLoading(false)
     }
 
     return (
@@ -85,87 +92,15 @@ export default function CreateAuth() {
                 errorText={confirmPasswordError.message}
             />
 
-            <Button onClick={handleCreate}>
-                Create Account
-            </Button>
+            {loading ?
+                <div className='px-3 py-2 font-bold rounded-md text-white bg-gray-600 text-center'>
+                    Create Account
+                </div> :
+                <Button onClick={handleCreate}>
+                    Create Account
+                </Button>
+            }
         </form>
     )
 }
 
-// Possible errors
-const requiredError = (value: string, setError: SetError) => {
-    if (value.length === 0) {
-        setError({
-            error: true,
-            message: 'Required*'
-        })
-        return false
-    }
-    return true
-}
-
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-const invalidError = (value: string, regex: string | RegExp, setError: SetError) => {
-    if (!value.match(regex)) {
-        setError({
-            error: true,
-            message: 'Invalid'
-        })
-        return false
-    }
-    return true
-}
-
-const alreadyExistsError = (value: string, setError: SetError) => {
-    // TODO: check if username or email already exists
-    if (false) {
-        setError({
-            error: true,
-            message: 'Already exists'
-        })
-        return false
-    }
-    return true
-}
-
-const passwordMatchError = (value: string, password: string, setError: SetError) => {
-    if (value !== password) {
-        setError({
-            error: true,
-            message: 'Passwords do not match'
-        })
-        return false
-    }
-    return true
-}
-
-// Validations
-const validateUsername = (value: string, setError: SetError) => {
-    if (!requiredError(value, setError)) return false
-    if (!alreadyExistsError(value, setError)) return false
-    setError(defaultError)
-    return true
-}
-
-const validateEmail = (value: string, setError: SetError) => {
-    if (!requiredError(value, setError)) return false
-    if (!invalidError(value, emailRegex, setError)) return false
-    if (!alreadyExistsError(value, setError)) return false
-    setError(defaultError)
-    return true
-}
-
-const validatePassword = (value: string, setError: SetError) => {
-    if (!requiredError(value, setError)) return false
-    if (!invalidError(value, passwordRegex, setError)) return false
-    setError(defaultError)
-    return true
-}
-
-const validateConfirmPassword = (value: string, password: string, setError: SetError) => {
-    if (!requiredError(value, setError)) return false
-    if (!passwordMatchError(value, password, setError)) return false
-    setError(defaultError)
-    return true
-}

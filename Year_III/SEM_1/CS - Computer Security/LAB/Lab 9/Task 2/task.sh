@@ -1,4 +1,7 @@
 #!/bin/bash
+
+gcc printenv.c -o printenv
+
 ./printenv -c > out_c.txt
 ./printenv -p > out_p.txt
 

@@ -10,8 +10,7 @@ function SearchBar() {
         Router.push({
             pathname: '/food',
             query: {
-                search: searchTerm,
-                page: 1
+                search: searchTerm
             }
         })
     }

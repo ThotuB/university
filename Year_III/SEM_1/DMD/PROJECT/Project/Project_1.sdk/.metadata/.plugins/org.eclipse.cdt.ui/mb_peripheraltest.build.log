@@ -1,0 +1,13 @@
+18:32:57 **** Incremental Build of configuration Debug for project mb_peripheraltest ****
+make all 
+'Building target: mb_peripheraltest.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../mb_peripheraltest_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "mb_peripheraltest.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xqspips_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+t:/vivado/sdk/2019.1/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe:../src/lscript.ld:22: warning: redeclaration of memory region `ps7_ddr_0_HP0_AXI_BASENAME'
+t:/vivado/sdk/2019.1/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: mb_peripheraltest.elf section `.heap' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+t:/vivado/sdk/2019.1/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 1784 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:38: mb_peripheraltest.elf] Error 1
+
+18:32:58 Build Finished (took 643ms)
+
