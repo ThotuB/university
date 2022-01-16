@@ -20,38 +20,36 @@ interface FoodListProps {
 }
 
 export default function FoodList({ items }: FoodListProps) {
-    const food_list = items.map((item) => {
-        const { fdcId, brandName, brandOwner, description, foodNutrients, servingSize, servingSizeUnit } = item;
-        const rating = 3;
-
-        const macros = {
-            calories: findNutrientValue(foodNutrients, 1008),
-            protein: findNutrientValue(foodNutrients, 1003),
-            fat: findNutrientValue(foodNutrients, 1004),
-            carbs: findNutrientValue(foodNutrients, 1005)
-        };
-        const calories = Math.round(macros.calories / 100 * servingSize);
-        const serving = Math.round(servingSize);
-
-        return (
-            <Food
-                key={fdcId}
-                id={fdcId}
-                description={description}
-                macros={macros}
-                calories={calories}
-                company={brandOwner}
-                name={brandName}
-                rating={rating}
-                servingSize={serving}
-                servingUnit={servingSizeUnit}
-            />
-        );
-    })
-
     return (
-        <div className='flex flex-col gap-4 mb-4'>
-            {food_list}
+        <div className='flex flex-col gap-4 mb-4 w-full'>
+            {items.map((item) => {
+                const { fdcId, brandName, brandOwner, description, foodNutrients, servingSize, servingSizeUnit } = item;
+                const rating = 3;
+
+                const macros = {
+                    calories: findNutrientValue(foodNutrients, 1008),
+                    protein: findNutrientValue(foodNutrients, 1003),
+                    fat: findNutrientValue(foodNutrients, 1004),
+                    carbs: findNutrientValue(foodNutrients, 1005)
+                };
+                const calories = Math.round(macros.calories / 100 * servingSize);
+                const serving = Math.round(servingSize);
+
+                return (
+                    <Food
+                        key={fdcId}
+                        id={fdcId}
+                        description={description}
+                        macros={macros}
+                        calories={calories}
+                        company={brandOwner}
+                        name={brandName}
+                        rating={rating}
+                        servingSize={serving}
+                        servingUnit={servingSizeUnit}
+                    />
+                );
+            })}
         </div>
     );
 }

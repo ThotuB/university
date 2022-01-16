@@ -8,6 +8,8 @@ module.exports = {
     extend: {
       fontFamily: {
         site: ['Roboto', 'sans-serif'],
+        "futura-book": ['FuturaBTW01-Book', 'sans-serif'],
+        "futura-light": ['FuturaBTW01-Light', 'sans-serif'],
       },
       keyframes: {
         'load': {

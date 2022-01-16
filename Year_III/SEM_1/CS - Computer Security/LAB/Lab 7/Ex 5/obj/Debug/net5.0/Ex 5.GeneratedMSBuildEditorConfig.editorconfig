@@ -6,3 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
+build_property.RootNamespace = Ex_5
+build_property.ProjectDir = C:\Users\bogda\Desktop\University\Year_III\SEM_1\CS - Computer Security\LAB\Lab 7\Ex 5\
