@@ -1,27 +1,7 @@
 import { MongoClient } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-type GetData = {
-    entries: number;
-    pages: number;
-    recipes: {
-        id: string;
-        name: string;
-        description: string;
-        image: File;
-        user: {
-            id: string;
-            name: string;
-            image?: string;
-        }
-    }[]
-}
-
-type PostData = {
-    message: string;
-}
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse<GetData | PostData>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
         const { pageNumber, pageSize, userId } = req.query;
         const page = parseInt(pageNumber as string, 10) || 0;
@@ -52,8 +32,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     name: recipe.name,
                     description: recipe.description,
                     image: recipe.image,
+                    approved: recipe.approved,
                     user: {
-                        id: recipe.user.userId,
+                        id: recipe.user.id,
                         name: recipe.user.name,
                         image: recipe.user.image
                     }

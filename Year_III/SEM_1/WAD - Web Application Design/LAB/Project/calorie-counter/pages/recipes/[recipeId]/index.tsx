@@ -4,7 +4,8 @@ import Layout from "components/layouts/navigation/Layout";
 import Recipe from "components/recipes/[recipeId]/Recipe";
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
-import { IRecipe } from "types/recipe";
+import { getRecipe } from "services/recipe";
+import { RecipeDto } from "types/recipe";
 
 interface Props {
     id: string;
@@ -12,12 +13,10 @@ interface Props {
 
 export default ({ id }: Props) => {
     const [loading, setLoading] = useState(true);
-    const [recipe, setRecipe] = useState<IRecipe>({} as IRecipe);
+    const [recipe, setRecipe] = useState<RecipeDto>({} as RecipeDto);
 
     useEffect(() => {
-        const url = `http://localhost:3000/api/recipe/${id}`;
-
-        axios.get(url)
+        getRecipe(id)
             .then(res => {
                 setRecipe(res.data);
                 setLoading(false);

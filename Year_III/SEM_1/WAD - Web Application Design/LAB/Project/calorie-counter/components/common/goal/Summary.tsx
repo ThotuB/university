@@ -15,14 +15,23 @@ const summary = {
     }
 }
 
-function Summary(props) {
-    const { goal, food, excercise, macros } = summary;
-    const { protein, carbs, fat } = macros;
+interface SummaryProps {
+    goal: number;
+    food: number;
+    excercise: number;
+    macros: {
+        protein: number;
+        carbs: number;
+        fat: number;
+    }
+}
+
+function Summary({ goal, food, excercise, macros: { protein, carbs, fat} }: SummaryProps) {
     const progress = food - excercise;
     const remaining = Math.abs(goal - progress);
 
     return (
-        <div className="flex flex-col w-full max-w-3xl mx-auto bg-white overflow-hidden rounded-xl drop-shadow-md">
+        <div className="flex flex-col w-full mx-auto bg-white overflow-hidden rounded-xl border">
             <div className="p-3 font-semibold text-xl object-center bg-purple-300">
                 Daily Summary
             </div>
@@ -56,13 +65,13 @@ function Summary(props) {
                         </div>
                         <div className="h-1 bg-gray-200 rounded-full"/>
                         <div className="flex w-full h-2/5 justify-between items-center">
-                            <SummaryBox value={goal} title="GOAL"/>
+                            <SummaryBox value={goal} label="GOAL"/>
                             <div className="bg-gray-200 w-1 h-full rounded-b-full"/>
-                            <SummaryBox value={food} title="FOOD"/>
+                            <SummaryBox value={food} label="FOOD"/>
                             <Minus />
-                            <SummaryBox value={excercise} title="EXCERCISE"/>
+                            <SummaryBox value={excercise} label="EXCERCISE"/>
                             <Equals />
-                            <SummaryBox value={progress} title="NET"/>
+                            <SummaryBox value={progress} label="NET"/>
                         </div>
                     </div>
                   

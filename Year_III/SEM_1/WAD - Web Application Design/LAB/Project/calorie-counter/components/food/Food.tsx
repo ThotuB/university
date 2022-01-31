@@ -34,7 +34,7 @@ export default function Food({ id, name, description, calories, macros, company,
     }
 
     return (
-        <div className="flex max-w-3xl w-full mx-auto overflow-hidden bg-white rounded-xl drop-shadow-md border">
+        <div className="flex max-w-3xl w-full mx-auto overflow-hidden bg-white rounded-xl border">
             <div className="w-4/5 p-4 gap-2 flex flex-col justify-between">
                 <div>
                     <div className="flex justify-between gap-2">

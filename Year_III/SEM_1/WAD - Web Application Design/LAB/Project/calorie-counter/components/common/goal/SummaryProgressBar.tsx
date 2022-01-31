@@ -1,10 +1,16 @@
-function SummaryProgressBar(props) {
-    const { perc, percPrev, className } = props;
+interface SummaryProgressBarProps {
+    children: React.ReactNode;
+    perc: number;
+    percPrev: number;
+    className: string;
+}
+
+function SummaryProgressBar({ children, perc, percPrev, className }: SummaryProgressBarProps) {
     const percLeft = 100 - percPrev;
 
     function printTextIf() {
         if ( perc - percPrev > 15 ){
-            return props.children;
+            return children;
         }
     }
 
