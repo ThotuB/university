@@ -12,7 +12,7 @@ export default function Auth() {
     };
 
     return (
-        <div className='h-screen w-screen mt-56'>
+        <div className='h-full w-full mt-56'>
             <div className='w-full max-w-sm p-6 m-auto bg-white rounded-xl shadow-md flex flex-col border'>
                 <div className='text-3xl font-semibold text-center text-gray-700'>
                     Calorie Counter

@@ -29,7 +29,7 @@ export default function MacroGraph({ carbs, fat, protein }: MacroProps) {
 			},
 		},
 		cutout: '60%',
-		borderColor: '#c4b5fd',
+		borderColor: '#d8b4fe',
 		backgroundColor: '#000',
 		borderWidth: 10,
 	};

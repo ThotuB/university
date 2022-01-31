@@ -14,7 +14,7 @@ export default function DropdownMenu() {
     }
 
     const handleSettings = () => {
-
+        Router.push("/settings");
     }
 
     const handleAddFriend = () => {

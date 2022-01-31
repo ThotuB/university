@@ -1,15 +1,15 @@
-import axios from "axios";
 import Router from "next/router";
-import { IRecipe } from "types/recipe";
+import { updateRecipe } from "services/recipe";
+import { RecipeDto } from "types/recipe";
 import EditForm from "./EditForm";
 
 interface RecipeEditPageProps {
-    recipe: IRecipe;
+    recipe: RecipeDto;
 }
 
 export default function RecipeEditPage({ recipe }: RecipeEditPageProps) {
-    const handleEdit = async (recipe: IRecipe) => {
-        await axios.post<IRecipe>('/api/recipes', recipe);
+    const handleEdit = async (recipe: RecipeDto) => {
+        await updateRecipe(recipe)
 
         Router.push('/recipes');
     }

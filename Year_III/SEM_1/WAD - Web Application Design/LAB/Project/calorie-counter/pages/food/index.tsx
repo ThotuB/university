@@ -46,7 +46,13 @@ export default function Index({ apiKey, search }: Props) {
 
     return (
         <Layout>
-            <Summary />
+            <div className="max-w-3xl w-full">
+                <Summary goal={0} food={0} excercise={0} macros={{
+                    protein: 0,
+                    carbs: 0,
+                    fat: 0
+                }} />
+            </div>
             {loading ? <Loading /> : <FoodList items={foods} />}
             <Pagination page={page} count={pages} onPageChange={setPage} />
         </Layout>

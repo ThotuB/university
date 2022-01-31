@@ -6,7 +6,7 @@ import { IRecipe } from 'types/recipe';
 
 export default function RecipeCreatePage() {
     const handleCreate = async (recipe: IRecipe) => {
-        await axios.post<IRecipe>('/api/recipes', recipe);
+        await axios.post('/api/recipes', recipe);
 
         Router.push('/recipes');
     }
