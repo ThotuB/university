@@ -3,9 +3,11 @@ import TextField from 'components/common/TextField'
 import { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
 import { useUser } from 'contexts/UserContext'
-import { Error, defaultError, validateConfirmPassword, validateEmail, validatePassword, validateUsername } from '../../utils/validation/validation'
+import { Error, defaultError, validateConfirmPassword, validateEmail, validatePassword, validateUsername } from '../../utils/validation'
 import Router from 'next/router'
 import { getAuth } from 'firebase/auth'
+import { updateUserProfile } from 'services/user'
+import { createProfile } from 'utils/profile'
 
 export default function CreateAuth() {
     const [username, setUsername] = useState('')
@@ -39,7 +41,11 @@ export default function CreateAuth() {
 
         try {
             await signUp(email, password)
-            await update(getAuth().currentUser, username)
+
+            const user = getAuth().currentUser
+
+            await update(user, username)
+            await createProfile(user)
             Router.push('/home')
         }
         catch (error) {
@@ -103,4 +109,3 @@ export default function CreateAuth() {
         </form>
     )
 }
-

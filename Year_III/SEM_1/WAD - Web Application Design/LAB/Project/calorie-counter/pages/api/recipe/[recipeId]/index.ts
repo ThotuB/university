@@ -1,13 +1,8 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { IRecipe } from 'types/recipe';
+import _ from 'lodash';
 
-type GetData = IRecipe
-type DeleteData = {
-    message: string
-}
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse<GetData | DeleteData>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
         const { recipeId } = req.query;
 
@@ -34,11 +29,42 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             image: result.image,
             ingredients: result.ingredients,
             steps: result.steps,
+            approved: result.approved,
             user: {
                 id: result.user.userId,
                 name: result.user.name,
                 image: result.user.image
             }
+        })
+    }
+
+    if (req.method === 'PUT') {
+        const { recipeId } = req.query;
+        const { name, description, image, ingredients, steps, approved } = req.body;
+
+        const client = await MongoClient.connect(
+            'mongodb+srv://admin:WF0qDFsvY6ux716Q@thotu.lmwwa.mongodb.net/recipes?retryWrites=true&w=majority'
+        );
+        const db = client.db();
+
+        const collection = db.collection('recipes');
+
+        const fields = _.pickBy({ name, description, image, ingredients, steps, approved }, _.identity)
+
+        const result = await collection.updateOne(
+            { _id: new ObjectId(recipeId as string) },
+            { $set: fields },
+        )
+
+        client.close()
+
+        if (!result) {
+            res.status(404);
+            return;
+        }
+
+        res.status(200).json({
+            message: 'Recipe updated'
         })
     }
 

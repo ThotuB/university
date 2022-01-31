@@ -9,12 +9,14 @@ interface TextFieldProps {
     errorText?: string;
     value?: string;
     maxLength?: number;
+    disabled?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function TextField({ className, type, label, placeholder, required, error, errorText, value, maxLength, onChange }: TextFieldProps) {
+export default function TextField({ className, type, label, placeholder, required, error, errorText, value, maxLength, disabled, onChange }: TextFieldProps) {
     const labelTextColor = error ? 'text-red-400' : 'text-gray-800';
     const inputRingColor = error ? 'ring ring-red-300' : '';
+    const bgColor = disabled ? 'bg-gray-200' : 'bg-white';
 
     return (
         <div className="w-full flex flex-col gap-2">
@@ -27,11 +29,12 @@ export default function TextField({ className, type, label, placeholder, require
                         {errorText}
                     </div>
                 }
-                <input className={`${className} w-full px-4 py-2 text-gray-700 bg-white border ${inputRingColor} rounded-md focus:outline-none focus:ring focus:ring-purple-300`}
+                <input className={`${className} w-full px-4 py-2 text-gray-700 ${bgColor} border ${inputRingColor} rounded-md focus:outline-none focus:ring focus:ring-purple-300`}
                     type={type}
                     placeholder={placeholder}
                     value={value}
                     maxLength={maxLength}
+                    disabled={disabled}
                     onChange={onChange}
                 />
             </div>

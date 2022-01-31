@@ -1,22 +1,8 @@
+import { FoodDto, NutrientDto } from 'types/food';
 import Food from './Food';
 
-interface Nutrient {
-    nutrientId: number;
-    value: number;
-}
-
-interface Food {
-    fdcId: number;
-    description: string;
-    brandOwner: string;
-    brandName: string;
-    foodNutrients: Nutrient[];
-    servingSize: number;
-    servingSizeUnit: string;
-}
-
 interface FoodListProps {
-    items: Food[]
+    items: FoodDto[]
 }
 
 export default function FoodList({ items }: FoodListProps) {
@@ -54,7 +40,7 @@ export default function FoodList({ items }: FoodListProps) {
     );
 }
 
-function findNutrientValue(nutrients: Nutrient[], id: number) {
+function findNutrientValue(nutrients: NutrientDto[], id: number) {
     const nutrient = nutrients.find(nutrient => nutrient.nutrientId === id)
     return nutrient ? nutrient.value : 0;
 }

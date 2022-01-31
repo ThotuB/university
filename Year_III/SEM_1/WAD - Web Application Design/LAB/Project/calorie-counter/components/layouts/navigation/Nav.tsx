@@ -28,8 +28,8 @@ export default function Nav() {
                         <NavLink href="/recipes" label='Recipes' />
 
                         {user ?
-                            <AccountIcon name={user.displayName} image={user.photoURL} /> :
-                            <NavLink href="/" label='Login / Sign Up' />
+                            <AccountIcon name={user.displayName} image={user.photoURL} id={user.uid}/> :
+                            <NavLink href='/' label='Login / Sign Up' />
                         }
                         <DropdownMenu />
                     </div>

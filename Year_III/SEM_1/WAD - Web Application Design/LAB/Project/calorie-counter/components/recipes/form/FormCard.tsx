@@ -20,7 +20,7 @@ function FormCard({ children, name, description, saved, onSave }: FormCardProps)
                     {description}
                 </div>
             </div>
-            <div className="w-2/3 bg-white border overflow-x-hidden overflow-y-visible rounded-lg shadow-md h-full flex flex-col justify-between">
+            <div className="w-2/3 bg-white border overflow-hidden rounded-lg shadow-md h-full flex flex-col justify-between">
                 <div className="p-4 flex flex-col gap-6">
                     {children}
                 </div>

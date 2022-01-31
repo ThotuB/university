@@ -4,10 +4,14 @@ import Pagination from "components/common/Pagination";
 
 import { useState, useEffect } from "react";
 import React from "react";
+import ToggleSwitch from "components/common/ToggleSwitch";
 
 export default function Index() {
 
     return (
-        <Loading />
+        <div className="flex justify-center p-2">
+            <ToggleSwitch />
+        </div>
+
     );
 }

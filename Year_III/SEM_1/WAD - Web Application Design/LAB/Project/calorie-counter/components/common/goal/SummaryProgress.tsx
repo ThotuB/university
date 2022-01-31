@@ -2,9 +2,13 @@ import SummaryProgressBar from "./SummaryProgressBar";
 import { useState, useEffect } from "react";
 import { Transition } from '@headlessui/react'
 
-function SummaryProgress(props) {
+interface SummaryProgressProps {
+    goal: number;
+    progress: number;
+}
+
+function SummaryProgress({ goal, progress }: SummaryProgressProps) {
     const [show, setShow] = useState(false);
-    const { goal, progress } = props;
 
     let progressPerc = (goal > progress) ? Math.max(0, (progress / goal) * 100) : (goal / progress) * 100;
     let goalPerc = (goal > progress) ? 100 : 0;

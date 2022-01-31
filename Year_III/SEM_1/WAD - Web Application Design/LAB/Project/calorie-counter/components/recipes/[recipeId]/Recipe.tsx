@@ -1,13 +1,13 @@
-import { IRecipe } from "types/recipe";
+import { RecipeDto } from "types/recipe";
 import Ingredients from "./Ingredients";
 import Instructions from "./Instructions";
 
 interface Props {
-    recipe: IRecipe;
+    recipe: RecipeDto;
 }
 
 export default function Recipe({ recipe: { id, name, description, image, ingredients, steps, user: { id: userId, name: userName, image: userImage } } }: Props) {
-    console.log(ingredients)
+    console.log(image)
 
     return (
         <div className="w-full h-full bg-white rounded-3xl overflow-hidden flex flex-col gap-8 font-futura-light">
@@ -17,7 +17,10 @@ export default function Recipe({ recipe: { id, name, description, image, ingredi
                         {name}
                     </div>
                 </div>
-                <img src={image} className="w-full h-full object-cover" />
+                {image ? 
+                    <img src={image} className="w-full h-full object-cover" /> :
+                    <div className="h-24 bg-red-300" />
+                }
             </div>
             <div className="flex flex-col gap-8 px-10 py-4">
                 <div className="flex flex-col gap-8">

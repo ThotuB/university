@@ -4,20 +4,26 @@ import StepField from "../form/StepField";
 import Divider from "components/common/Divider";
 import { useState } from "react";
 import Button from "components/common/Button";
-import { IRecipeIngredient, IRecipe, IRecipeInfo } from "types/recipe";
+import { IRecipeIngredient, RecipeDto, IRecipeInfo } from "types/recipe";
 
 interface FormProps {
-    recipe : IRecipe;
-    onEdit: (recipe: IRecipe) => void;
+    recipe: RecipeDto;
+    onEdit: (recipe: RecipeDto) => void;
 }
 
-export default ({ recipe, onEdit }: FormProps) => {
-    const [info, setInfo] = useState<IRecipeInfo>({name: recipe.name, description: recipe.description, image: recipe.image});
-    const [ingredients, setIngredients] = useState<IRecipeIngredient[]>(recipe.ingredients);
-    const [steps, setSteps] = useState<string[]>(recipe.steps);
+export default ({ recipe: {id, name, description, image, ingredients: recipeIngredients, steps: recipeSteps}, onEdit }: FormProps) => {
+    const [info, setInfo] = useState<IRecipeInfo>({name: name, description: description, image: image});
+    const [ingredients, setIngredients] = useState<IRecipeIngredient[]>(recipeIngredients);
+    const [steps, setSteps] = useState<string[]>(recipeSteps);
 
-    const handleCreate = () => {
-        
+    const handleEdit = () => {
+        const recipe = {
+            id: id,
+            ...info,
+            ingredients,
+            steps
+        };
+        onEdit(recipe);
     }
 
     return (
@@ -35,7 +41,7 @@ export default ({ recipe, onEdit }: FormProps) => {
             <Divider />
 
             <Button className="rounded-2xl"
-                onClick={handleCreate}
+                onClick={handleEdit}
             >
                 SAVE EDIT
             </Button>

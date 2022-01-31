@@ -5,21 +5,25 @@ import Divider from "components/common/Divider";
 import { useState } from "react";
 import Button from "components/common/Button";
 import { useUser } from "contexts/UserContext";
-import { IRecipe, IRecipeInfo, IRecipeIngredient } from "types/recipe";
+import { RecipeDto, IRecipeInfo, IRecipeIngredient } from "types/recipe";
 
 interface FormProps {
-    onCreate: (recipe: IRecipe) => void;
+    onCreate: (recipe: RecipeDto) => void;
 }
 
 export default ({ onCreate }: FormProps) => {
-    const [info, setInfo] = useState<IRecipeInfo>({} as IRecipeInfo);
+    const [info, setInfo] = useState<IRecipeInfo>({
+        name: "",
+        description: "",
+        image: ""
+    });
     const [ingredients, setIngredients] = useState<IRecipeIngredient[]>([]);
     const [steps, setSteps] = useState<string[]>([]);
 
     const { user } = useUser();
 
     const handleCreate = () => {
-        const recipe: IRecipe = {
+        const recipe: RecipeDto = {
             ...info,
             ingredients,
             steps,
@@ -34,22 +38,22 @@ export default ({ onCreate }: FormProps) => {
 
     return (
         <div className="w-full bg-gray-100 rounded-md border p-4 flex flex-col gap-6">
-            <InfoField onSave={setInfo} />
+            <InfoField recipeInfo={info} onSave={setInfo} />
 
             <Divider />
 
-            <IngredientField onSave={setIngredients} />
+            <IngredientField recipeIngredients={ingredients} onSave={setIngredients} />
 
             <Divider />
 
-            <StepField onSave={setSteps} />
+            <StepField recipeSteps={steps} onSave={setSteps} />
 
             <Divider />
 
             <Button className="rounded-2xl"
                 onClick={handleCreate}
             >
-                CREATE RECIPE
+                SAVE EDIT
             </Button>
         </div>
     );

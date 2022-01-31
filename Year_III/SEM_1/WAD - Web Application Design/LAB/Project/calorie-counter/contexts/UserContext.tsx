@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { auth } from 'utils/firebase/firebase'
+import { auth } from 'utils/firebase'
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -11,15 +11,18 @@ import {
     TwitterAuthProvider,
     updateProfile
 } from 'firebase/auth'
+import { isAdmin, makeUserAdminWithToken } from "services/user"
 
 interface UserContext {
     user: User | null;
+    admin: boolean;
     logIn: (email: string, password: string) => Promise<UserCredential>;
     logInGoogle: () => Promise<UserCredential>;
     logInTwitter: () => Promise<UserCredential>;
     logOut: () => Promise<void>;
     signUp: (email: string, password: string) => Promise<UserCredential>;
     update: (user: User, displayName: string) => Promise<void>;
+    makeUserAdmin: (user: User, token: string) => Promise<void>;
 }
 
 const UserContext = createContext({} as UserContext)
@@ -33,7 +36,8 @@ interface UserProviderProps {
 }
 
 export function UserProvider({ children }: UserProviderProps) {
-    const [user, setUser] = useState<User | null>(null)
+    const [user, setUser] = useState<User | null>({} as User)
+    const [admin, setAdmin] = useState(false)
 
     const signUp = (email: string, password: string) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -61,9 +65,19 @@ export function UserProvider({ children }: UserProviderProps) {
         })
     }
 
+    const makeUserAdmin = (user: User, token: string) => {
+        return makeUserAdminWithToken(user.uid, token)
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setUser(user)
+            if (user) {
+                isAdmin(user.uid)
+                    .then(a => {
+                        setAdmin(a)
+                    })
+            }
         })
 
         return unsubscribe
@@ -71,12 +85,14 @@ export function UserProvider({ children }: UserProviderProps) {
 
     const value = {
         user,
+        admin,
         logIn,
         logInGoogle,
         logInTwitter,
         logOut,
         signUp,
-        update
+        update,
+        makeUserAdmin
     }
 
     return (
