@@ -12,13 +12,12 @@ typedef enum {
     RETURN,
     BREAK,
     CONTINUE,
-    FUNCTION,
-    VAR,
     // types
+    VOID,
     INT,
-    FLOAT,
+    DOUBLE,
     CHAR,
-    STR,
+    STRUCT,
     // constants
     CT_INT,
     CT_REAL,
