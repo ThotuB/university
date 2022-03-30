@@ -1,0 +1,15 @@
+struct myStruct {
+    int x;
+    double y;
+};
+
+char z;
+void m(int p, double q) {
+    if (p <= q) {
+        int a = 100;
+        /* Here1 */
+    } else {
+        // Here2
+        double b = 3.14;
+    }
+}
