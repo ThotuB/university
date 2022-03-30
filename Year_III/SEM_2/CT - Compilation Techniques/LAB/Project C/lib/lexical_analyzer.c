@@ -3,18 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Project/lib/token.h"
+#include "lexical_analyzer.h"
 
-#define SAFE_ALLOC(var, type)                           \
-    if ((var = (type *)malloc(sizeof(type))) == NULL) { \
-        error("Out of memory");                         \
-    }
-
-char *current_char;
 int line = 0;
 
 char *token_type_name[] = {
+    // identifiers
     "ID",
+    // keywords
     "IF",
     "ELSE",
     "WHILE",
@@ -22,16 +18,20 @@ char *token_type_name[] = {
     "RETURN",
     "BREAK",
     "CONTINUE",
-    "INT",
-    "CHAR",
+    // types
     "VOID",
+    "INT",
     "DOUBLE",
-    "FLOAT",
+    "CHAR",
+    "STRUCT",
+    // constants
     "CT_INT",
     "CT_REAL",
     "CT_CHAR",
     "CT_STRING",
+    // delimiters
     "COMMA",
+    "COLON",
     "SEMICOLON",
     "LPAREN",
     "RPAREN",
@@ -39,6 +39,7 @@ char *token_type_name[] = {
     "RBRACKET",
     "LBRACE",
     "RBRACE",
+    // operators
     "ASSIGN",
     "ADD",
     "SUB",
@@ -55,14 +56,12 @@ char *token_type_name[] = {
     "EQ",
     "NE",
     "DOT",
+    // others
     "SPACE",
     "SLCOMMENT",
     "MLCOMMENT",
     "END",
 };
-
-token_t *token_list = NULL;
-token_t *tail_token = NULL;
 
 char *newString(char *start, char *end) {
     char *str = (char *)malloc(end - start + 1);
@@ -246,10 +245,7 @@ int getNextToken() {
                 str_len = current_char - str;
 
                 // keywords
-                if (is_keyword(str, str_len, "var", 3)) {
-                    addToken(VAR);
-                    return VAR;
-                } else if (is_keyword(str, str_len, "if", 2)) {
+                if (is_keyword(str, str_len, "if", 2)) {
                     addToken(IF);
                     return IF;
                 } else if (is_keyword(str, str_len, "else", 4)) {
@@ -270,23 +266,23 @@ int getNextToken() {
                 } else if (is_keyword(str, str_len, "continue", 8)) {
                     addToken(CONTINUE);
                     return CONTINUE;
-                } else if (is_keyword(str, str_len, "function", 8)) {
-                    addToken(FUNCTION);
-                    return FUNCTION;
                 }
                 // types
-                else if (is_keyword(str, str_len, "int", 3)) {
+                else if (is_keyword(str, str_len, "void", 4)) {
+                    addToken(VOID);
+                    return VOID;
+                }  else if (is_keyword(str, str_len, "int", 3)) {
                     addToken(INT);
                     return INT;
+                } else if (is_keyword(str, str_len, "double", 6)) {
+                    addToken(DOUBLE);
+                    return DOUBLE;
                 } else if (is_keyword(str, str_len, "char", 4)) {
                     addToken(CHAR);
                     return CHAR;
-                } else if (is_keyword(str, str_len, "str", 3)) {
-                    addToken(STR);
-                    return STR;
-                } else if (is_keyword(str, str_len, "float", 5)) {
-                    addToken(FLOAT);
-                    return FLOAT;
+                } else if (is_keyword(str, str_len, "struct", 6)) {
+                    addToken(STRUCT);
+                    return STRUCT;
                 }
                 // identifiers
                 else {
@@ -368,14 +364,9 @@ int getNextToken() {
                 }
             }
             case 10: {  // state: //
-                if (c == '\n' || c == '\r') {
-                    current_char++;
+                if (c == '\n' || c == '\r' || c == '\0') {
                     token = addToken(SLCOMMENT);
-                    token->str = newString(str + 1, current_char - 1);
-                    return SLCOMMENT;
-                } else if (c == '\0') {
-                    token = addToken(SLCOMMENT);
-                    token->str = newString(str + 1, current_char);
+                    token->str = newString(str+1, current_char-1);
                     return SLCOMMENT;
                 } else {
                     state = 10;
@@ -434,7 +425,7 @@ int getNextToken() {
                 if (c == '\'') {
                     current_char++;
                     token = addToken(CT_CHAR);
-                    token->str = newString(str + 1, current_char - 1);
+                    token->str = newString(str+1, current_char-1);
                     return CT_CHAR;
                 } else {
                     token_error(addToken(END), "Invalid character");
@@ -446,7 +437,7 @@ int getNextToken() {
                 } else if (c == '\"') {
                     current_char++;
                     token = addToken(CT_STRING);
-                    token->str = newString(str + 1, current_char - 1);
+                    token->str = newString(str+1, current_char-1);
                     return CT_STRING;
                 } else {
                     state = 16;
@@ -599,26 +590,4 @@ void tokenize(char *str) {
     do {
         type = getNextToken();
     } while (type != END);
-}
-
-int main() {
-    // read file into string
-    FILE *fp = fopen("res/input.c", "r");
-
-    fseek(fp, 0, SEEK_END);
-    int size = ftell(fp);
-    fseek(fp, 0, SEEK_SET);
-
-    char *input = (char *)malloc(size + 1);
-    fread(input, size, 1, fp);
-    input[size] = '\0';
-
-    printf("%s\n", input);
-
-    tokenize(input);
-    showTokens();
-
-    fclose(fp);
-
-    return 0;
 }
