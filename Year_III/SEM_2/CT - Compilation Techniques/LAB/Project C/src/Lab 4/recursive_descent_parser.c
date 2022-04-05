@@ -18,7 +18,6 @@ int consumeToken(int type) {
 
         return 1;
     }
-    printf("* token: %s\n", token_type_name[type]);
     return 0;
 }
 
@@ -54,7 +53,7 @@ int ruleDeclareVar();
 int ruleDeclareStruct();
 int ruleFuncParam();
 int ruleFuncParams();
-int ruleDeclareFunc() ;
+int ruleDeclareFunc();
 
 // variable types
 int ruleType() {
@@ -69,6 +68,14 @@ int ruleType() {
 int ruleTypeName() {
     if (!ruleType()) return 0;
     ruleArray();
+
+    return 1;
+}
+
+// initializer
+int ruleInit() {
+    if (!consumeToken(ASSIGN)) return 0;
+    if (!ruleExpression()) return 0;
 
     return 1;
 }
@@ -100,85 +107,64 @@ int ruleExpression() {
 }
 
 int ruleExpressionAssign() {
-    if (ruleExpressionUnary()) {
-        if (!consumeToken(ASSIGN)) return 0;
-        if (!ruleExpressionAssign()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionOr()) return 0;
+    if (consumeToken(ASSIGN)) {
+        if (!ruleExpressionAssign()) return 0;
+    }
 
     return 1;
 }
 
 int ruleExpressionOr() {
-    if (ruleExpressionOr()) {
-        if (!consumeToken(OR)) return 0;
-        if (!ruleExpressionAnd()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionAnd()) return 0;
+    while (consumeToken(OR)) {
+        if (!ruleExpressionAnd()) return 0;
+    }
 
     return 1;
 }
 
 int ruleExpressionAnd() {
-    if (ruleExpressionAnd()) {
-        if (!consumeToken(AND)) return 0;
-        if (!ruleExpressionEquality()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionEquality()) return 0;
+    while (consumeToken(AND)) {
+        if (!ruleExpressionEquality()) return 0;
+    }
 
     return 1;
 }
 
 int ruleExpressionEquality() {
-    if (ruleExpressionEquality()) {
-        if (!consumeToken(EQ) && !consumeToken(NE)) return 0;
-        if (!ruleExpressionRelational()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionRelational()) return 0;
+    while (consumeToken(EQ) || consumeToken(NE)) {
+        if (!ruleExpressionRelational()) return 0;
+    }
 
     return 1;
 }
 
 int ruleExpressionRelational() {
-    if (ruleExpressionRelational()) {
-        if (!consumeToken(LT) && !consumeToken(GT) && !consumeToken(LE) && !consumeToken(GE)) return 0;
-        if (!ruleExpressionAddSub()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionAddSub()) return 0;
+    while (consumeToken(LT) || consumeToken(LE) || consumeToken(GT) || consumeToken(GE)) {
+        if (!ruleExpressionAddSub()) return 0;
+    }
 
     return 1;
 }
 
 int ruleExpressionAddSub() {
-    if (ruleExpressionAddSub()) {
-        if (!consumeToken(ADD) && !consumeToken(SUB)) return 0;
-        if (!ruleExpressionMulDiv()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionMulDiv()) return 0;
+    while (consumeToken(ADD) || consumeToken(SUB)) {
+        if (!ruleExpressionMulDiv()) return 0;
+    }
 
     return 1;
 }
 
 int ruleExpressionMulDiv() {
-    if (ruleExpressionMulDiv()) {
-        if (!consumeToken(MUL) && !consumeToken(DIV)) return 0;
-        if (!ruleExpressionCast()) return 0;
-
-        return 1;
-    }
     if (!ruleExpressionCast()) return 0;
+    while (consumeToken(MUL) || consumeToken(DIV)) {
+        if (!ruleExpressionCast()) return 0;
+    }
 
     return 1;
 }
@@ -208,25 +194,31 @@ int ruleExpressionUnary() {
 }
 
 int ruleExpressionPostfix() {
-    if (ruleExpressionPostfix()) {
+    if (!ruleExpressionPrimary()) return 0;
+    while (1) {
         if (consumeToken(LBRACKET)) {
             if (!ruleExpression()) return 0;
             if (!consumeToken(RBRACKET)) return 0;
-
-            return 1;
-        }
-        if (consumeToken(DOT)) {
+        } else if (consumeToken(DOT)) {
             if (!consumeToken(ID)) return 0;
-
-            return 1;
+        } else {
+            break;
         }
     }
-    if (!ruleExpressionPrimary()) return 0;
 
     return 1;
 }
 
 int ruleExpressionPrimary() {
+    if (consumeToken(ID)) {
+        if (consumeToken(LPAREN)) {
+            ruleArgumentList();
+            if (!consumeToken(RPAREN)) return 0;
+
+            return 1;
+        }
+        return 1;
+    }
     if (consumeToken(CT_INT)) return 1;
     if (consumeToken(CT_REAL)) return 1;
     if (consumeToken(CT_CHAR)) return 1;
@@ -237,15 +229,6 @@ int ruleExpressionPrimary() {
 
         return 1;
     }
-    if (consumeToken(ID)) {
-        if (consumeToken(LPAREN)) {
-            ruleArgumentList();
-            if (!consumeToken(RPAREN)) return 0;
-
-            return 1;
-        }
-        return 1;
-    }
 
     return 0;
 }
@@ -253,7 +236,7 @@ int ruleExpressionPrimary() {
 // statements
 int ruleStatementList() {
     if (!consumeToken(LBRACE)) return 0;
-    while (ruleDeclareVar() || ruleStatement()) ;
+    while (ruleDeclareVar() || ruleStatement());
     if (!consumeToken(RBRACE)) return 0;
 
     return 1;
@@ -341,9 +324,11 @@ int ruleDeclareVar() {
     if (!ruleType()) return 0;
     if (!consumeToken(ID)) return 0;
     ruleArray();
+    ruleInit();
     while (consumeToken(COMMA)) {
         if (!consumeToken(ID)) return 0;
         ruleArray();
+        ruleInit();
     }
     if (!consumeToken(SEMICOLON)) return 0;
 

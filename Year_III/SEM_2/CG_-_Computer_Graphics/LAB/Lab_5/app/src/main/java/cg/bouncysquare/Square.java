@@ -14,25 +14,17 @@ import android.opengl.*;
 public class Square {
     public FloatBuffer mTextureBuffer;
     private final FloatBuffer mFVertexBuffer;
-    private final ByteBuffer mColorBuffer;
+    private final FloatBuffer mColorBuffer;
     private final ByteBuffer mIndexBuffer;
 
     private int[] textures = new int[1];
 
-    public Square() {
+    public Square(float[] colors) {
         float[] vertices = {
                 -1.0f, -1.0f,
                 1.0f, -1.0f,
                 -1.0f, 1.0f,
                 1.0f, 1.0f
-        };
-
-        byte maxColor = (byte)255;
-        byte[] colors = {
-                0, maxColor, 0, maxColor,
-                0, maxColor, 0, maxColor,
-                0, maxColor, 0, maxColor,
-                0, maxColor, 0, maxColor,
         };
 
         byte[] indices = {
@@ -47,7 +39,10 @@ public class Square {
         mFVertexBuffer.put(vertices);
         mFVertexBuffer.position(0);
 
-        mColorBuffer = ByteBuffer.allocateDirect(colors.length);
+        ByteBuffer cbb = ByteBuffer.allocateDirect(colors.length * 4);
+        cbb.order(ByteOrder.nativeOrder());
+
+        mColorBuffer = cbb.asFloatBuffer();
         mColorBuffer.put(colors);
         mColorBuffer.position(0);
 
@@ -56,10 +51,10 @@ public class Square {
         mIndexBuffer.position(0);
 
         float[] textureCoords = {
-            0.0f, 0.0f,
-            1.0f, 0.0f,
-            0.0f, 1.0f,
-            1.0f, 1.0f
+                0.0f, 1.0f,
+                1.0f, 1.0f,
+                0.0f, 0.0f,
+                1.0f, 0.0f,
         };
 
         ByteBuffer tbb = ByteBuffer.allocateDirect(textureCoords.length * 4);
@@ -70,11 +65,17 @@ public class Square {
     }
 
     public void draw(GL10 gl) {
-        gl.glVertexPointer(2, GL10.GL_FLOAT, 0, mFVertexBuffer);
+        gl.glFrontFace(GL11.GL_CW);
+
+        gl.glVertexPointer(2, GL11.GL_FLOAT, 0, mFVertexBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glColorPointer(4, GL10.GL_UNSIGNED_BYTE, 0, mColorBuffer);
+        gl.glColorPointer(4, GL11.GL_FLOAT, 0, mColorBuffer);
         gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
+
         gl.glEnable(GL10.GL_TEXTURE_2D);
+        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+
+        gl.glDrawElements(GL11.GL_TRIANGLES, 6, GL11.GL_UNSIGNED_BYTE, mIndexBuffer);
     }
     
     public void createTexture(GL10 gl, Context contextRegf, int resource) {
@@ -83,6 +84,7 @@ public class Square {
         gl.glGenTextures(1, textures, 0);
 
         gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
+        gl.glTexCoordPointer(2, GL10.GL_FLOAT,0, mTextureBuffer);
 
         GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, image, 0);
 
@@ -90,6 +92,5 @@ public class Square {
         gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
 
         image.recycle();
-
     }
 }
