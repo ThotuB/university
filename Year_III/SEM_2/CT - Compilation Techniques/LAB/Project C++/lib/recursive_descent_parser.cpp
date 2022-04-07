@@ -2,6 +2,9 @@
 
 using namespace atom_c_compiler;
 
+Recursive_Descent_Parser::Rule::Rule(Recursive_Descent_Parser& parser)
+    : parser(parser) {}
+
 Recursive_Descent_Parser::Recursive_Descent_Parser(std::vector<Token> tokens)
     : rule(*this), tokens(tokens), current_token_index(0) {
 }

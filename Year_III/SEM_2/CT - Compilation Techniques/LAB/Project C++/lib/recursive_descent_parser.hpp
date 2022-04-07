@@ -12,11 +12,12 @@ class Recursive_Descent_Parser {
         Recursive_Descent_Parser& parser;
 
        public:
+        Rule(Recursive_Descent_Parser&);
         virtual bool apply();
     };
 
     class RuleCode : public Rule {
-       public:
+       public:   
         bool apply();
     };
 
