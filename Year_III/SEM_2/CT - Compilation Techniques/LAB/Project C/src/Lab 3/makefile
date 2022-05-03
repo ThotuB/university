@@ -1,2 +1,2 @@
 prog:
-	gcc -Wall -o main.exe lexical_analyzer.c ../../lib/token.c ../../lib/lexical_analyzer.c
+	gcc -Wall -o main.exe main.c ../../lib/token.c ../../lib/lexical_analyzer.c
