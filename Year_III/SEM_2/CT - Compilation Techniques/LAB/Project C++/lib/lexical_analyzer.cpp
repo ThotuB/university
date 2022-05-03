@@ -8,16 +8,17 @@ std::vector<Token> Lexical_Analyzer::tokenize(std::string str) {
     Token token;
 
     std::string::iterator it = str.begin();
+    unsigned line = 1;
 
     do {
-        token = Lexical_Analyzer::get_next_token(it);
+        token = Lexical_Analyzer::get_next_token(it, line);
         tokens.push_back(token);
     } while (token.code != END);
 
     return tokens;
 }
 
-Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
+Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it, unsigned &line) {
     int state = 0;
     std::string::iterator it;;
     
@@ -48,49 +49,49 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                 // delimiters
                 else if (c == ',') {
                     str_it++;
-                    return Token(COMMA);
+                    return Token(COMMA, line);
                 } else if (c == ':') {
                     str_it++;
-                    return Token(COLON);
+                    return Token(COLON, line);
                 } else if (c == ';') {
                     str_it++;
-                    return Token(SEMICOLON);
+                    return Token(SEMICOLON, line);
                 } else if (c == '(') {
                     str_it++;
-                    return Token(LPAREN);
+                    return Token(LPAREN, line);
                 } else if (c == ')') {
                     str_it++;
-                    return RPAREN;
+                    return Token(RPAREN, line);
                 } else if (c == '[') {
                     str_it++;
-                    return Token(LBRACKET);
+                    return Token(LBRACKET, line);
                 } else if (c == ']') {
                     str_it++;
-                    return Token(RBRACKET);
+                    return Token(RBRACKET, line);
                 } else if (c == '{') {
                     str_it++;
-                    return Token(LBRACE);
+                    return Token(LBRACE, line);
                 } else if (c == '}') {
                     str_it++;
-                    return Token(RBRACE);
+                    return Token(RBRACE, line);
                 }
                 // operators
                 else if (c == '=') {
                     state = 3;
                 } else if (c == '+') {
                     str_it++;
-                    return Token(ADD);
+                    return Token(ADD, line);
                 } else if (c == '-') {
                     str_it++;
-                    return Token(SUB);
+                    return Token(SUB, line);
                 } else if (c == '*') {
                     str_it++;
-                    return Token(MUL);
+                    return Token(MUL, line);
                 } else if (c == '/') {
                     state = 4;
                 } else if (c == '%') {
                     str_it++;
-                    return Token(MOD);
+                    return Token(MOD, line);
                 } else if (c == '!') {
                     state = 5;
                 } else if (c == '&') {
@@ -103,13 +104,15 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                     state = 9;
                 } else if (c == '.') {
                     str_it++;
-                    return Token(DOT);
+                    return Token(DOT, line);
                 }
                 // others
-                else if (c == ' ' || c == '\t' || c == '\n') {
+                else if (c == ' ' || c == '\t') {
                     state = 0;
+                } else if (c == '\n') {
+                    line++;
                 } else if (c == '\0') {
-                    return Token(END);
+                    return Token(END, line);
                 } else {
                     exit(1);
                 }
@@ -133,43 +136,43 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
 
                 // keywords
                 if (!str.compare("if")) {
-                    return Token(IF);
+                    return Token(IF, line);
                 } else if (!str.compare("else")) {
-                    return Token(ELSE);
+                    return Token(ELSE, line);
                 } else if (!str.compare("while")) {
-                    return Token(WHILE);
+                    return Token(WHILE, line);
                 } else if (!str.compare("for")) {
-                    return Token(FOR);
+                    return Token(FOR, line);
                 } else if (!str.compare("return")) {
-                    return Token(RETURN);
+                    return Token(RETURN, line);
                 } else if (!str.compare("break")) {
-                    return Token(BREAK);
+                    return Token(BREAK, line);
                 } else if (!str.compare("continue")) {
-                    return Token(CONTINUE);
+                    return Token(CONTINUE, line);
                 }
                 // types
                 else if (!str.compare("void")) {
-                    return Token(VOID);
+                    return Token(VOID, line);
                 } else if (!str.compare("int")) {
-                    return Token(INT);
+                    return Token(INT, line);
                 } else if (!str.compare("double")) {
-                    return Token(DOUBLE);
+                    return Token(DOUBLE, line);
                 } else if (!str.compare("char")) {
-                    return Token(CHAR);
+                    return Token(CHAR, line);
                 } else if (!str.compare("struct")) {
-                    return Token(STRUCT);
+                    return Token(STRUCT, line);
                 }
                 // identifiers
                 else {
-                    return Token(ID, str);
+                    return Valued_Token(ID, line, str);
                 }
             }
             case 3: {  // state: =
                 if (c == '=') {
                     str_it++;
-                    return Token(EQ);
+                    return Token(EQ, line);
                 } else {
-                    return Token(ASSIGN);
+                    return Token(ASSIGN, line);
                 }
             }
             case 4: {  // state: /
@@ -179,7 +182,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                 } else if (c == '*') {
                     state = 11;
                 } else {
-                    return Token(DIV);
+                    return Token(DIV, line);
                 }
 
                 str_it++;
@@ -188,15 +191,15 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
             case 5: {  // state: !
                 if (c == '=') {
                     str_it++;
-                    return Token(NE);
+                    return Token(NE, line);
                 } else {
-                    return Token(NOT);
+                    return Token(NOT, line);
                 }
             }
             case 6: {  // state: &
                 if (c == '&') {
                     str_it++;
-                    return Token(AND);
+                    return Token(AND, line);
                 } else {
                     exit(1);
                 }
@@ -204,7 +207,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
             case 7: {  // state: |
                 if (c == '|') {
                     str_it++;
-                    return Token(OR);
+                    return Token(OR, line);
                 } else {
                     exit(1);
                 }
@@ -212,22 +215,22 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
             case 8: {  // state: <
                 if (c == '=') {
                     str_it++;
-                    return Token(LE);
+                    return Token(LE, line);
                 } else {
-                    return Token(LT);
+                    return Token(LT, line);
                 }
             }
             case 9: {  // state: >
                 if (c == '=') {
                     str_it++;
-                    return Token(GE);
+                    return Token(GE, line);
                 } else {
-                    return Token(GT);
+                    return Token(GT, line);
                 }
             }
             case 10: {  // state: //
                 if (c == '\n' || c == '\r' || c == '\0') {
-                    return Token(SLCOMMENT);
+                    return Token(SLCOMMENT, line);
                 } else {
                     state = 10;
                 }
@@ -248,7 +251,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
             case 12: {  // state: /* ... *
                 if (c == '/') {
                     str_it++;
-                    return Token(MLCOMMENT);
+                    return Token(MLCOMMENT, line);
                 } else if (c == '*') {
                     state = 12;
                 } else {
@@ -283,7 +286,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
             case 15: {  // state: [']( ESC | [^'\\] )
                 if (c == '\'') {
                     str_it++;
-                    return Token(CT_CHAR, std::string(it, str_it));
+                    return Valued_Token(CT_CHAR, line, std::string(it, str_it));
                 } else {
                     exit(1);
                 }
@@ -293,7 +296,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                     state = 17;
                 } else if (c == '\"') {
                     str_it++;
-                    return Token(CT_STRING, std::string(it, str_it));
+                    return Valued_Token(CT_STRING, line, std::string(it, str_it));
                 } else {
                     state = 16;
                 }
@@ -321,7 +324,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                 } else if (c == '8' || c == '9') {
                     state = 21;
                 } else {
-                    return Token(CT_INT, std::string(it, str_it));
+                    return Valued_Token(CT_INT, line, std::string(it, str_it));
                 }
 
                 str_it++;
@@ -341,7 +344,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                 if (('0' <= c && c <= '9') || ('a' <= c && c <= 'f') || ('A' <= c && c <= 'F')) {
                     state = 20;
                 } else {
-                    return Token(CT_INT, std::string(it, str_it));
+                    return Valued_Token(CT_INT, line, std::string(it, str_it));
                 }
 
                 str_it++;
@@ -353,7 +356,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                 } else if (c == '.') {
                     state = 22;
                 } else {
-                    return Token(CT_INT, std::string(it, str_it));
+                    return Valued_Token(CT_INT, line, std::string(it, str_it));
                 }
 
                 str_it++;
@@ -373,7 +376,7 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
                 if (('0' <= c && c <= '9')) {
                     state = 23;
                 } else {
-                    return Token(CT_REAL, std::string(it, str_it));
+                    return Valued_Token(CT_REAL, line, std::string(it, str_it));
                 }
 
                 str_it++;
@@ -382,6 +385,6 @@ Token Lexical_Analyzer::get_next_token(std::string::iterator& str_it) {
         }
     }
 
-    return Token(END);
+    return Token(END, line);
 }
 

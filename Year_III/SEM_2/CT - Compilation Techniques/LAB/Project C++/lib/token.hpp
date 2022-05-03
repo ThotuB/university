@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <iostream>
 
 namespace atom_c_compiler {
     enum Token_Code {
@@ -64,23 +65,32 @@ namespace atom_c_compiler {
     class Token {
         public:
             Token_Code code;
-            std::string value;
-            // unsigned line;
+            unsigned line;
 
             Token() = default;
-            Token(Token_Code code);
-
-            Token(Token_Code code, std::string value);
-            // Token(Token_Code code, int value);
-            // Token(Token_Code code, double value);
+            Token(Token_Code, unsigned);
 
             ~Token() = default;
 
-            void print();
-            void error(const char *format, ...);
+            void error(const char *, ...);
 
             // operator overloads
             Token& operator=(const Token&) = default;
+            friend std::ostream& operator<<(std::ostream&, const Token&);
+    };
+
+    class Valued_Token : public Token {
+        public:
+            std::string value;
+
+            Valued_Token() = default;
+            Valued_Token(Token_Code, unsigned, std::string);
+
+            ~Valued_Token() = default;
+
+            // operator overloads
+            Valued_Token& operator=(const Valued_Token&) = default;
+            friend std::ostream& operator<<(std::ostream&, const Valued_Token&);
     };
 }
 

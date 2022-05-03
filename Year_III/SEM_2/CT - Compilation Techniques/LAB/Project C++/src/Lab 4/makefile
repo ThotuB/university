@@ -1,2 +1,2 @@
 prog:
-	gcc -Wall -o main.exe recursive_descent_parser.c ../../lib/token.c ../../lib/lexical_analyzer.c
+	g++ ../../lib/token.cpp ../../lib/lexical_analyzer.cpp ../../lib/syntactical_analyzer.cpp -Wall -o main.exe main.cpp 
