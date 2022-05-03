@@ -1,5 +1,4 @@
 #include "token.hpp"
-#include <iostream>
 #include <cstdarg>
 
 using namespace atom_c_compiler;
@@ -53,27 +52,25 @@ std::map<Token_Code, std::string> token_code_to_string = {
     {END, "END"},
 };
 
-Token::Token(Token_Code code) {
+Token::Token(Token_Code code, unsigned line) {
     this->code = code;
+    this->line = line;
 }
 
-Token::Token(Token_Code code, std::string value) {
+Valued_Token::Valued_Token(Token_Code code, unsigned line, std::string value) {
     this->code = code;
+    this->line = line;
     this->value = value;
 }
 
-// Token::Token(Token_Code code, double value) {
-//     this->code = code;
-//     this->real_value = value;
-// }
+std::ostream& operator<<(std::ostream& os, const Token& token) {
+    os << "Token: " << token_code_to_string[token.code];
+    return os;
+}
 
-// Token::Token(Token_Code code, int value) {
-//     this->code = code;
-//     this->int_value = value;
-// }
-
-void Token::print() {
-    std::cout << "Token: " << token_code_to_string[this->code] << std::endl;
+std::ostream& operator<<(std::ostream& os, const Valued_Token& token) {
+    os << "Token: " << token_code_to_string[token.code] << " " << token.value;
+    return os;
 }
 
 void Token::error(const char *format, ...) {
