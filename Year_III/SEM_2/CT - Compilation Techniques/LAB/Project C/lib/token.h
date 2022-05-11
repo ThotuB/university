@@ -1,6 +1,11 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+#define SAFE_ALLOC(var, type)                           \
+    if ((var = (type *)malloc(sizeof(type))) == NULL) { \
+        error("Out of memory");                         \
+    }
+
 typedef enum {
     // identifiers
     ID,
@@ -66,10 +71,10 @@ typedef struct _token_t {
     };
     int line;
     struct _token_t *next;
-} token_t;
+} Token;
 
 void error(const char *format, ...);
 
-void token_error(token_t *token, const char *format, ...);
+void token_error(Token *token, const char *format, ...);
 
 #endif

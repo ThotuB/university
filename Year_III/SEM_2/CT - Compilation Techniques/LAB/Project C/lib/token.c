@@ -18,7 +18,7 @@ void error(const char *format, ...) {
     exit(1);
 }
 
-void token_error(token_t *token, const char *format, ...) {
+void token_error(Token *token, const char *format, ...) {
     va_list args;
     va_start(args, format);
 

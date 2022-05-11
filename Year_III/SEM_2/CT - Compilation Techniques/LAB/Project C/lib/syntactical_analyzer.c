@@ -1,7 +1,7 @@
 #include "syntactical_analyzer.h"
 
-token_t *consumed_token;
-token_t *current_token;
+Token *consumed_token;
+Token *current_token;
 
 int consumeToken(int type) {
     if (current_token->type == type) {
