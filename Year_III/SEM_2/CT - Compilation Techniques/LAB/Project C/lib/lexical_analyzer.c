@@ -84,9 +84,9 @@ double newReal(char *start, char *end) {
     return atof(str);
 }
 
-token_t *addToken(token_type type) {
-    token_t *token;
-    SAFE_ALLOC(token, token_t);
+Token *addToken(token_type type) {
+    Token *token;
+    SAFE_ALLOC(token, Token);
 
     token->type = type;
     token->line = line;
@@ -106,7 +106,7 @@ int between(char a, char x, char b) {
     return (a <= x && x <= b);
 }
 
-int is_keyword(const char *str, const int str_len, const char *keyword, const int keyword_len) {
+int isKeyword(const char *str, const int str_len, const char *keyword, const int keyword_len) {
     if (str_len != keyword_len) return 0;
     if (memcmp(str, keyword, str_len) != 0) return 0;
     return 1;
@@ -117,7 +117,7 @@ int getNextToken() {
     char c;
     char *str;
     int str_len = 0;
-    token_t *token;
+    Token *token;
 
     while (1) {
         c = *current_char;
@@ -245,42 +245,42 @@ int getNextToken() {
                 str_len = current_char - str;
 
                 // keywords
-                if (is_keyword(str, str_len, "if", 2)) {
+                if (isKeyword(str, str_len, "if", 2)) {
                     addToken(IF);
                     return IF;
-                } else if (is_keyword(str, str_len, "else", 4)) {
+                } else if (isKeyword(str, str_len, "else", 4)) {
                     addToken(ELSE);
                     return ELSE;
-                } else if (is_keyword(str, str_len, "while", 5)) {
+                } else if (isKeyword(str, str_len, "while", 5)) {
                     addToken(WHILE);
                     return WHILE;
-                } else if (is_keyword(str, str_len, "for", 3)) {
+                } else if (isKeyword(str, str_len, "for", 3)) {
                     addToken(FOR);
                     return FOR;
-                } else if (is_keyword(str, str_len, "return", 6)) {
+                } else if (isKeyword(str, str_len, "return", 6)) {
                     addToken(RETURN);
                     return RETURN;
-                } else if (is_keyword(str, str_len, "break", 3)) {
+                } else if (isKeyword(str, str_len, "break", 3)) {
                     addToken(BREAK);
                     return BREAK;
-                } else if (is_keyword(str, str_len, "continue", 8)) {
+                } else if (isKeyword(str, str_len, "continue", 8)) {
                     addToken(CONTINUE);
                     return CONTINUE;
                 }
                 // types
-                else if (is_keyword(str, str_len, "void", 4)) {
+                else if (isKeyword(str, str_len, "void", 4)) {
                     addToken(VOID);
                     return VOID;
-                }  else if (is_keyword(str, str_len, "int", 3)) {
+                }  else if (isKeyword(str, str_len, "int", 3)) {
                     addToken(INT);
                     return INT;
-                } else if (is_keyword(str, str_len, "double", 6)) {
+                } else if (isKeyword(str, str_len, "double", 6)) {
                     addToken(DOUBLE);
                     return DOUBLE;
-                } else if (is_keyword(str, str_len, "char", 4)) {
+                } else if (isKeyword(str, str_len, "char", 4)) {
                     addToken(CHAR);
                     return CHAR;
-                } else if (is_keyword(str, str_len, "struct", 6)) {
+                } else if (isKeyword(str, str_len, "struct", 6)) {
                     addToken(STRUCT);
                     return STRUCT;
                 }
@@ -539,7 +539,7 @@ int getNextToken() {
 }
 
 void showTokens() {
-    token_t *current_token = token_list;
+    Token *current_token = token_list;
     for (; current_token->type != END; current_token = current_token->next) {
         printf("%s", token_type_name[current_token->type]);
         switch (current_token->type) {

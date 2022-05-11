@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 
 class TypeBase(Enum):
@@ -31,29 +31,42 @@ class Symbol:
         self.memory = memory
         self.depth = depth
 
+    def __str__(self):
+        return f'Symbol {self.name}: {self.type} {self.cls.name} {self.memory.name} ({self.depth})'
+
 
 class FuncSymbol(Symbol):
-    def __init__(self, name: str, type: 'Type', cls: Class, memory: Memory, depth: int, args: List[Symbol]):
-        super().__init__(name, type, cls, memory, depth)
-        self.args = args
+    def __init__(self, name: str, type: 'Type', memory: Memory, depth: int):
+        super().__init__(name, type, Class.CLASS_FUNC, memory, depth)
+        self.args: List[Symbol] = []
+        self.locals: List[Symbol] = []
+
+    def __str__(self):
+        return f'Function {self.name}: {self.type} {self.memory.name} ({self.depth})' + '\n'.join(map(str, self.args))
 
 
 class StructSymbol(Symbol):
-    def __init__(self, name: str, type: 'Type', cls: Class, memory: Memory, depth: int, members: List[Symbol]):
-        super().__init__(name, type, cls, memory, depth)
-        self.members = members
+    def __init__(self, name: str, type: 'Type', memory: Memory, depth: int):
+        super().__init__(name, type, Class.CLASS_STRUCT, memory, depth)
+        self.members: List[Symbol] = []
+        
+    def __str__(self):
+        return f'Struct {self.name}: {self.type} {self.memory.name} ({self.depth})'
 
 
 class Type:
-    def __init__(self, type_base: TypeBase, symbol: Symbol, size: int):
+    def __init__(self, type_base: TypeBase, size: Optional[int]=None):
         self.type_base = type_base
-        self.symbol = symbol
         self.size = size
+        
+    def __str__(self):
+        return f'{self.type_base.name} [{self.size}]'
 
-symbols = {}
 
-def find_symbol(symbols: Dict[str, Symbol], name: str):
-    return symbols.get(name)
-
-def add_symbol(symbols: Dict[str, Symbol], symbol: Symbol):
-    symbols[symbol.name] = symbol
+class StructType(Type):
+    def __init__(self, symbol: StructSymbol, size: Optional[int]=None):
+        super().__init__(TypeBase.TB_STRUCT, size)
+        self.symbol = symbol
+        
+    def __str__(self):
+        return f'{self.type_base.name} {self.symbol.name}'
