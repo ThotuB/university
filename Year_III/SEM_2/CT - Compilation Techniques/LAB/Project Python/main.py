@@ -4,7 +4,7 @@ from libs.domain_analyzer import analyze_domain
 import os
 
 if __name__ == '__main__':
-    for i in range(0, 1):
+    for i in range(5, 6):
         file_path = os.path.dirname(os.path.abspath(__file__)) + f'\\resources\\test{i}.c'
         file_text = open(file_path, 'r').read()
         
@@ -13,6 +13,6 @@ if __name__ == '__main__':
         tokens = analyze_lexically(file_text)
         # for token in tokens:
         #     print(token)
-        symbols = analyze_domain(tokens)
+        symbols = analyze_syntactically(tokens)
         for symbol in symbols:
             print(symbol)

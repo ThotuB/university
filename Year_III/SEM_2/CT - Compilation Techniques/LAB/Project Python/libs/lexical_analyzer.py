@@ -413,6 +413,8 @@ def analyze_lexically(text: str) -> List[Token]:
                     else:
                         return ValuedToken(TokenCode.CT_REAL, line, column, float(text[value_index:index])), index
 
+                    index += 1
+
         return Token(TokenCode.END, line, column), None
 
     index = 0
