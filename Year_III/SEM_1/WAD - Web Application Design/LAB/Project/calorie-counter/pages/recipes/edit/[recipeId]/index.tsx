@@ -10,7 +10,7 @@ interface Props {
     id: string;
 }
 
-export default ({ id }: Props) => {
+export default function ({ id }: Props) {
     const [loading, setLoading] = useState(true);
     const [recipe, setRecipe] = useState<IRecipe>({} as IRecipe);
 
