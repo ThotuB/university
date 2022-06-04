@@ -5,6 +5,9 @@
     if ((var = (type *)malloc(sizeof(type))) == NULL) { \
         error("Out of memory");                         \
     }
+    
+
+extern char *token_type_name[];
 
 typedef enum {
     // identifiers
@@ -75,6 +78,8 @@ typedef struct _token_t {
 
 void error(const char *format, ...);
 
-void token_error(Token *token, const char *format, ...);
+void tokenError(Token *token, const char *format, ...);
+
+void printToken(Token *token);
 
 #endif

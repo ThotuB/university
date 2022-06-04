@@ -1,7 +1,7 @@
 #ifndef SYMBOL_H
 #define SYMBOL_H
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "token.h"
 
 
@@ -42,14 +42,38 @@ typedef struct _Symbol {
     Type type;
     int depth;  // 0-global, 1-in function, 2... - nested blocks in function
     union {
+        void *address;
+        int offset;
+    };
+    union {
         Symbols args;     // used only of functions
         Symbols members;  // used only for structs
     };
 } Symbol;
 
-void initSymbols(Symbols *symbols);
+void printType(Type *type);
 
-Symbol *addSymbol(Symbols *symbols, const char *name, int cls);
+void printSymbol(Symbol *symbol);
+
+void printSymbols(Symbols *symbols);
+
+void initSymbols(Symbols*);
+
+Symbol *addSymbol(Symbols*, const char*, int );
+
+void deleteSymbolsAfter(Symbols*, Symbol*);
+
+Symbol *findSymbol(Symbols*, const char*);
+
+Symbol* requireSymbol(Symbols *, const char *);
+
+Type createType(int typeBase, int nElements);
+
+int typeBaseSize(Type *type);
+
+int typeFullSize(Type *type);
+
+int typeArgSize(Type *type);
 
 extern unsigned current_depth;
 Symbol *current_struct;

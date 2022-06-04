@@ -9,8 +9,6 @@ Token *tail_token;
 char *current_char;
 extern int line;
 
-extern char *token_type_name[];
-
 char *newString(char *start, char *end);
 
 int between(char a, char x, char b);
