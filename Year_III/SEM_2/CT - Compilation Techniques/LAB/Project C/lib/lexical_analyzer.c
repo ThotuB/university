@@ -5,83 +5,65 @@
 
 #include "lexical_analyzer.h"
 
-int line = 0;
+int line = 1;
 
-char *token_type_name[] = {
-    // identifiers
-    "ID",
-    // keywords
-    "IF",
-    "ELSE",
-    "WHILE",
-    "FOR",
-    "RETURN",
-    "BREAK",
-    "CONTINUE",
-    // types
-    "VOID",
-    "INT",
-    "DOUBLE",
-    "CHAR",
-    "STRUCT",
-    // constants
-    "CT_INT",
-    "CT_REAL",
-    "CT_CHAR",
-    "CT_STRING",
-    // delimiters
-    "COMMA",
-    "COLON",
-    "SEMICOLON",
-    "LPAREN",
-    "RPAREN",
-    "LBRACKET",
-    "RBRACKET",
-    "LBRACE",
-    "RBRACE",
-    // operators
-    "ASSIGN",
-    "ADD",
-    "SUB",
-    "MUL",
-    "DIV",
-    "MOD",
-    "NOT",
-    "AND",
-    "OR",
-    "LT",
-    "GT",
-    "LE",
-    "GE",
-    "EQ",
-    "NE",
-    "DOT",
-    // others
-    "SPACE",
-    "SLCOMMENT",
-    "MLCOMMENT",
-    "END",
-};
+char backslash(char c) {
+    switch (c) {
+        case 'a':
+            return '\a';
+        case 'b':
+            return '\b';
+        case 'f':
+            return '\f';
+        case 'n':
+            return '\n';
+        case 'r':
+            return '\r';
+        case 't':
+            return '\t';
+        case 'v':
+            return '\v';
+        case '\\':  
+            return '\\';
+        case '\'':
+            return '\'';
+        case '\"':
+            return '\"';
+        case '?':
+            return '\?';
+        default:
+            return '\0';
+    }
+}
 
 char *newString(char *start, char *end) {
     char *str = (char *)malloc(end - start + 1);
-    strncpy(str, start, end - start);
-    str[end - start] = '\0';
+    int index = 0;
+    for (char *i = start; i < end; i++) {
+        if (*i == '\\') {
+            str[index] = backslash(*(i + 1));
+            i++;
+        } else {
+            str[index] = *i;
+        }
+        index++;
+    }
     return str;
 }
 
-int newInt(char *start, char *end) {
-    char *str = (char *)malloc(end - start + 1);
-    strncpy(str, start, end - start);
-    str[end - start] = '\0';
-    return atoi(str);
+int newInt(char *start, char *end, int base) {
+    return strtol(start, &end, base);
 }
 
 double newReal(char *start, char *end) {
-    char *str = (char *)malloc(end - start + 1);
-    strncpy(str, start, end - start);
-    str[end - start] = '\0';
-    return atof(str);
+    return strtof(start, &end);
+}
+
+char newChar(char *start, char *end) {
+    if (end - start == 2) {
+        return backslash(start[1]);
+    }
+    return start[0];
 }
 
 Token *addToken(token_type type) {
@@ -219,12 +201,13 @@ int getNextToken() {
                 }
                 // others
                 else if (c == ' ' || c == '\t' || c == '\n') {
+                    if (c == '\n') line++;
                     state = 0;
                 } else if (c == '\0') {
                     addToken(END);
                     return END;
                 } else {
-                    token_error(addToken(END), "Unexpected character '%c'", c);
+                    tokenError(addToken(END), "Unexpected character '%c'", c);
                 }
 
                 current_char++;
@@ -331,7 +314,7 @@ int getNextToken() {
                     addToken(AND);
                     return AND;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
             }
             case 7: {  // state: |
@@ -340,7 +323,7 @@ int getNextToken() {
                     addToken(OR);
                     return OR;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
             }
             case 8: {  // state: <
@@ -365,8 +348,7 @@ int getNextToken() {
             }
             case 10: {  // state: //
                 if (c == '\n' || c == '\r' || c == '\0') {
-                    token = addToken(SLCOMMENT);
-                    token->str = newString(str+1, current_char-1);
+                    // token = addToken(SLCOMMENT);
                     return SLCOMMENT;
                 } else {
                     state = 10;
@@ -388,7 +370,7 @@ int getNextToken() {
             case 12: {  // state: /* ... *
                 if (c == '/') {
                     current_char++;
-                    addToken(MLCOMMENT);
+                    // addToken(MLCOMMENT);
                     return MLCOMMENT;
                 } else if (c == '*') {
                     state = 12;
@@ -403,7 +385,7 @@ int getNextToken() {
                 if (c == '\\') {
                     state = 14;
                 } else if (c == '\'') {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 } else {
                     state = 15;
                 }
@@ -415,7 +397,7 @@ int getNextToken() {
                 if (c == 'a' || c == 'b' || c == 'f' || c == 'n' || c == 'r' || c == 't' || c == 'v' || c == '\\' || c == '\'' || c == '\"' || c == '?' || c == '0') {
                     state = 15;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
 
                 current_char++;
@@ -425,10 +407,10 @@ int getNextToken() {
                 if (c == '\'') {
                     current_char++;
                     token = addToken(CT_CHAR);
-                    token->str = newString(str+1, current_char-1);
+                    token->integer = newChar(str+1, current_char-1);
                     return CT_CHAR;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
             }
             case 16: {  // state: ["]
@@ -450,7 +432,7 @@ int getNextToken() {
                 if (c == 'a' || c == 'b' || c == 'f' || c == 'n' || c == 'r' || c == 't' || c == 'v' || c == '\\' || c == '\"' || c == '?' || c == '0') {
                     state = 16;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
 
                 current_char++;
@@ -465,9 +447,11 @@ int getNextToken() {
                     state = 18;
                 } else if (c == '8' || c == '9') {
                     state = 21;
+                } else if (c == 'e' || c == 'E') {
+                    state = 24;
                 } else {
                     token = addToken(CT_INT);
-                    token->integer = newInt(str, current_char);
+                    token->integer = newInt(str, current_char, 8);
                     return CT_INT;
                 }
 
@@ -478,7 +462,7 @@ int getNextToken() {
                 if (between('0', c, '9') || between('a', c, 'f') || between('A', c, 'F')) {
                     state = 20;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
 
                 current_char++;
@@ -489,7 +473,7 @@ int getNextToken() {
                     state = 20;
                 } else {
                     token = addToken(CT_INT);
-                    token->integer = newInt(str, current_char);
+                    token->integer = newInt(str, current_char, 16);
                     return CT_INT;
                 }
 
@@ -501,9 +485,11 @@ int getNextToken() {
                     state = 21;
                 } else if (c == '.') {
                     state = 22;
-                } else {
+                } else if (c == 'e' || c == 'E') {
+                    state = 24;
+                }else {
                     token = addToken(CT_INT);
-                    token->integer = newInt(str, current_char);
+                    token->integer = newInt(str, current_char, 10);
                     return CT_INT;
                 }
 
@@ -514,7 +500,7 @@ int getNextToken() {
                 if (between('0', c, '9')) {
                     state = 23;
                 } else {
-                    token_error(addToken(END), "Invalid character");
+                    tokenError(addToken(END), "Invalid character");
                 }
 
                 current_char++;
@@ -523,6 +509,42 @@ int getNextToken() {
             case 23: {  // state: [0-9]+.[0-9]+
                 if (between('0', c, '9')) {
                     state = 23;
+                } else if (c == 'e' || c == 'E') {
+                    state = 24;
+                } else {
+                    token = addToken(CT_REAL);
+                    token->real = newReal(str, current_char);
+                    return CT_REAL;
+                }
+
+                current_char++;
+                break;
+            }
+            case 24: { // state: [0-9]+.[0-9]+e
+                if (between('0', c, '9')) {
+                    state = 26;
+                } else if (c == '+' || c == '-') {
+                    state = 25;
+                } else {
+                    tokenError(addToken(END), "Invalid character");
+                }
+
+                current_char++;
+                break;
+            }
+            case 25: { // state: [0-9]+.[0-9]+e[+-]
+                if (between('0', c, '9')) {
+                    state = 26;
+                } else {
+                    tokenError(addToken(END), "Invalid character");
+                }
+
+                current_char++;
+                break;
+            }
+            case 26: { // state: [0-9]+.[0-9]+e[+-][0-9]+
+                if (between('0', c, '9')) {
+                    state = 26;
                 } else {
                     token = addToken(CT_REAL);
                     token->real = newReal(str, current_char);
@@ -541,43 +563,7 @@ int getNextToken() {
 void showTokens() {
     Token *current_token = token_list;
     for (; current_token->type != END; current_token = current_token->next) {
-        printf("%s", token_type_name[current_token->type]);
-        switch (current_token->type) {
-            // identifier
-            case ID:
-                printf(" (%s)", current_token->str);
-                break;
-
-            // constants
-            case CT_CHAR:
-                printf(" (%c)", current_token->str[0]);
-                break;
-
-            case CT_STRING:
-                printf(" (%s)", current_token->str);
-                break;
-
-            case CT_INT:
-                printf(" (%d)", current_token->integer);
-                break;
-
-            case CT_REAL:
-                printf(" (%f)", current_token->real);
-                break;
-
-            // others
-            case SLCOMMENT:
-                printf(" (%s)", current_token->str);
-                break;
-
-            case MLCOMMENT:
-                printf(" (%s)", current_token->str);
-                break;
-
-            default:
-                break;
-        }
-        printf("\n");
+        printToken(current_token);
     }
 }
 
