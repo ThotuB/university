@@ -24,7 +24,7 @@ char *read_file(const char *filename) {
 
     char *input = (char *)malloc(size + 1);
     if (fread(input, size, 1, fp) != 1) {
-        printf("Error reading file\n");
+        printf("Error reading file_path\n");
         exit(1);
     }
     input[size] = '\0';
@@ -34,9 +34,9 @@ char *read_file(const char *filename) {
     return input;
 }
 
-void run(const char *file) {
+void run(const char *file_path) {
     char *file_name = (char *)malloc(sizeof(char) * 100);
-    sprintf(file_name, "../res/passed/%s", file);
+    sprintf(file_name, "./res/%s", file_path);
     char *input = read_file(file_name);
     printf("%s\n", input);
 
@@ -45,9 +45,12 @@ void run(const char *file) {
     run_vm(instructions);
 }
 
-int main() {
-    char* test_file = "test2.c";
-    run(test_file);
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: ./main.exe <file_path>\n");
+        exit(1);
+    }
+    run(argv[1]);
 
     return 0;
 }

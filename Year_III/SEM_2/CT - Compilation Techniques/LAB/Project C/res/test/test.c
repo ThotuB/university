@@ -1,3 +1,4 @@
-void main() {
-    put_d(5.3 / 2);
+int main() {
+    int s;
+    return s;
 }
