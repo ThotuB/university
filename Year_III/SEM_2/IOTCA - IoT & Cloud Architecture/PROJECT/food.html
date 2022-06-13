@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tatu Bogdan - FOOD</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+</head>
+<body>
+    {{#payload}}
+    <div class="container d-flex flex-column align-items-center">
+        <h1>{{name}}</h1>
+        <h4>{{brand}}</h4>
+
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Nutrient</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-secondary" onclick="">
+                    <td>Energy</td>
+                    <td>{{energy.amount}}</td>
+                    <td>{{energy.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td>Protein</td>
+                    <td>{{protein.amount}}</td>
+                    <td>{{protein.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td>Fat</td>
+                    <td>{{fat.amount}}</td>
+                    <td>{{fat.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td> - saturated</td>
+                    <td>{{saturated.amount}}</td>
+                    <td>{{saturated.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td> - trans</td>
+                    <td>{{trans.amount}}</td>
+                    <td>{{trans.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td> - cholesterol</td>
+                    <td>{{cholesterol.amount}}</td>
+                    <td>{{cholesterol.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td>Carbs</td>
+                    <td>{{carbs.amount}}</td>
+                    <td>{{carbs.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td> - fiber</td>
+                    <td>{{fiber.amount}}</td>
+                    <td>{{fiber.nutrient.unitName}}</td>
+                </tr>
+                <tr class="table-secondary" onclick="">
+                    <td> - sugars</td>
+                    <td>{{sugar.amount}}</td>
+                    <td>{{sugar.nutrient.unitName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            Ingredients: {{ingredients}}
+        </div>
+        <div><a href="/tatu/foods" class="btn btn-primary">back</a></div>
+    </div>
+    {{/payload}}
+</body>
+</html>
