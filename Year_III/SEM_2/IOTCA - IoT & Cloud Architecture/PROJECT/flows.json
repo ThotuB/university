@@ -1,0 +1,602 @@
+[
+    {
+        "id": "bef8cb31fa94ca22",
+        "type": "tab",
+        "label": "Lab 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "82d118e8e89ba836",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/foods",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "5aed41896c1be848"
+            ]
+        ]
+    },
+    {
+        "id": "2258c75cf41c19ab",
+        "type": "template",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    \n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n\n    <title>Tatu Bogdan - FOODS</title>\n\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css\" integrity=\"sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG\" crossorigin=\"anonymous\">\n</head>\n<body>\n    \n    <div class=\"container\">\n        <div class=\"d-flex justify-content-between\">\n            <div><a href=\"/tatu/saved\" class=\"btn btn-primary\">saved</a></div>\n            <div><a href=\"/tatu/news\" class=\"btn btn-primary\">news</a></div>\n        </div>\n        <form method=\"POST\" action=\"/tatu/foods\">\n                <label for=\"search\">Search</label>\n            <div class=\"d-flex\">\n                <input class=\"form-control\" id=\"search\" name=\"search\">\n                <button type=\"submit\" class=\"btn btn-primary\">Search</button>\n            </div>\n        </form>\n    </div>\n    <div class=\"container\">\n        <table class=\"table table-hover\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Name</th>\n                    <th scope=\"col\">Brand</th>\n                    <th scope=\"col\">Serving Size</th>\n                    <th scope=\"col\">Calories</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                {{#payload}}\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td>{{name}}</td>\n                    <td>{{brand}}</td>\n                    <td>{{serving}}</td>\n                    <td>{{calories}} kcal</td>\n                    <td><a href=\"/tatu/food/{{id}}\" class=\"btn btn-danger\">view</a></td>\n                    <td><a href=\"/tatu/saved/{{id}}?name={{name}}&brand={{brand}}&serving={{serving}}&calories={{calories}}\" class=\"btn btn-success\">save</a></td>\n                </tr>\n                {{/payload}}\n            </tbody>\n        </table>\n    </div>\n</body>\n</html>\n",
+        "output": "str",
+        "x": 1260,
+        "y": 460,
+        "wires": [
+            [
+                "6eac0a5d619469dd"
+            ]
+        ]
+    },
+    {
+        "id": "6eac0a5d619469dd",
+        "type": "http response",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "statusCode": "201",
+        "headers": {},
+        "x": 1420,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2227c1e9af4b408f",
+        "type": "http request",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "https://api.nal.usda.gov/fdc/v1/search",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 650,
+        "y": 460,
+        "wires": [
+            [
+                "6d1a88b1826e3a4f"
+            ]
+        ]
+    },
+    {
+        "id": "6d1a88b1826e3a4f",
+        "type": "change",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.foods",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 460,
+        "wires": [
+            [
+                "0406e0f3fa4996d2"
+            ]
+        ]
+    },
+    {
+        "id": "0406e0f3fa4996d2",
+        "type": "function",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "func": "const cringe = msg.payload.map(food => {\n    const { fdcId, description, brandOwner, foodNutrients, servingSize, servingSizeUnit } = food\n    \n    return {\n        id: fdcId,\n        name: description,\n        brand: brandOwner,\n        calories: foodNutrients.find(nutrient => nutrient.nutrientId === 1008)?.value,\n        serving: `${servingSize.toFixed(2)} ${servingSizeUnit}`\n    }\n});\n\nmsg.payload = cringe\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 460,
+        "wires": [
+            [
+                "2258c75cf41c19ab"
+            ]
+        ]
+    },
+    {
+        "id": "bcd5504290d15d7d",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/food/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 860,
+        "wires": [
+            [
+                "045d0459cb91088c"
+            ]
+        ]
+    },
+    {
+        "id": "5aed41896c1be848",
+        "type": "function",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "func": "const { search } = msg.payload\nmsg.payload = {\n    api_key: \"U90ctjxNwICMOKnJnyqB2kDuKgpqL2dG7vBB03lZ\",\n    dataType: \"Branded\",\n    generalSearchInput: search,\n    page: 0,\n    pageSize: 10\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "2227c1e9af4b408f"
+            ]
+        ]
+    },
+    {
+        "id": "045d0459cb91088c",
+        "type": "function",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "func": "msg.payload = {\n    api_key: \"U90ctjxNwICMOKnJnyqB2kDuKgpqL2dG7vBB03lZ\",\n}\nmsg.id = msg.req.params.id\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 860,
+        "wires": [
+            [
+                "c9e38cddc237a7b9"
+            ]
+        ]
+    },
+    {
+        "id": "c9e38cddc237a7b9",
+        "type": "http request",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "https://api.nal.usda.gov/fdc/v1/food/{{{id}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 710,
+        "y": 860,
+        "wires": [
+            [
+                "29c15cbd58b14371"
+            ]
+        ]
+    },
+    {
+        "id": "29c15cbd58b14371",
+        "type": "function",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "func": "const findNutrient = (nutrients, id) => {\n    return nutrients.find(nutrient => nutrient.nutrient.id === id)\n}\n\nconst { foodNutrients, description, brandOwner, servingSize, servingSizeUnit, ingredients } = msg.payload\n\nmsg.payload = {\n    energy: findNutrient(foodNutrients, 1008),\n    protein: findNutrient(foodNutrients, 1003),\n    fat: findNutrient(foodNutrients, 1004),\n    saturated: findNutrient(foodNutrients, 1258),\n    trans: findNutrient(foodNutrients, 1257),\n    cholesterol: findNutrient(foodNutrients, 1253),\n    carbs: findNutrient(foodNutrients, 1005),\n    fiber: findNutrient(foodNutrients, 1079),\n    sugar: findNutrient(foodNutrients, 200),\n    \n    name: description,\n    brand: brandOwner,\n    serving: `${servingSize} ${servingSizeUnit}`,\n    ingredients\n}\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 860,
+        "wires": [
+            [
+                "89feb25349d917c2"
+            ]
+        ]
+    },
+    {
+        "id": "b82ceb88f0416347",
+        "type": "http response",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "statusCode": "201",
+        "headers": {},
+        "x": 1360,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "89feb25349d917c2",
+        "type": "template",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    \n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n\n    <title>Tatu Bogdan - FOOD</title>\n\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css\" integrity=\"sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG\" crossorigin=\"anonymous\">\n</head>\n<body>\n    {{#payload}}\n    <div class=\"container d-flex flex-column align-items-center\">\n        <h1>{{name}}</h1>\n        <h4>{{brand}}</h4>\n\n        <table class=\"table table-hover\">\n            <thead>\n                <tr class=\"table-primary\">\n                    <th scope=\"col\">Nutrient</th>\n                    <th scope=\"col\">Amount</th>\n                    <th scope=\"col\">Unit</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td>Energy</td>\n                    <td>{{energy.amount}}</td>\n                    <td>{{energy.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td>Protein</td>\n                    <td>{{protein.amount}}</td>\n                    <td>{{protein.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td>Fat</td>\n                    <td>{{fat.amount}}</td>\n                    <td>{{fat.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td> - saturated</td>\n                    <td>{{saturated.amount}}</td>\n                    <td>{{saturated.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td> - trans</td>\n                    <td>{{trans.amount}}</td>\n                    <td>{{trans.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td> - cholesterol</td>\n                    <td>{{cholesterol.amount}}</td>\n                    <td>{{cholesterol.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td>Carbs</td>\n                    <td>{{carbs.amount}}</td>\n                    <td>{{carbs.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td> - fiber</td>\n                    <td>{{fiber.amount}}</td>\n                    <td>{{fiber.nutrient.unitName}}</td>\n                </tr>\n                <tr class=\"table-secondary\" onclick=\"\">\n                    <td> - sugars</td>\n                    <td>{{sugar.amount}}</td>\n                    <td>{{sugar.nutrient.unitName}}</td>\n                </tr>\n            </tbody>\n        </table>\n        <div>\n            Ingredients: {{ingredients}}\n        </div>\n        <div><a href=\"/tatu/foods\" class=\"btn btn-primary\">back</a></div>\n    </div>\n    {{/payload}}\n</body>\n</html>\n",
+        "output": "str",
+        "x": 1201,
+        "y": 861,
+        "wires": [
+            [
+                "b82ceb88f0416347"
+            ]
+        ]
+    },
+    {
+        "id": "c880a78c7e624bad",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/foods",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 540,
+        "wires": [
+            [
+                "5aed41896c1be848"
+            ]
+        ]
+    },
+    {
+        "id": "8415ce26b155a28f",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/saved/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 700,
+        "wires": [
+            [
+                "8af15c9300370aee"
+            ]
+        ]
+    },
+    {
+        "id": "8af15c9300370aee",
+        "type": "template",
+        "z": "bef8cb31fa94ca22",
+        "name": "DB INSERT",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "sql",
+        "syntax": "mustache",
+        "template": "INSERT INTO food VALUES ('{{req.params.id}}','{{payload.name}}','{{payload.brand}}','{{payload.serving}}','{{payload.calories}}')",
+        "output": "str",
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "9ce71dd499668c39"
+            ]
+        ]
+    },
+    {
+        "id": "b24bd07a90f39c72",
+        "type": "inject",
+        "z": "bef8cb31fa94ca22",
+        "name": "CREATE food",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE food(id, name, brand, serving, calories)",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "ddd7093d54e9f2c0"
+            ]
+        ]
+    },
+    {
+        "id": "60e31744aeb047f4",
+        "type": "inject",
+        "z": "bef8cb31fa94ca22",
+        "name": "DROP food",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE food",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "ddd7093d54e9f2c0"
+            ]
+        ]
+    },
+    {
+        "id": "ddd7093d54e9f2c0",
+        "type": "sqlite",
+        "z": "bef8cb31fa94ca22",
+        "mydb": "eeaa7dbb53d4f2a8",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "DB",
+        "x": 430,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9ce71dd499668c39",
+        "type": "sqlite",
+        "z": "bef8cb31fa94ca22",
+        "mydb": "eeaa7dbb53d4f2a8",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "DB",
+        "x": 690,
+        "y": 700,
+        "wires": [
+            [
+                "926eb0f87c6824d3"
+            ]
+        ]
+    },
+    {
+        "id": "926eb0f87c6824d3",
+        "type": "sqlite",
+        "z": "bef8cb31fa94ca22",
+        "mydb": "eeaa7dbb53d4f2a8",
+        "sqlquery": "fixed",
+        "sql": "SELECT * FROM food",
+        "name": "SELECT * FROM food",
+        "x": 860,
+        "y": 640,
+        "wires": [
+            [
+                "14302dbb0d69b940"
+            ]
+        ]
+    },
+    {
+        "id": "14302dbb0d69b940",
+        "type": "template",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    \n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n\n    <title>Tatu Bogdan - SAVED</title>\n\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css\" integrity=\"sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG\" crossorigin=\"anonymous\">\n</head>\n<body>\n    <div class=\"container\">\n        <div><a href=\"/tatu/foods\" class=\"btn btn-primary\">back</a></div>\n        <table class=\"table table-hover\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Name</th>\n                    <th scope=\"col\">Brand</th>\n                    <th scope=\"col\">Serving Size</th>\n                    <th scope=\"col\">Calories</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                {{#payload}}\n                <tr class=\"table-secondary\">\n                    <td>{{name}}</td>\n                    <td>{{brand}}</td>\n                    <td>{{serving}}</td>\n                    <td>{{calories}} kcal</td>\n                    <td><a href=\"/tatu/food/{{id}}\" class=\"btn btn-danger\">view</a></td>\n                    <td><a href=\"/tatu/delete/{{id}}\" class=\"btn btn-secondary\">remove</a></td>\n                </tr>\n                {{/payload}}\n            </tbody>\n        </table>\n    </div>\n</body>\n</html>\n",
+        "output": "str",
+        "x": 1120,
+        "y": 640,
+        "wires": [
+            [
+                "c4c5bde95caa046a"
+            ]
+        ]
+    },
+    {
+        "id": "c4c5bde95caa046a",
+        "type": "http response",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "statusCode": "201",
+        "headers": {},
+        "x": 1320,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "3e8bc299c72d49f5",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/saved",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 640,
+        "wires": [
+            [
+                "926eb0f87c6824d3"
+            ]
+        ]
+    },
+    {
+        "id": "b9a0e123eea8fdb3",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/delete/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 760,
+        "wires": [
+            [
+                "85d24aa71e02e8e3"
+            ]
+        ]
+    },
+    {
+        "id": "85d24aa71e02e8e3",
+        "type": "template",
+        "z": "bef8cb31fa94ca22",
+        "name": "DB DELETE",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "sql",
+        "syntax": "mustache",
+        "template": "DELETE FROM food WHERE food.id = \"{{req.params.id}}\"",
+        "output": "str",
+        "x": 470,
+        "y": 760,
+        "wires": [
+            [
+                "9ce71dd499668c39"
+            ]
+        ]
+    },
+    {
+        "id": "570aa599e3d4517e",
+        "type": "http in",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "url": "/tatu/news",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 940,
+        "wires": [
+            [
+                "9b0f356da6f2f17f"
+            ]
+        ]
+    },
+    {
+        "id": "d2fdc8a4c97a0d77",
+        "type": "xml",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 690,
+        "y": 940,
+        "wires": [
+            [
+                "421b595848f41267"
+            ]
+        ]
+    },
+    {
+        "id": "9b0f356da6f2f17f",
+        "type": "http request",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "https://minimalistbaker.com/feed/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "credentials": {},
+        "x": 470,
+        "y": 940,
+        "wires": [
+            [
+                "d2fdc8a4c97a0d77"
+            ]
+        ]
+    },
+    {
+        "id": "421b595848f41267",
+        "type": "function",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "func": "const news = msg.payload.rss.channel[0].item.map((item, index) => {\n    return {\n        id: index,\n        title: item.title[0],\n        link: item.link[0],\n        date: item.pubDate[0].match('[a-zA-z]+, [0-9]+ [a-zA-Z]+ [0-9]+'),\n        description: item.description[0],\n    }\n})\n\nmsg.payload = news\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 940,
+        "wires": [
+            [
+                "d1e437a4ece2e4a9"
+            ]
+        ]
+    },
+    {
+        "id": "d1e437a4ece2e4a9",
+        "type": "template",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    \n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n\n    <title>Tatu Bogdan - NEWS</title>\n\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css\" integrity=\"sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG\" crossorigin=\"anonymous\">\n</head>\n<body>\n    \n    <div class=\"container\">\n        <div><a href=\"/tatu/foods\" class=\"btn btn-primary\">back</a></div>\n        <div class=\"d-flex flex-column align-items-center\">\n            {{#payload}}\n                <h1>\n                    {{title}}\n                </h1>\n                <div>\n                    {{date}}\n                </div>\n                <br />\n                <br />\n                <div id=\"{{id}}\">\n                    {{{description}}}\n                </div>\n                <br />\n                <br />\n                <br />\n            {{/payload}}\n        </div>\n    </div>\n</body>\n</html>\n",
+        "output": "str",
+        "x": 1080,
+        "y": 940,
+        "wires": [
+            [
+                "0fd37c5a11afb238"
+            ]
+        ]
+    },
+    {
+        "id": "0fd37c5a11afb238",
+        "type": "http response",
+        "z": "bef8cb31fa94ca22",
+        "name": "",
+        "statusCode": "201",
+        "headers": {},
+        "x": 1300,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "eeaa7dbb53d4f2a8",
+        "type": "sqlitedb",
+        "db": "C:\\Users\\bogda\\Desktop\\University\\Year_III\\SEM_2\\IOTCA - IoT & Cloud Architecture\\PROJECT\\site.sql",
+        "mode": "RWC"
+    }
+]

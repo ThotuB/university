@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tatu Bogdan - FOODS</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <div><a href="/tatu/saved" class="btn btn-primary">saved</a></div>
+            <div><a href="/tatu/news" class="btn btn-primary">news</a></div>
+        </div>
+        <form method="POST" action="/tatu/foods">
+                <label for="search">Search</label>
+            <div class="d-flex">
+                <input class="form-control" id="search" name="search">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Serving Size</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#payload}}
+                <tr class="table-secondary" onclick="">
+                    <td>{{name}}</td>
+                    <td>{{brand}}</td>
+                    <td>{{serving}}</td>
+                    <td>{{calories}} kcal</td>
+                    <td><a href="/tatu/food/{{id}}" class="btn btn-danger">view</a></td>
+                    <td><a href="/tatu/saved/{{id}}?name={{name}}&brand={{brand}}&serving={{serving}}&calories={{calories}}" class="btn btn-success">save</a></td>
+                </tr>
+                {{/payload}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

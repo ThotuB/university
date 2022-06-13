@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tatu Bogdan - SAVED</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div><a href="/tatu/foods" class="btn btn-primary">back</a></div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Serving Size</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#payload}}
+                <tr class="table-secondary">
+                    <td>{{name}}</td>
+                    <td>{{brand}}</td>
+                    <td>{{serving}}</td>
+                    <td>{{calories}} kcal</td>
+                    <td><a href="/tatu/food/{{id}}" class="btn btn-danger">view</a></td>
+                    <td><a href="/tatu/delete/{{id}}" class="btn btn-secondary">remove</a></td>
+                </tr>
+                {{/payload}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
