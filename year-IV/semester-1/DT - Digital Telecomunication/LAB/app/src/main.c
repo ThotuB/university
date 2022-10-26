@@ -4,21 +4,15 @@
 #include "../lib/Parser.h"
 
 void parse(FILE* file) {
-    uint32_t state = 0;
-
-    while (1) {
-        char current_char = fgetc(file);
-
-        switch (parse_char(current_char, &state)) {
+    char current_char;
+    while ((current_char = fgetc(file)) != EOF) {
+        switch (parse_char(current_char)) {
             case STATE_MACHINE_READY: {
-                state = 0;
-                printf("READY\n");
-                return;
+                print_data();
+                break;
             }
             case STATE_MACHINE_ERROR: {
-                state = 0;
-                printf("PARSER ERROR\n");
-                exit(1);
+                return;
             }
             case STATE_MACHINE_NOT_READY: break;
         }
@@ -29,7 +23,7 @@ int main(int argc, char* argv[]) {
     if (argc != 2) {
         printf("error: wrong number of arguments\n");
         printf("usage: ./main.exe sample.txt\n");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     const char* filename = argv[1];
