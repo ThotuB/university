@@ -19,6 +19,8 @@ typedef enum {
     STATE_MACHINE_ERROR
 } STATE_MACHINE_RETURN_VALUE;
 
-STATE_MACHINE_RETURN_VALUE parse_char(uint8_t current_char, uint32_t *state);
+STATE_MACHINE_RETURN_VALUE parse_char(uint8_t current_char);
+
+void print_data();
 
 #endif
