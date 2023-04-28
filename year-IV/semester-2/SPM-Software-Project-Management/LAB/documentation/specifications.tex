@@ -1,0 +1,31 @@
+\section{Specifications}
+
+\subsection{Code Management and Version Control}
+\begin{itemize}
+  \item Since the application will be multi-platform, git and GitHub will be used to manage the code, with a separate repository for each platform (native and Web) and another one for the back-end.
+\end{itemize}
+
+\subsection{Database}
+\begin{itemize}
+  \item The database will be a relational database, using MySQL. The database will be hosted using PlanetScale, a cloud-native database platform, which will provide overall better performance, scalability, and security.
+  \item PlanetScale will also provide data analytics, which will help us to understand how users are using the application, and how we can improve it.
+\end{itemize}
+
+\subsection{API}
+\begin{itemize}
+  \item The application will use the same technology for the back-end and front-end, for a better developer experience. The back-end will be written in typescript and will use tRPC to build a modern type-safe API.
+  \item To have a better developer experience, tRCP also helps by defining the API's types and schema in a single file, making it easier to keep your code in sync with your API, and providing automatic type generation both the client and the server, to reduce the amount of boilerplate code and errors between manual type definitions.
+\end{itemize}
+
+\subsection{Front-end}
+\begin{itemize}
+  \item Since the application is split into two platforms, the front-end will use different technologies for each platform. The native platform will use React Native since it can be used for both Android and iOS, while the Web platform will use Next.js, a React framework, to get the benefit of server-side rendering for faster page load time and improved search engine optimisation.
+  \item Both platforms will be styled using Tailwind CSS, a utility-first CSS framework, which will help us to build a consistent design system across the application and platforms.
+\end{itemize}
+
+\subsection{Hosting}
+\begin{itemize}
+  \item The native platform will be hosted on the App Store and Google Play Store, while the Web platform will be hosted on Vercel, since it is a clear choice for Next.js, to automate the deployment process and use features like serverless functions, image optimization, edge caching, and more. It also provides analytics tools.
+\end{itemize}
+
+\clearpage
