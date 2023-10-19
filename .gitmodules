@@ -10,3 +10,6 @@
 [submodule "year-IV/semester-2/MSYS - Multimedia Systems/PROJECT/jpeg"]
 	path = year-IV/semester-2/MSYS - Multimedia Systems/PROJECT/jpeg
 	url = https://github.com/ThotuB/jpeg
+[submodule "year-III/semester-2/CG_-_Computer_Graphics/PROJECT/world-generator"]
+	path = year-III/semester-2/CG_-_Computer_Graphics/PROJECT/world-generator
+	url = https://github.com/ThotuB/world-generator
