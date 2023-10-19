@@ -4,3 +4,9 @@
 [submodule "year-IV/semester-1/CEBP - Concurrent & Event-Based Programming/PROJECTS/game-of-life"]
 	path = year-IV/semester-1/CEBP - Concurrent & Event-Based Programming/PROJECTS/game-of-life
 	url = https://github.com/ThotuB/game-of-life
+[submodule "year-IV/semester-1/MSA - Mobile Systems & Applications/PROJECT/Quizzdos"]
+	path = year-IV/semester-1/MSA - Mobile Systems & Applications/PROJECT/Quizzdos
+	url = https://github.com/RaulQX/Quizzdos
+[submodule "year-IV/semester-2/MSYS - Multimedia Systems/PROJECT/jpeg"]
+	path = year-IV/semester-2/MSYS - Multimedia Systems/PROJECT/jpeg
+	url = https://github.com/ThotuB/jpeg
