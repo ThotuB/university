@@ -13,3 +13,6 @@
 [submodule "year-III/semester-2/CG_-_Computer_Graphics/PROJECT/world-generator"]
 	path = year-III/semester-2/CG_-_Computer_Graphics/PROJECT/world-generator
 	url = https://github.com/ThotuB/world-generator
+[submodule "year-III/semester-2/CT - Compilation Techniques/LAB/c-compiler"]
+	path = year-III/semester-2/CT - Compilation Techniques/LAB/c-compiler
+	url = https://github.com/ThotuB/c-compiler
