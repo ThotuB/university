@@ -19,3 +19,21 @@
 [submodule "year-III/semester-2/DM - Data Mining/PROJECT/re-zero-novels-statistics"]
 	path = year-III/semester-2/DM - Data Mining/PROJECT/re-zero-novels-statistics
 	url = https://github.com/ThotuB/re-zero-novels-statistics
+[submodule "year-III/semester-2/DP - Distributed Programming/PROJECTS/DP-project-1"]
+	path = year-III/semester-2/DP - Distributed Programming/PROJECTS/DP-project-1
+	url = https://github.com/dns-lavinia/DP-project-1
+[submodule "year-III/semester-2/DP - Distributed Programming/PROJECTS/DP-project-2"]
+	path = year-III/semester-2/DP - Distributed Programming/PROJECTS/DP-project-2
+	url = https://github.com/dns-lavinia/DP-project-2
+[submodule "year-III/semester-1/WAD - Web Application Design/PROJECT/calorie-counter-old"]
+	path = year-III/semester-1/WAD - Web Application Design/PROJECT/calorie-counter-old
+	url = https://github.com/ThotuB/calorie-counter-old
+[submodule "year-III/semester-1/DB - Databases/PROJECT/TeamMaturityApp"]
+	path = year-III/semester-1/DB - Databases/PROJECT/TeamMaturityApp
+	url = https://github.com/RaulQX/TeamMaturityApp
+[submodule "year-II/semester-2/SEF - Software Engineering Fundementals/PROJECT/raccoony"]
+	path = year-II/semester-2/SEF - Software Engineering Fundementals/PROJECT/raccoony
+	url = https://github.com/ThotuB/raccoony
+[submodule "year-II/semester-2/CO - Computer Organisation/PROJECT/CO-Benchmark"]
+	path = year-II/semester-2/CO - Computer Organisation/PROJECT/CO-Benchmark
+	url = https://github.com/Suru-09/CO-Benchmark
