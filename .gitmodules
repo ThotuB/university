@@ -1,3 +1,6 @@
 [submodule "year-IV/semester-1/DT - Digital Telecomunication/LAB/gsm-at-parser"]
 	path = year-IV/semester-1/DT - Digital Telecomunication/LAB/gsm-at-parser
 	url = https://github.com/ThotuB/gsm-at-parser
+[submodule "year-IV/semester-1/CEBP - Concurrent & Event-Based Programming/PROJECTS/game-of-life"]
+	path = year-IV/semester-1/CEBP - Concurrent & Event-Based Programming/PROJECTS/game-of-life
+	url = https://github.com/ThotuB/game-of-life
