@@ -16,3 +16,6 @@
 [submodule "year-III/semester-2/CT - Compilation Techniques/LAB/c-compiler"]
 	path = year-III/semester-2/CT - Compilation Techniques/LAB/c-compiler
 	url = https://github.com/ThotuB/c-compiler
+[submodule "year-III/semester-2/DM - Data Mining/PROJECT/re-zero-novels-statistics"]
+	path = year-III/semester-2/DM - Data Mining/PROJECT/re-zero-novels-statistics
+	url = https://github.com/ThotuB/re-zero-novels-statistics
